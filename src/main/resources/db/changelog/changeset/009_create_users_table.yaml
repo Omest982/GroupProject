@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-users-table
+      author: Ivan Poberezhets
+      changes:
+        - createTable: # создаем таблицу users
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: password
+                  type: varchar(255)
+              - column:
+                  name: email
+                  type: varchar(255)
+              - column:
+                  name: user_status
+                  type: varchar(255)

@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-product-table
+      author: Ivan Poberezhets
+      changes:
+        - createTable: # создаем таблицу product
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: brand_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_product_brand
+                    references: brand(id)
+              - column:
+                  name: sex
+                  type: varchar(255)
+              - column:
+                  name: status
+                  type: varchar(255)
+              - column:
+                  name: classification
+                  type: varchar(255)
+              - column:
+                  name: is_liquid
+                  type: boolean
+              - column:
+                  name: additional_info
+                  type: jsonb
+              - column:
+                  name: country_trade_mark_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_product_country
+                    references: country(id)

@@ -32,7 +32,9 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
     private BigDecimal sum;
-    private String address;
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
     @OneToMany
     @JoinColumn(name = "order_id")
     private List<OrderDetails> orderDetails;

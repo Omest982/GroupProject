@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-image-table
+      author: Ivan Poberezhets
+      changes:
+        - createTable: # создаем таблицу image
+            tableName: image
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: image_in_bytes
+                  type: bytea

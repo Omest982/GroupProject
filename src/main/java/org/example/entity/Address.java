@@ -2,18 +2,21 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.example.entity.utils.BusinessDetails;
 
 @Getter
 @Setter
-@EqualsAndHashCode(exclude = "id", callSuper = true)
+@EqualsAndHashCode(exclude = "id")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "order_details")
-public class OrderDetails extends BusinessDetails {
+@Table(name = "address")
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String region;
+    private String city;
+    private String street;
+    private String house;
 }

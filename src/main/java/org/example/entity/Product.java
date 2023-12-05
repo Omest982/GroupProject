@@ -30,7 +30,9 @@ public class Product {
     private List<ProductVariation> productVariations;
 
     @OneToMany
-    @JoinColumn(name = "product_id")
+    @JoinTable(name = "products_images",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "image_id"))
     private List<Image> images;
 
     @ManyToMany

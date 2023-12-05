@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-products-images-table
+      author: Ivan Poberezhets
+      changes:
+        - createTable: # создаем таблицу products_images
+            tableName: products_images
+            columns:
+              - column:
+                  name: product_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_products_images_product
+                    references: product(id)
+              - column:
+                  name: image_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_products_images_image
+                    references: image(id)
+

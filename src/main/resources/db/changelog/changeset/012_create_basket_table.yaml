@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-basket-table
+      author: Ivan Poberezhets
+      changes:
+        - createTable: # создаем таблицу basket
+            tableName: basket
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: sum
+                  type: numeric
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_basket_users
+                    references: users(id)
+
+

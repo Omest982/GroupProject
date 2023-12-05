@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-basket-details-table
+      author: Ivan Poberezhets
+      changes:
+        - createTable: # создаем таблицу basket_details
+            tableName: basket_details
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_basket_details_product
+                    references: product(id)
+              - column:
+                  name: amount
+                  type: integer
+              - column:
+                  name: total_detail_price
+                  type: numeric
+              - column:
+                  name: basket_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_basket_details_basket
+                    references: basket(id)
+
+
