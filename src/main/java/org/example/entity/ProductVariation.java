@@ -21,7 +21,9 @@ public class ProductVariation {
     @JoinColumn(name = "image_id")
     private Image variationImage;
     private double amount;
-    @OneToMany
-    @JoinColumn(name = "product_variation_id")
+    @OneToMany(mappedBy = "productVariation")
     private List<VariationDetails> variationDetails;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 }

@@ -1,0 +1,12 @@
+scalar Timestamp
+
+type Order{
+    id: Long
+    created: Timestamp
+    updated: Timestamp
+    user: User
+    orderStatus: OrderStatus
+    sum: BigDecimal
+    address: Address
+    orderDetails: [OrderDetails]
+}

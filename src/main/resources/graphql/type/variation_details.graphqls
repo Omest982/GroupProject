@@ -1,0 +1,7 @@
+type VariationDetails {
+    id: Long
+    price: BigDecimal
+    sale: BigDecimal
+    shippingFrom: ShippingFrom
+    productVariation: ProductVariation
+}

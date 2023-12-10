@@ -4,30 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.0.1&#10;Created basic representation of database.&#10;Created some test controllers and services.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/001_create_category_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/002_create_brand_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/003_create_country_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/004_create_product_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/005_create_image_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/006_create_product_variation_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/007_create_variation_details_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/008_create_address_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/009_create_users_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/010_create_orders_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/011_create_order_details_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/012_create_basket_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/013_create_basket_details_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/014_create_products_images_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/015_create_products_categories_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/016_create_products_countries_made_in_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.0.2&#10;Updated database a bit.&#10;Implemented liquibase in project. Described all db in yaml files.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/GraphQlConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/GraphQLController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/017_added_test_values_brand_table.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/classification.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/order_status.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/product_status.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/sex.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/shipping_from.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/user_status.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/address.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/brand.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/category.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/country.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/image.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/order.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/order_details.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/product.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/product_variation.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/user.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/variation_details.graphqls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Basket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Basket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/BasketDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/BasketDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Image.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/OrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/OrderDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/ProductVariation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/ProductVariation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/VariationDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/VariationDetails.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701450921260</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="0.0.2&#10;Updated database a bit.&#10;Implemented liquibase in project. Described all db in yaml files.">
+      <created>1701771552652</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701771552652</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -131,8 +146,32 @@
       </list>
     </option>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="0.0.1&#10;Created basic representation of database.&#10;Created some test controllers and services." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.1&#10;Created basic representation of database.&#10;Created some test controllers and services." />
+    <MESSAGE value="0.0.2&#10;Updated database a bit.&#10;Implemented liquibase in project. Described all db in yaml files." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.2&#10;Updated database a bit.&#10;Implemented liquibase in project. Described all db in yaml files." />
   </component>
 </project>

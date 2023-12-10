@@ -1,0 +1,7 @@
+type ProductVariation {
+    id: Long
+    variationImage: Image
+    amount: Float
+    variationDetails: [VariationDetails]
+    product: Product
+}

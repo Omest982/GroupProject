@@ -1,0 +1,15 @@
+type Product {
+    id: Long
+    name: String
+    productVariations: [ProductVariation]
+    images: [Image]
+    categories: [Category]
+    brand: Brand
+    status: ProductStatus
+    sex: Sex
+    classification: Classification
+    isLiquid: Boolean
+    additionalInfo: JSON
+    countriesMadeIn: [Country]
+    countryTradeMark: Country
+}

@@ -25,8 +25,7 @@ public class Product {
 
     private String name;
 
-    @OneToMany
-    @JoinColumn(name = "product_id")
+    @OneToMany(mappedBy = "product")
     private List<ProductVariation> productVariations;
 
     @OneToMany

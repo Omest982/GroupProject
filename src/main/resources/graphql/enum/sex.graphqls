@@ -1,0 +1,8 @@
+enum Sex{
+    MALE
+    FEMALE
+    BOY
+    GIRL
+    BABY
+    UNISEX
+}

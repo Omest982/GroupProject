@@ -22,4 +22,7 @@ public class VariationDetails {
     private BigDecimal sale;
     @Enumerated(EnumType.STRING)
     private ShippingFrom shippingFrom;
+    @ManyToOne
+    @JoinColumn(name = "product_variation_id")
+    private ProductVariation productVariation;
 }

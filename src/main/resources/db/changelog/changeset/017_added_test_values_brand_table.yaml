@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-brand-table
+      author: Ivan Poberezhets
+      changes:
+        - insert:
+            tableName: brand
+            columns:
+              - column:
+                  name: name
+                  value: "Gucci"

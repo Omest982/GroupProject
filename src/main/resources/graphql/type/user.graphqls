@@ -1,0 +1,7 @@
+type User{
+    id: Long
+    name: String
+    password: String
+    email: String
+    userStatus: UserStatus
+}

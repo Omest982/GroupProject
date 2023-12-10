@@ -35,8 +35,7 @@ public class Order {
     @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
-    @OneToMany
-    @JoinColumn(name = "order_id")
+    @OneToMany(mappedBy = "order")
     private List<OrderDetails> orderDetails;
 
 }

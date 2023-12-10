@@ -1,0 +1,8 @@
+scalar Long
+scalar BigDecimal
+scalar JSON
+
+type Query {
+    getBrandById(id: Long): Brand
+    getAllBrands: [Brand]
+}

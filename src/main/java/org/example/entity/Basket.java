@@ -18,8 +18,7 @@ public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany
-    @JoinColumn(name = "basket_id")
+    @OneToMany(mappedBy = "basket")
     private List<BasketDetails> basketDetails;
     private BigDecimal sum;
     @OneToOne
