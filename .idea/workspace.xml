@@ -4,38 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.0.2&#10;Updated database a bit.&#10;Implemented liquibase in project. Described all db in yaml files.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/GraphQlConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/GraphQLController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/017_added_test_values_brand_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/classification.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/order_status.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/product_status.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/sex.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/shipping_from.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/user_status.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/address.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/brand.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/category.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/country.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/image.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/order.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/order_details.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/product.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/product_variation.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/user.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/variation_details.graphqls" afterDir="false" />
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.0.3&#10;Reworked relations in db, made them bidirectional instead of unidirectional.&#10;Started implementing GraphQl in project. Created GraphQl types for all classes.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jwt/JwtFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jwt/JwtUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductVariationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Basket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Basket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/BasketDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/BasketDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/OrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/OrderDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/GraphQlConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/GraphQlConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/GraphQLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/GraphQLController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/TestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/ProductVariation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/ProductVariation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/VariationDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/VariationDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/enums/UserStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/enums/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/004_create_product_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/004_create_product_table.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/005_create_image_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/005_create_image_table.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/007_create_variation_details_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/007_create_variation_details_table.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/009_create_users_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/009_create_users_table.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/017_added_test_values_brand_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/017_added_test_values_brand_table.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/enum/user_status.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/enum/user_role.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/order.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/order.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/product.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/product.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/product_variation.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/product_variation.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/user.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/user.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/variation_details.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/variation_details.graphqls" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701771552652</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="0.0.3&#10;Reworked relations in db, made them bidirectional instead of unidirectional.&#10;Started implementing GraphQl in project. Created GraphQl types for all classes.">
+      <created>1702207457235</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702207457235</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -172,6 +179,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="0.0.1&#10;Created basic representation of database.&#10;Created some test controllers and services." />
     <MESSAGE value="0.0.2&#10;Updated database a bit.&#10;Implemented liquibase in project. Described all db in yaml files." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.2&#10;Updated database a bit.&#10;Implemented liquibase in project. Described all db in yaml files." />
+    <MESSAGE value="0.0.3&#10;Reworked relations in db, made them bidirectional instead of unidirectional.&#10;Started implementing GraphQl in project. Created GraphQl types for all classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.3&#10;Reworked relations in db, made them bidirectional instead of unidirectional.&#10;Started implementing GraphQl in project. Created GraphQl types for all classes." />
   </component>
 </project>

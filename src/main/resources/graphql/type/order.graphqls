@@ -1,5 +1,3 @@
-scalar Timestamp
-
 type Order{
     id: Long
     created: Timestamp

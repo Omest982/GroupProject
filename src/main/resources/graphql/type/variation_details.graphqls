@@ -3,5 +3,4 @@ type VariationDetails {
     price: BigDecimal
     sale: BigDecimal
     shippingFrom: ShippingFrom
-    productVariation: ProductVariation
 }

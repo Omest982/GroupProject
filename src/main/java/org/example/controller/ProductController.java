@@ -4,7 +4,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
 import org.example.entity.Brand;
-import org.example.entity.Category;
 import org.example.entity.Product;
 import org.example.repository.BrandRepository;
 import org.example.repository.CategoryRepository;

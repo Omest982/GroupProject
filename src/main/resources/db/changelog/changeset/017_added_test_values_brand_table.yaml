@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-brand-table
+      id: added-test-values
       author: Ivan Poberezhets
       changes:
         - insert:
@@ -9,3 +9,166 @@ databaseChangeLog:
               - column:
                   name: name
                   value: "Gucci"
+        - insert:
+            tableName: brand
+            columns:
+              - column:
+                  name: name
+                  value: "Dior"
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: "Perfumery"
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: "Makeup"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: name
+                  value: "Ukraine"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: name
+                  value: "USA"
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: image_link
+                  value: "hIG78fe8a7GxmFs4g2a3t4t"
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: image_link
+                  value: "gmdDfo43imUJ98udj2a2dDNO2382a"
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: "Dior Sauvage"
+              - column:
+                  name: brand_id
+                  value: "2"
+              - column:
+                  name: sex
+                  value: "MALE"
+              - column:
+                  name: product_status
+                  value: "AVAILABLE"
+              - column:
+                  name: classification
+                  value: "ELITE"
+              - column:
+                  name: is_liquid
+                  value: "true"
+              - column:
+                  name: country_trade_mark_id
+                  value: "1"
+        - insert:
+            tableName: product_variation
+            columns:
+              - column:
+                  name: amount
+                  value: "60"
+              - column:
+                  name: image_id
+                  value: "1"
+              - column:
+                  name: product_id
+                  value: "1"
+        - insert:
+            tableName: product_variation
+            columns:
+              - column:
+                  name: amount
+                  value: "200"
+              - column:
+                  name: image_id
+                  value: "2"
+              - column:
+                  name: product_id
+                  value: "1"
+        - insert:
+            tableName: variation_details
+            columns:
+              - column:
+                  name: price
+                  value: "3867"
+              - column:
+                  name: sale
+                  value: "0"
+              - column:
+                  name: shipping_from
+                  value: "UA"
+              - column:
+                  name: product_variation_id
+                  value: "1"
+        - insert:
+            tableName: variation_details
+            columns:
+              - column:
+                  name: price
+                  value: "7739"
+              - column:
+                  name: sale
+                  value: "0"
+              - column:
+                  name: shipping_from
+                  value: "UA"
+              - column:
+                  name: product_variation_id
+                  value: "2"
+        - insert:
+            tableName: products_categories
+            columns:
+              - column:
+                  name: product_id
+                  value: "1"
+              - column:
+                  name: category_id
+                  value: "1"
+        - insert:
+            tableName: products_images
+            columns:
+              - column:
+                  name: product_id
+                  value: "1"
+              - column:
+                  name: image_id
+                  value: "1"
+        - insert:
+            tableName: products_images
+            columns:
+              - column:
+                  name: product_id
+                  value: "1"
+              - column:
+                  name: image_id
+                  value: "2"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: "userTest"
+              - column:
+                  name: password
+                  value: "123456"
+              - column:
+                  name: user_role
+                  value: "ADMIN"
+              - column:
+                  name: enabled
+                  value: "true"
+

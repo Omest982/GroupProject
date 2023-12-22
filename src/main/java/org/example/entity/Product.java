@@ -25,16 +25,16 @@ public class Product {
 
     private String name;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<ProductVariation> productVariations;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "products_images",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "image_id"))
     private List<Image> images;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "products_categories",
         joinColumns = @JoinColumn(name = "product_id"),
         inverseJoinColumns = @JoinColumn(name = "category_id"))
@@ -45,7 +45,7 @@ public class Product {
     private Brand brand;
 
     @Enumerated(EnumType.STRING)
-    private ProductStatus status;
+    private ProductStatus productStatus;
 
     @Enumerated(EnumType.STRING)
     private Sex sex;
@@ -59,7 +59,7 @@ public class Product {
     @Column(columnDefinition = "jsonb")
     private JsonBinaryType additionalInfo;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "products_countries_made_in",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "country_id"))

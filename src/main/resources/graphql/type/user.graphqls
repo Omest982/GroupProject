@@ -3,5 +3,5 @@ type User{
     name: String
     password: String
     email: String
-    userStatus: UserStatus
+    userRole: UserRole
 }

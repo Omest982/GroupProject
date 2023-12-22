@@ -22,7 +22,6 @@ public class GraphQlConfig {
                 .scalar(ExtendedScalars.GraphQLBigDecimal)
                 .scalar(ExtendedScalars.Json)
                 .scalar(timestampScalarType());
-
     }
 
     @Bean

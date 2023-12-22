@@ -1,8 +1,13 @@
 scalar Long
 scalar BigDecimal
 scalar JSON
+scalar Timestamp
 
 type Query {
     getBrandById(id: Long): Brand
     getAllBrands: [Brand]
+
+    getAllProducts: [Product]
+    getProductsByCategories(categoryNames: [String]): [Product]
+    getProductById(id: Long): Product
 }

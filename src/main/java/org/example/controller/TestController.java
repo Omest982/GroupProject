@@ -5,14 +5,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
-
 @RequiredArgsConstructor
 @RequestMapping("/test")
 @RestController
 public class TestController {
     @GetMapping
     public String testMethod(){
-        return "Works!";
+        String test = "12345-6789";
+        return test.substring(5);
     }
 }

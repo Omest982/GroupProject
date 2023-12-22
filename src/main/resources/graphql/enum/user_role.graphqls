@@ -1,4 +1,4 @@
-enum UserStatus{
+enum UserRole{
     CLIENT
     MANAGER
     ADMIN

@@ -20,7 +20,7 @@ databaseChangeLog:
                   name: sale
                   type: numeric
               - column:
-                  name: shippingFrom
+                  name: shipping_from
                   type: varchar(255)
               - column:
                   name: product_variation_id

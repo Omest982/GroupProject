@@ -5,7 +5,7 @@ type Product {
     images: [Image]
     categories: [Category]
     brand: Brand
-    status: ProductStatus
+    productStatus: ProductStatus
     sex: Sex
     classification: Classification
     isLiquid: Boolean

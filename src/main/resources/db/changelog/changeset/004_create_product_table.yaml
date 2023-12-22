@@ -29,7 +29,7 @@ databaseChangeLog:
                   name: sex
                   type: varchar(255)
               - column:
-                  name: status
+                  name: product_status
                   type: varchar(255)
               - column:
                   name: classification

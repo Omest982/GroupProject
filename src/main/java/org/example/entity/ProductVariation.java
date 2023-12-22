@@ -21,9 +21,9 @@ public class ProductVariation {
     @JoinColumn(name = "image_id")
     private Image variationImage;
     private double amount;
-    @OneToMany(mappedBy = "productVariation")
+    @OneToMany(mappedBy = "productVariation", fetch = FetchType.LAZY)
     private List<VariationDetails> variationDetails;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;
 }
