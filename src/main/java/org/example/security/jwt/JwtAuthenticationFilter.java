@@ -1,4 +1,4 @@
-package org.example.jwt;
+package org.example.security.jwt;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -17,7 +17,7 @@ import java.io.IOException;
 
 @Component
 @RequiredArgsConstructor
-public class JwtFilter extends OncePerRequestFilter {
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final UserService userService;
     @Override
@@ -32,13 +32,13 @@ public class JwtFilter extends OncePerRequestFilter {
         }
 
         String jwtToken = authHeader.substring(7);
-        String username = JwtUtils.extractUsername(jwtToken);
+        String username = JwtService.extractUsername(jwtToken);
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null){
 
             UserDetails userDetails = userService.loadUserByUsername(username);
 
-            if (JwtUtils.isTokenValid(jwtToken, userDetails)){
+            if (JwtService.isTokenValid(jwtToken, userDetails)){
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,

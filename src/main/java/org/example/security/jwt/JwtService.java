@@ -1,4 +1,4 @@
-package org.example.jwt;
+package org.example.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -12,8 +12,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JwtUtils {
-    private final static String SECRET = "hHu3a8d9jHFIUh3f2";
+public class JwtService {
+    private final static String SECRET = "CRClPakWbPafJH12umy4hdV4MNNeutKv62UjIsg278Uh4nfj7";
     private final static long EXPIRATION_TIME = 1000 * 60; //1 hour
 
     public static String generateToken(UserDetails userDetails){
