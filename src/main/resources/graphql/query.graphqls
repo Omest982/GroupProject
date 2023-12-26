@@ -12,12 +12,7 @@ type Query {
     getProductById(id: Long!): Product
 
     getAllUsers: [User]
-    authenticateUser(authRequest: AuthenticationRequest!): AuthenticationResponse
+    authenticateUser(request: AuthenticationRequest!): AuthenticationResponse
 
     getAllCategories: [Category]
-}
-
-input AuthenticationRequest{
-    username: String
-    password: String
 }

@@ -83,6 +83,13 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.graphql</groupId>
+            <artifactId>spring-graphql-test</artifactId>
+            <version>1.2.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>com.graphql-java</groupId>
             <artifactId>graphql-java-extended-scalars</artifactId>
             <version>${graphql.version}</version>
@@ -121,6 +128,8 @@
 
     <build>
         <plugins>
+
+            <!--For correct assembling of .jar file for AWS-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -138,6 +147,8 @@
                 </executions>
             </plugin>
 
+
+            <!--For fixing bug(Exception occurs in console when starting without this arg)-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

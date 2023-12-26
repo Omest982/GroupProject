@@ -1,0 +1,4 @@
+input AuthenticationRequest{
+    username: String
+    password: String
+}

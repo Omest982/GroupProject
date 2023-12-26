@@ -2,7 +2,6 @@ package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.DTO.NewProduct;
-import org.example.entity.Brand;
 import org.example.entity.Category;
 import org.example.entity.Product;
 import org.example.service.CategoryService;
@@ -26,8 +25,7 @@ public class ProductController {
     @QueryMapping
     public List<Product> getProductsByCategories(@Argument List<String> categoryNames){
         List<Category> categoryList = categoryService.getCategoriesByNames(categoryNames);
-        List<Product> products = productService.getProductsByCategories(categoryList);
-        return products;
+        return productService.getProductsByCategories(categoryList);
     }
 
     @QueryMapping

@@ -1,0 +1,11 @@
+input NewProduct {
+    name: String
+    categoryNames: [String]
+    brandName: String
+    sex: Sex
+    classification: Classification
+    isLiquid: Boolean
+    additionalInfo: JSON
+    countriesMadeInNames: [String]
+    countryTradeMarkName: String
+}
