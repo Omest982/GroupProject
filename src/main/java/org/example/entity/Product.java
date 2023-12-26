@@ -1,6 +1,7 @@
 package org.example.entity;
 
 import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
+import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.example.entity.enums.Classification;
@@ -9,6 +10,7 @@ import org.example.entity.enums.Sex;
 import org.hibernate.annotations.Type;
 
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -57,7 +59,7 @@ public class Product {
 
     @Type(JsonBinaryType.class)
     @Column(columnDefinition = "jsonb")
-    private JsonBinaryType additionalInfo;
+    private Map<String, Object> additionalInfo;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "products_countries_made_in",

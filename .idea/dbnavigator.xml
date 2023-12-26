@@ -27,6 +27,10 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="8ed49e86-a207-4ade-b291-7177f3b1cb47" dataset="public.users" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="8ed49e86-a207-4ade-b291-7177f3b1cb47" dataset="public.product" active-filter-id="" />
+  </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
@@ -124,7 +128,7 @@
           <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
-          <database-version value="9999.0" />
+          <database-version value="15.4" />
           <driver-source value="BUILTIN" />
           <driver-library value="" />
           <driver value="" />

@@ -4,21 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.0.4&#10;Started implementing jwt authorization with Spring security.&#10;Inserted jwt filter in FilterChain.&#10;Added JwtUtils for operations with jwt token.&#10;Fixed some tables and graphql types.&#10;Renamed user_status to user_role.&#10;Fixed graphql always forbidden via csrf disable.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/AuthenticationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/DTO/AuthenticationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/DTO/AuthenticationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/security/DTO/RegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.0.5&#10;Implemented Jwt authorization.&#10;Created DTOs for authorization requests and responses.&#10;Created AuthenticationController for registration and authentication.&#10;Renamed for more meaning JwtUtils -&gt; JwtService, JwtFilter -&gt; JwtAuthenticationFilter.&#10;Slightly changed users table.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/BrandController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/CountryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/BrandService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/BrandServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/AuthenticationResponse.graphqls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/AuthenticationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/GraphQLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/GraphQLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jwt/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/security/jwt/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jwt/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/security/jwt/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/009_create_users_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/009_create_users_table.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/BrandRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/BrandRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/security/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/security/jwt/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/017_added_test_values_brand_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/017_added_test_values_brand_table.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/enum/classification.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/enum/classification.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/enum/order_status.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/enum/order_status.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/enum/product_status.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/enum/product_status.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/enum/sex.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/enum/sex.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/enum/shipping_from.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/enum/shipping_from.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/enum/user_role.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/enum/user_role.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/user.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/user.graphqls" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +49,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -70,6 +91,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\Коды\GroupProject\src\main\resources" />
       <recent name="G:\Коды\GroupProject\src\main\java\org\example" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Коды\GroupProject\src\main\resources\graphql\type" />
     </key>
   </component>
   <component name="RunManager">
@@ -129,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703284212234</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="0.0.5&#10;Implemented Jwt authorization.&#10;Created DTOs for authorization requests and responses.&#10;Created AuthenticationController for registration and authentication.&#10;Renamed for more meaning JwtUtils -&gt; JwtService, JwtFilter -&gt; JwtAuthenticationFilter.&#10;Slightly changed users table.">
+      <created>1703361065460</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1703361065460</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -172,6 +203,7 @@
     <MESSAGE value="0.0.3&#10;Reworked relations in db, made them bidirectional instead of unidirectional.&#10;Started implementing GraphQl in project. Created GraphQl types for all classes." />
     <MESSAGE value="0.0.4&#10;Fixed some tables and graphql types.&#10;Renamed user_status to user_role.&#10;Started implementing jwt authorization with Spring security." />
     <MESSAGE value="0.0.4&#10;Started implementing jwt authorization with Spring security.&#10;Inserted jwt filter in FilterChain.&#10;Added JwtUtils for operations with jwt token.&#10;Fixed some tables and graphql types.&#10;Renamed user_status to user_role.&#10;Fixed graphql always forbidden via csrf disable." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.4&#10;Started implementing jwt authorization with Spring security.&#10;Inserted jwt filter in FilterChain.&#10;Added JwtUtils for operations with jwt token.&#10;Fixed some tables and graphql types.&#10;Renamed user_status to user_role.&#10;Fixed graphql always forbidden via csrf disable." />
+    <MESSAGE value="0.0.5&#10;Implemented Jwt authorization.&#10;Created DTOs for authorization requests and responses.&#10;Created AuthenticationController for registration and authentication.&#10;Renamed for more meaning JwtUtils -&gt; JwtService, JwtFilter -&gt; JwtAuthenticationFilter.&#10;Slightly changed users table." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.5&#10;Implemented Jwt authorization.&#10;Created DTOs for authorization requests and responses.&#10;Created AuthenticationController for registration and authentication.&#10;Renamed for more meaning JwtUtils -&gt; JwtService, JwtFilter -&gt; JwtAuthenticationFilter.&#10;Slightly changed users table." />
   </component>
 </project>

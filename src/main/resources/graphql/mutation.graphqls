@@ -1,0 +1,27 @@
+type Mutation{
+    addBrand(brandName: String!): Brand
+
+    registerUser(registerRequest: RegisterRequest!): AuthenticationResponse
+
+    addProduct(product: NewProduct!): Product
+}
+
+input RegisterRequest {
+    username: String
+    firstName: String
+    lastName: String
+    password: String
+    email: String
+}
+
+input NewProduct {
+    name: String
+    categoryNames: [String]
+    brandName: String
+    sex: Sex
+    classification: Classification
+    isLiquid: Boolean
+    additionalInfo: JSON
+    countriesMadeInNames: [String]
+    countryTradeMarkName: String
+}

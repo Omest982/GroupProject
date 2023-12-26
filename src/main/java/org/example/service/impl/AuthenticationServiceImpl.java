@@ -8,6 +8,7 @@ import org.example.security.DTO.AuthenticationResponse;
 import org.example.security.DTO.RegisterRequest;
 import org.example.security.jwt.JwtService;
 import org.example.service.AuthenticationService;
+import org.example.service.UserService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;

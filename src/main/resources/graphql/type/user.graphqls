@@ -1,6 +1,8 @@
 type User{
     id: Long
-    name: String
+    username: String
+    firstName: String
+    lastName: String
     password: String
     email: String
     userRole: UserRole

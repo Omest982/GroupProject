@@ -4,10 +4,20 @@ scalar JSON
 scalar Timestamp
 
 type Query {
-    getBrandById(id: Long): Brand
+    getBrandById(id: Long!): Brand
     getAllBrands: [Brand]
 
     getAllProducts: [Product]
-    getProductsByCategories(categoryNames: [String]): [Product]
-    getProductById(id: Long): Product
+    getProductsByCategories(categoryNames: [String]!): [Product]
+    getProductById(id: Long!): Product
+
+    getAllUsers: [User]
+    authenticateUser(authRequest: AuthenticationRequest!): AuthenticationResponse
+
+    getAllCategories: [Category]
+}
+
+input AuthenticationRequest{
+    username: String
+    password: String
 }
