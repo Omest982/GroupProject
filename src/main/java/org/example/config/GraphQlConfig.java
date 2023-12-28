@@ -8,6 +8,9 @@ import graphql.schema.GraphQLScalarType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.graphql.execution.RuntimeWiringConfigurer;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,5 +52,18 @@ public class GraphQlConfig {
                 .build();
 
     }
+
+//    @Bean
+//    public WebMvcConfigurer corsConfig() {
+//        return new WebMvcConfigurer() {
+//            @Override
+//            public void addCorsMappings(CorsRegistry registry) {
+//                registry.addMapping("/graphql")
+//                        .allowedOrigins(CorsConfiguration.ALL)
+//                        .allowedHeaders(CorsConfiguration.ALL)
+//                        .allowedMethods(CorsConfiguration.ALL);
+//            }
+//        };
+//    }
 
 }

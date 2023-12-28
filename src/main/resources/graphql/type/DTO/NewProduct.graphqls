@@ -1,11 +1,11 @@
 input NewProduct {
     name: String
-    categoryNames: [String]
-    brandName: String
+    categoryIds: [Long]
+    brandId: Long
     sex: Sex
     classification: Classification
     isLiquid: Boolean
     additionalInfo: JSON
-    countriesMadeInNames: [String]
-    countryTradeMarkName: String
+    countriesMadeInIds: [Long]
+    countryTradeMarkId: Long
 }

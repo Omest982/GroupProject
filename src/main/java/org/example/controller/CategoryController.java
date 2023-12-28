@@ -1,23 +1,23 @@
 package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.entity.User;
-import org.example.repository.UserRepository;
+import org.example.entity.Category;
+import org.example.service.CategoryService;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @Controller
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600, allowCredentials = "true")
 @RequiredArgsConstructor
-public class GraphQLController{
-    private final UserRepository userRepository;
+public class CategoryController {
+
+    private final CategoryService categoryService;
 
     @QueryMapping
-    public List<User> getAllUsers(){
-        return userRepository.findAll();
+    public List<Category> getAllCategories(){
+        return categoryService.getAllCategory();
     }
-
 }

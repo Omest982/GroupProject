@@ -50,10 +50,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product addProduct(NewProduct product) {
-        List<Category> categoryList = categoryRepository.findByNameIn(product.getCategoryNames());
-        Brand brand = brandRepository.findByName(product.getBrandName());
-        List<Country> countriesMadeInList = countryRepository.findByNameIn(product.getCountriesMadeInNames());
-        Country countryTradeMark = countryRepository.findByName(product.getCountryTradeMarkName());
+        List<Category> categoryList = categoryRepository.findAllById(product.getCategoryIds());
+        Brand brand = brandRepository.findById(product.getBrandId()).orElse(null);
+        List<Country> countriesMadeInList = countryRepository.findAllById(product.getCountriesMadeInIds());
+        Country countryTradeMark = countryRepository.findById(product.getCountryTradeMarkId()).orElse(null);
         Product transientProduct = Product.builder()
                 .name(product.getName())
                 .categories(categoryList)

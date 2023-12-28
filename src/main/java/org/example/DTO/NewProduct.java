@@ -11,12 +11,12 @@ import java.util.Map;
 @Data
 public class NewProduct {
     private String name;
-    private List<String> categoryNames;
-    private String brandName;
+    private List<Long> categoryIds;
+    private Long brandId;
     private Sex sex;
     private Classification classification;
     private boolean isLiquid;
     private Map<String, Object> additionalInfo;
-    private List<String> countriesMadeInNames;
-    private String countryTradeMarkName;
+    private List<Long> countriesMadeInIds;
+    private Long countryTradeMarkId;
 }

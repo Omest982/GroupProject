@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://13.51.170.112:8080", "http://localhost:3000"}, allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @Controller
 public class AuthenticationController {
 
