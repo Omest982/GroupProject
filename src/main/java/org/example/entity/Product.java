@@ -61,6 +61,8 @@ public class Product {
     @Column(columnDefinition = "jsonb")
     private Map<String, Object> additionalInfo;
 
+    private String description;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "products_countries_made_in",
             joinColumns = @JoinColumn(name = "product_id"),

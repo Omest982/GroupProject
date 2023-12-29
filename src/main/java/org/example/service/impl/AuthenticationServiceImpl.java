@@ -51,7 +51,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
 
-        User persistentUser = userService.getByUsername(request.getUsername());
+        User persistentUser = userService.getByUsernameAndPassword(
+                request.getUsername(),
+                request.getPassword());
 
         if (persistentUser == null){
             return null;

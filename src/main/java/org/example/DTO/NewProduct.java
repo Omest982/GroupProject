@@ -1,6 +1,5 @@
 package org.example.DTO;
 
-import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
 import lombok.Data;
 import org.example.entity.enums.Classification;
 import org.example.entity.enums.Sex;

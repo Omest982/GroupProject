@@ -38,6 +38,9 @@ databaseChangeLog:
                   name: is_liquid
                   type: boolean
               - column:
+                  name: description
+                  type: text
+              - column:
                   name: additional_info
                   type: jsonb
               - column:

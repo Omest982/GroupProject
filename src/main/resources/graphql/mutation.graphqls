@@ -4,4 +4,8 @@ type Mutation{
     registerUser(request: RegisterRequest!): AuthenticationResponse
 
     addProduct(product: NewProduct!): Product
+
+    addProductVariation(productVariation: NewProductVariation!): ProductVariation
+
+    addVariationDetails(variationDetails: NewVariationDetails!): VariationDetails
 }

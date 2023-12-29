@@ -10,6 +10,9 @@ import org.example.repository.BrandRepository;
 import org.example.repository.CategoryRepository;
 import org.example.repository.CountryRepository;
 import org.example.repository.ProductRepository;
+import org.example.service.BrandService;
+import org.example.service.CategoryService;
+import org.example.service.CountryService;
 import org.example.service.ProductService;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +22,9 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
-    private final CategoryRepository categoryRepository;
-    private final BrandRepository brandRepository;
-    private final CountryRepository countryRepository;
+    private final CategoryService categoryService;
+    private final BrandService brandService;
+    private final CountryService countryService;
 
     @Override
     public List<Product> getAllProducts() {
@@ -34,26 +37,26 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getProductsByCategories(List<Category> categories) {
+    public List<Product> getAllProductsByCategories(List<Category> categories) {
         return productRepository.findByCategoriesIn(categories);
     }
 
     @Override
-    public List<Product> getProductsByBrand(Brand brand) {
+    public List<Product> getAllProductsByBrand(Brand brand) {
         return productRepository.findByBrand(brand);
     }
 
     @Override
-    public List<Product> getProductsByBrands(List<Brand> brands) {
+    public List<Product> getAllProductsByBrands(List<Brand> brands) {
         return productRepository.findByBrandIn(brands);
     }
 
     @Override
     public Product addProduct(NewProduct product) {
-        List<Category> categoryList = categoryRepository.findAllById(product.getCategoryIds());
-        Brand brand = brandRepository.findById(product.getBrandId()).orElse(null);
-        List<Country> countriesMadeInList = countryRepository.findAllById(product.getCountriesMadeInIds());
-        Country countryTradeMark = countryRepository.findById(product.getCountryTradeMarkId()).orElse(null);
+        List<Category> categoryList = categoryService.getAllCategoriesByIds(product.getCategoryIds());
+        Brand brand = brandService.getBrandById(product.getBrandId());
+        List<Country> countriesMadeInList = countryService.getAllCountriesByIds(product.getCountriesMadeInIds());
+        Country countryTradeMark = countryService.getCountryById(product.getCountryTradeMarkId());
         Product transientProduct = Product.builder()
                 .name(product.getName())
                 .categories(categoryList)

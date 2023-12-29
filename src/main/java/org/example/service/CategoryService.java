@@ -5,8 +5,14 @@ import org.example.entity.Category;
 import java.util.List;
 
 public interface CategoryService {
-    List<Category> getAllCategory();
+
+    List<Category> getAllCategories();
+
     Category getCategoryById(Long id);
+
     Category getCategoryByName(String categoryName);
-    List<Category> getCategoriesByNames(List<String> categoryNames);
+
+    List<Category> getAllCategoriesByNames(List<String> categoryNames);
+
+    List<Category> getAllCategoriesByIds(List<Long> categoryIds);
 }

@@ -20,7 +20,7 @@ public class ProductVariation {
     @OneToOne
     @JoinColumn(name = "image_id")
     private Image variationImage;
-    private double amount;
+    private float amount;
     @OneToMany(mappedBy = "productVariation", fetch = FetchType.LAZY)
     private List<VariationDetails> variationDetails;
     @ManyToOne(fetch = FetchType.LAZY)

@@ -2,12 +2,13 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.example.entity.utils.BusinessDetails;
 
 @Getter
 @Setter
 @EqualsAndHashCode(exclude = "id", callSuper = true)
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

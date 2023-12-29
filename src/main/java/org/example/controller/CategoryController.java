@@ -18,6 +18,6 @@ public class CategoryController {
 
     @QueryMapping
     public List<Category> getAllCategories(){
-        return categoryService.getAllCategory();
+        return categoryService.getAllCategories();
     }
 }

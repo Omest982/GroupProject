@@ -8,4 +8,6 @@ public interface UserService extends UserDetailsService {
     User saveUser(User user);
 
     User getByUsername(String username);
+
+    User getByUsernameAndPassword(String username, String password);
 }

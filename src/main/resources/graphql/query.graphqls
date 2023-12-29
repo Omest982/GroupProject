@@ -7,12 +7,18 @@ type Query {
     getBrandById(id: Long!): Brand
     getAllBrands: [Brand]
 
+    getAllCountries: [Country]
+
     getAllProducts: [Product]
-    getProductsByCategories(categoryNames: [String]!): [Product]
+    getProductsByCategoryIds(categoryIds: [Long]!): [Product]
     getProductById(id: Long!): Product
 
     getAllUsers: [User]
     authenticateUser(request: AuthenticationRequest!): AuthenticationResponse
 
     getAllCategories: [Category]
+
+    getProductVariationsByProductId(productId: Long!): [ProductVariation]
+
+    getVariationDetailsByProductVariationId(productVariationId: Long!): [VariationDetails]
 }

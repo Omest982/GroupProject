@@ -23,9 +23,9 @@ public class ProductController {
     private final CategoryService categoryService;
 
     @QueryMapping
-    public List<Product> getProductsByCategories(@Argument List<String> categoryNames){
-        List<Category> categoryList = categoryService.getCategoriesByNames(categoryNames);
-        return productService.getProductsByCategories(categoryList);
+    public List<Product> getProductsByCategoryIds(@Argument List<Long> categoryIds){
+        List<Category> categoryList = categoryService.getAllCategoriesByIds(categoryIds);
+        return productService.getAllProductsByCategories(categoryList);
     }
 
     @QueryMapping

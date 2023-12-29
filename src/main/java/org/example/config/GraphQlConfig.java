@@ -52,18 +52,4 @@ public class GraphQlConfig {
                 .build();
 
     }
-
-//    @Bean
-//    public WebMvcConfigurer corsConfig() {
-//        return new WebMvcConfigurer() {
-//            @Override
-//            public void addCorsMappings(CorsRegistry registry) {
-//                registry.addMapping("/graphql")
-//                        .allowedOrigins(CorsConfiguration.ALL)
-//                        .allowedHeaders(CorsConfiguration.ALL)
-//                        .allowedMethods(CorsConfiguration.ALL);
-//            }
-//        };
-//    }
-
 }

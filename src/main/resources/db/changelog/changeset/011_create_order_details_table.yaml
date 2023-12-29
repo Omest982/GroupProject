@@ -14,13 +14,13 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: product_id
+                  name: variation_details_id
                   type: bigint
                   constraints:
-                    foreignKeyName: fk_order_details_product
-                    references: product(id)
+                    foreignKeyName: fk_order_details_variation_details
+                    references: variation_details(id)
               - column:
-                  name: amount
+                  name: quantity
                   type: integer
               - column:
                   name: total_detail_price

@@ -21,7 +21,7 @@ databaseChangeLog:
                     references: image(id)
               - column:
                   name: amount
-                  type: double
+                  type: float
               - column:
                   name: product_id
                   type: bigint
