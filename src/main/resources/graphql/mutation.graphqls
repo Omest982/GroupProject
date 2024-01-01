@@ -4,6 +4,7 @@ type Mutation{
     registerUser(request: RegisterRequest!): AuthenticationResponse
 
     addProduct(product: NewProduct!): Product
+    addImageToProduct(productId: Long, imageLink: String): Product
 
     addProductVariation(productVariation: NewProductVariation!): ProductVariation
 

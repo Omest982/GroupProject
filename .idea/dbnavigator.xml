@@ -16,7 +16,7 @@
       <console name="Connection" type="STANDARD" schema="make_up" session="Main" />
     </connection>
     <connection id="e4e9727b-d7a8-447e-a8d3-e1bc048b988d">
-      <console name="Connection 1" type="STANDARD" schema="make_up" session="Main" />
+      <console name="Connection 1" type="STANDARD" schema="public" session="Main"><![CDATA[drop table address;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">

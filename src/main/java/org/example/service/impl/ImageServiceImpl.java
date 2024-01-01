@@ -6,6 +6,9 @@ import org.example.repository.ImageRepository;
 import org.example.service.ImageService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ImageServiceImpl implements ImageService {
@@ -17,5 +20,18 @@ public class ImageServiceImpl implements ImageService {
                 .imageLink(imageLink)
                 .build();
          return imageRepository.save(transientImage);
+    }
+
+    @Override
+    public List<Image> addImages(List<String> imageLinks) {
+        List<Image> transientImages = new ArrayList<>();
+
+        for (String imageLink: imageLinks){
+            Image transientImage = Image.builder()
+                    .imageLink(imageLink)
+                    .build();
+            transientImages.add(transientImage);
+        }
+        return imageRepository.saveAll(transientImages);
     }
 }

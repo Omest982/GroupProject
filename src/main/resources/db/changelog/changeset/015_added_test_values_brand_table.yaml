@@ -172,7 +172,7 @@ databaseChangeLog:
             tableName: users
             columns:
               - column:
-                  name: username
+                  name: email
                   value: "userTest"
               - column:
                   name: password
@@ -183,6 +183,9 @@ databaseChangeLog:
               - column:
                   name: enabled
                   value: "true"
+              - column:
+                  name: is_email_verified
+                  value: "false"
         - insert:
             tableName: product
             columns:

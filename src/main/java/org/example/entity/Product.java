@@ -27,6 +27,8 @@ public class Product {
 
     private String name;
 
+    private String group;
+
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<ProductVariation> productVariations;
 

@@ -12,10 +12,13 @@ public class NewProduct {
     private String name;
     private List<Long> categoryIds;
     private Long brandId;
+    private List<String> imageLinks;
+    private String group;
     private Sex sex;
     private Classification classification;
     private boolean isLiquid;
     private Map<String, Object> additionalInfo;
+    private String description;
     private List<Long> countriesMadeInIds;
     private Long countryTradeMarkId;
 }

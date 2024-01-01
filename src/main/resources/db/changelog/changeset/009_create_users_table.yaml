@@ -14,9 +14,6 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: username
-                  type: varchar(255)
-              - column:
                   name: first_name
                   type: varchar(255)
               - column:
@@ -29,8 +26,17 @@ databaseChangeLog:
                   name: email
                   type: varchar(255)
               - column:
+                  name: phone_number
+                  type: varchar(20)
+              - column:
+                  name: is_email_verified
+                  type: boolean
+              - column:
                   name: user_role
                   type: varchar(255)
               - column:
                   name: enabled
                   type: boolean
+              - column:
+                  name: birthday_date
+                  type: date

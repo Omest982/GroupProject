@@ -7,6 +7,7 @@ import org.example.security.DTO.RegisterRequest;
 import org.example.service.AuthenticationService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -24,7 +25,7 @@ public class AuthenticationController {
         return authService.register(request);
     }
 
-    @MutationMapping
+    @QueryMapping
     public AuthenticationResponse authenticateUser(
             @Argument AuthenticationRequest request){
 

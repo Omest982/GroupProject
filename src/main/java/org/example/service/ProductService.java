@@ -14,5 +14,6 @@ public interface ProductService {
     List<Product> getAllProductsByBrand(Brand brand);
     List<Product> getAllProductsByBrands(List<Brand> brands);
     Product addProduct(NewProduct product);
+    Product addImageToProduct(Long productId, String imageLink);
 
 }

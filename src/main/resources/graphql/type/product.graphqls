@@ -2,6 +2,8 @@ type Product {
     id: Long
     name: String
     productVariations: [ProductVariation]
+    group: String
+    description: String
     images: [Image]
     categories: [Category]
     brand: Brand

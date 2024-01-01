@@ -2,18 +2,9 @@ package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.example.DTO.NewProduct;
-import org.example.entity.Brand;
-import org.example.entity.Category;
-import org.example.entity.Country;
-import org.example.entity.Product;
-import org.example.repository.BrandRepository;
-import org.example.repository.CategoryRepository;
-import org.example.repository.CountryRepository;
+import org.example.entity.*;
 import org.example.repository.ProductRepository;
-import org.example.service.BrandService;
-import org.example.service.CategoryService;
-import org.example.service.CountryService;
-import org.example.service.ProductService;
+import org.example.service.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +16,7 @@ public class ProductServiceImpl implements ProductService {
     private final CategoryService categoryService;
     private final BrandService brandService;
     private final CountryService countryService;
+    private final ImageService imageService;
 
     @Override
     public List<Product> getAllProducts() {
@@ -57,18 +49,32 @@ public class ProductServiceImpl implements ProductService {
         Brand brand = brandService.getBrandById(product.getBrandId());
         List<Country> countriesMadeInList = countryService.getAllCountriesByIds(product.getCountriesMadeInIds());
         Country countryTradeMark = countryService.getCountryById(product.getCountryTradeMarkId());
+        List<Image> images = imageService.addImages(product.getImageLinks());
+
         Product transientProduct = Product.builder()
                 .name(product.getName())
+                .images(images)
                 .categories(categoryList)
                 .brand(brand)
+                .group(product.getGroup())
                 .sex(product.getSex())
                 .classification(product.getClassification())
                 .isLiquid(product.isLiquid())
                 .additionalInfo(product.getAdditionalInfo())
+                .description(product.getDescription())
                 .countriesMadeIn(countriesMadeInList)
                 .countryTradeMark(countryTradeMark)
                 .build();
+
         return productRepository.save(transientProduct);
+    }
+
+    @Override
+    public Product addImageToProduct(Long productId, String imageLink) {
+        Product product = getProductById(productId);
+        Image image = imageService.addImage(imageLink);
+        product.getImages().add(image);
+        return productRepository.save(product);
     }
 
 

@@ -14,6 +14,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @RequiredArgsConstructor
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
@@ -24,17 +26,25 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public AuthenticationResponse register(RegisterRequest request) {
 
-        if (userService.loadUserByUsername(request.getUsername()) != null){
+        if (userService.getByEmail(request.getEmail()) != null){
             return null;
             //TODO: Make an exception instead of null
         }
 
+        LocalDate birthdayDate = null;
+
+        if (request.getBirthdayDate() != null){
+            birthdayDate = LocalDate.parse(request.getBirthdayDate());
+        }
+
         User transientUser = User.builder()
-                .username(request.getUsername())
+                .email(request.getEmail())
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .email(request.getEmail())
+                .phoneNumber(request.getPhoneNumber())
+                .birthdayDate(birthdayDate)
+                .isEmailVerified(false)
                 .userRole(UserRole.CLIENT)
                 .enabled(true)
                 .build();
@@ -51,18 +61,20 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
 
-        User persistentUser = userService.getByUsernameAndPassword(
-                request.getUsername(),
-                request.getPassword());
+        User persistentUser = userService.getByEmail(request.getEmail());
 
         if (persistentUser == null){
             return null;
             //TODO: Make an exception instead of null
         }
 
+        if (!passwordEncoder.matches(request.getPassword(), persistentUser.getPassword())){
+            return null;
+        }
+
         authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getUsername(),
+                        request.getEmail(),
                         request.getPassword()
                 )
         );

@@ -1,7 +1,8 @@
 input RegisterRequest {
-    username: String
     firstName: String
     lastName: String
     password: String
     email: String
+    phoneNumber: String
+    birthdayDate: String
 }

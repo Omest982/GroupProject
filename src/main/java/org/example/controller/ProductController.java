@@ -7,6 +7,7 @@ import org.example.entity.Product;
 import org.example.service.CategoryService;
 import org.example.service.ProductService;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.Arguments;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
@@ -41,5 +42,10 @@ public class ProductController {
     @MutationMapping
     public Product addProduct(@Argument NewProduct product){
         return productService.addProduct(product);
+    }
+
+    @MutationMapping
+    public Product addImageToProduct(@Arguments Long productId, String imageLink){
+        return productService.addImageToProduct(productId, imageLink);
     }
 }

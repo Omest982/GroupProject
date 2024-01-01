@@ -19,18 +19,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getByUsername(String username){
-        return userRepository.findByUsername(username);
+    public User getByEmail(String email){
+        return userRepository.findByEmail(email);
     }
 
     @Override
-    public User getByUsernameAndPassword(String username, String password) {
-        return userRepository.findByUsernameAndPassword(username, password);
+    public User getByEmailAndPassword(String email, String password) {
+        return userRepository.findByEmailAndPassword(email, password);
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByUsername(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return userRepository.findByEmail(email);
     }
 
 }

@@ -7,7 +7,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -22,23 +24,25 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
     private String firstName;
     private String lastName;
     private String password;
     private String email;
+    private String phoneNumber;
+    private boolean isEmailVerified;
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
     private boolean enabled;
+    private LocalDate birthdayDate;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(userRole.toString()));
+        return List.of(new SimpleGrantedAuthority(this.userRole.toString()));
     }
 
     @Override
     public String getUsername() {
-        return this.username;
+        return this.email;
     }
 
     @Override

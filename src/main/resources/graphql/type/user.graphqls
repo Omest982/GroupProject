@@ -1,9 +1,10 @@
 type User{
     id: Long
-    username: String
     firstName: String
     lastName: String
     password: String
     email: String
+    isEmailVerified: Boolean
     userRole: UserRole
+    enabled: Boolean
 }
