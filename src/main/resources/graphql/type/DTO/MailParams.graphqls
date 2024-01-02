@@ -1,0 +1,4 @@
+input MailParams {
+    id: Long
+    emailTo: String
+}

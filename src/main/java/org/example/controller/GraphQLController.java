@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600, allowCredentials = "true")
 @RequiredArgsConstructor
 public class GraphQLController{
     private final UserRepository userRepository;

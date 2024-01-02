@@ -1,7 +1,6 @@
 type OrderDetails{
     id: Long
-    product: Product
-    amount: Int
+    variationDetails: VariationDetails
+    quantity: Int
     totalDetailPrice: BigDecimal
-    order: Order
 }

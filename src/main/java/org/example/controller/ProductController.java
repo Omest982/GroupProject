@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @Controller
 public class ProductController {
 

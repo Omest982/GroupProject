@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @RequiredArgsConstructor
 @Service
@@ -26,15 +27,16 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public AuthenticationResponse register(RegisterRequest request) {
 
-        if (userService.getByEmail(request.getEmail()) != null){
+        if (userService.getUserByEmail(request.getEmail()) != null){
             return null;
             //TODO: Make an exception instead of null
         }
 
         LocalDate birthdayDate = null;
 
-        if (request.getBirthdayDate() != null){
-            birthdayDate = LocalDate.parse(request.getBirthdayDate());
+        if (request.getBirthdayDate() != null && !request.getBirthdayDate().equals("")){
+            DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd.MM.uuuu");
+            birthdayDate = LocalDate.parse(request.getBirthdayDate(), formatters);
         }
 
         User transientUser = User.builder()
@@ -61,7 +63,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
 
-        User persistentUser = userService.getByEmail(request.getEmail());
+        User persistentUser = userService.getUserByEmail(request.getEmail());
 
         if (persistentUser == null){
             return null;

@@ -25,9 +25,13 @@ databaseChangeLog:
               - column:
                   name: email
                   type: varchar(255)
+                  constraints:
+                    unique: true
               - column:
                   name: phone_number
                   type: varchar(20)
+                  constraints:
+                    unique: true
               - column:
                   name: is_email_verified
                   type: boolean

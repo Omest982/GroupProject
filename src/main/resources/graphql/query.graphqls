@@ -2,6 +2,7 @@ scalar Long
 scalar BigDecimal
 scalar JSON
 scalar Timestamp
+scalar Date
 
 type Query {
     getBrandById(id: Long!): Brand
@@ -21,4 +22,6 @@ type Query {
     getProductVariationsByProductId(productId: Long!): [ProductVariation]
 
     getVariationDetailsByProductVariationId(productVariationId: Long!): [VariationDetails]
+
+    sendActivationMail(mailParams: MailParams!): MailResponse
 }
