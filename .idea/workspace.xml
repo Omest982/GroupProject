@@ -4,36 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.2.2&#10;Fixed in users table columns phoneNumber and email with unique constrain.&#10;Added Date type in GraphQlConfig.&#10;Added DateTimeFormatter in AuthenticationServiceImpl.&#10;Fixed graphql order_details.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/MailParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/UtilsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/VerificationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/OrderDetailsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/OrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MailSenderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/VerificationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MailSenderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/VerificationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/CryptoTool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/MailParams.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/MailResponse.graphqls" afterDir="false" />
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.2.3&#10;Added categoryParentId in Category.&#10;Added address field to User.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/MailResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/enums/PaymentMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/GraphQlConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/GraphQlConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/BrandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/GraphQLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/GraphQLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/security/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/security/jwt/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/009_create_users_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/009_create_users_table.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/001_create_category_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/001_create_category_table.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/008_create_address_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/008_create_address_table.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/order_details.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/order_details.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/category.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/category.graphqls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/user.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/user.graphqls" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +32,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -201,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704131759467</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="0.2.2&#10;Added MailController for sending mails.&#10;Added VerificationController for verifying user email.&#10;Added CryptoTool for encoding and decoding user id in mail verification.&#10;Fixed in users table columns phoneNumber and email with unique constrain.&#10;Added Date type in GraphQlConfig.&#10;Added DateTimeFormatter in AuthenticationServiceImpl.&#10;Fixed graphql order_details.">
+      <created>1704207804505</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1704207804505</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -251,6 +245,7 @@
     <MESSAGE value="0.1.2&#10;Fixed graphql cors error." />
     <MESSAGE value="0.2.0&#10;Created new mutations for ProductVariation, VariationDetails.&#10;Created new queries for Country, ProductVariation, VariationDetails.&#10;Added description field to Product.&#10;Changed amount field in ProductVariation to float type.&#10;Slightly changed OrderDetails and BasketDetails.&#10;Created new DTOs for mutations." />
     <MESSAGE value="0.2.1&#10;Deleted Basket and BasketDetails from the project.&#10;Slightly changed adding a Product.&#10;Fixed graphql Product with adding new fields.&#10;Added new method for ImageService.&#10;Replaced in User username with email, added phone, isEmailVerified and birthday fields." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.2.1&#10;Deleted Basket and BasketDetails from the project.&#10;Slightly changed adding a Product.&#10;Fixed graphql Product with adding new fields.&#10;Added new method for ImageService.&#10;Replaced in User username with email, added phone, isEmailVerified and birthday fields." />
+    <MESSAGE value="0.2.2&#10;Added MailController for sending mails.&#10;Added VerificationController for verifying user email.&#10;Added CryptoTool for encoding and decoding user id in mail verification.&#10;Fixed in users table columns phoneNumber and email with unique constrain.&#10;Added Date type in GraphQlConfig.&#10;Added DateTimeFormatter in AuthenticationServiceImpl.&#10;Fixed graphql order_details." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2.2&#10;Added MailController for sending mails.&#10;Added VerificationController for verifying user email.&#10;Added CryptoTool for encoding and decoding user id in mail verification.&#10;Fixed in users table columns phoneNumber and email with unique constrain.&#10;Added Date type in GraphQlConfig.&#10;Added DateTimeFormatter in AuthenticationServiceImpl.&#10;Fixed graphql order_details." />
   </component>
 </project>

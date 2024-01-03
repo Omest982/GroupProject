@@ -26,6 +26,12 @@ databaseChangeLog:
                     foreignKeyName: fk_orders_users
                     references: users(id)
               - column:
+                  name: payment_method
+                  type: varchar(255)
+              - column:
+                  name: user_comment
+                  type: varchar(255)
+              - column:
                   name: order_status
                   type: varchar(255)
               - column:

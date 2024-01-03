@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -26,16 +25,18 @@ public class User implements UserDetails {
     private Long id;
     private String firstName;
     private String lastName;
-    private String password;
     @Column(unique = true)
     private String email;
     @Column(unique = true)
     private String phoneNumber;
+    private String password;
     private boolean isEmailVerified;
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
     private boolean enabled;
     private LocalDate birthdayDate;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Address> addresses;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -44,7 +45,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.email;
+        return this.getEmail();
     }
 
     @Override

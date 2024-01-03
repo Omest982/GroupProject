@@ -1,4 +1,5 @@
 type Category {
     id: Long
     name: String
+    parentCategoryId: Long
 }
