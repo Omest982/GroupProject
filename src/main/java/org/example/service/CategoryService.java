@@ -15,4 +15,8 @@ public interface CategoryService {
     List<Category> getAllCategoriesByNames(List<String> categoryNames);
 
     List<Category> getAllCategoriesByIds(List<Long> categoryIds);
+
+    List<Category> getAllCategoriesByParentCategoryId(Long parentCategoryId);
+
+    Category saveCategory(Category category);
 }

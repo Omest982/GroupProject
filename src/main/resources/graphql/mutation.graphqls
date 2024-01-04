@@ -1,10 +1,12 @@
 type Mutation{
     addBrand(brandName: String!): Brand
 
+    addCategory(categoryName: String!, parentCategoryId: Long): Category
+
     registerUser(request: RegisterRequest!): AuthenticationResponse
 
     addProduct(product: NewProduct!): Product
-    addImageToProduct(productId: Long, imageLink: String): Product
+    addImageToProduct(productId: Long!, imageLink: String!): Product
 
     addProductVariation(productVariation: NewProductVariation!): ProductVariation
 

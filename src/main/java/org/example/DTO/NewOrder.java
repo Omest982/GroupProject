@@ -13,4 +13,5 @@ public class NewOrder {
     private String lastName;
     private String email;
     private String phoneNumber;
+
 }

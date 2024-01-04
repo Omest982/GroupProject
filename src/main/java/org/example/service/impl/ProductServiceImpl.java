@@ -7,6 +7,7 @@ import org.example.repository.ProductRepository;
 import org.example.service.*;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -51,12 +52,14 @@ public class ProductServiceImpl implements ProductService {
         Country countryTradeMark = countryService.getCountryById(product.getCountryTradeMarkId());
         List<Image> images = imageService.addImages(product.getImageLinks());
 
+        System.out.println(product.getProductGroup());
+
         Product transientProduct = Product.builder()
                 .name(product.getName())
                 .images(images)
                 .categories(categoryList)
                 .brand(brand)
-                .group(product.getGroup())
+                .productGroup(product.getProductGroup())
                 .sex(product.getSex())
                 .classification(product.getClassification())
                 .isLiquid(product.isLiquid())
@@ -64,6 +67,7 @@ public class ProductServiceImpl implements ProductService {
                 .description(product.getDescription())
                 .countriesMadeIn(countriesMadeInList)
                 .countryTradeMark(countryTradeMark)
+                .productVariations(new ArrayList<>())
                 .build();
 
         return productRepository.save(transientProduct);

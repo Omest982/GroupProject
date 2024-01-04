@@ -12,4 +12,6 @@ public interface UserService extends UserDetailsService {
     User getUserByEmailAndPassword(String email, String password);
 
     User getUserById(Long userId);
+
+    User getUserByPhoneNumber(String phoneNumber);
 }

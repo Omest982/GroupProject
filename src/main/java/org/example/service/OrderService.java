@@ -5,4 +5,6 @@ import org.example.entity.Order;
 
 public interface OrderService {
     Order addOrder(NewOrder order);
+
+    Order addOrderDetails(Long orderId, Long variationDetailsId, int quantity);
 }

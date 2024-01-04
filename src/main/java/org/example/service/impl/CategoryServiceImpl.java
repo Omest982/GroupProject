@@ -38,4 +38,14 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> getAllCategoriesByIds(List<Long> categoryIds) {
         return categoryRepository.findAllById(categoryIds);
     }
+
+    @Override
+    public List<Category> getAllCategoriesByParentCategoryId(Long parentCategoryId) {
+        return categoryRepository.findByParentCategoryId(parentCategoryId);
+    }
+
+    @Override
+    public Category saveCategory(Category category) {
+        return categoryRepository.save(category);
+    }
 }

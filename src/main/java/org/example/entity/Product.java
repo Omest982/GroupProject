@@ -19,6 +19,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 @Table(name = "product")
 public class Product {
     @Id
@@ -27,7 +28,7 @@ public class Product {
 
     private String name;
 
-    private String group;
+    private String productGroup;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<ProductVariation> productVariations;

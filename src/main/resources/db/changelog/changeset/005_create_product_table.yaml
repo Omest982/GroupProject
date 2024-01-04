@@ -20,7 +20,7 @@ databaseChangeLog:
                     unique: true
                     nullable: false
               - column:
-                  name: group
+                  name: product_group
                   type: varchar(255)
               - column:
                   name: brand_id

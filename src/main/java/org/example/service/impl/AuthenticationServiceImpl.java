@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 @RequiredArgsConstructor
 @Service
@@ -32,11 +33,23 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             //TODO: Make an exception instead of null
         }
 
-        LocalDate birthdayDate = null;
+        User checkUser = userService.getUserByPhoneNumber(request.getPhoneNumber());
 
-        if (request.getBirthdayDate() != null && !request.getBirthdayDate().equals("")){
-            DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd.MM.uuuu");
-            birthdayDate = LocalDate.parse(request.getBirthdayDate(), formatters);
+        if (checkUser != null){
+            if (checkUser.getEmail() == null){
+                checkUser.setEmail(request.getEmail());
+                checkUser.setFirstName(request.getFirstName());
+                checkUser.setLastName(request.getLastName());
+                checkUser.setAddresses(new ArrayList<>());
+                checkUser.setBirthdayDate(getParsedBirthdayDate(request));
+                checkUser.setPassword(passwordEncoder.encode(request.getPassword()));
+                checkUser.setUserRole(UserRole.CLIENT);
+
+                return saveUserAndGetAuthResponse(checkUser);
+            }else {
+                return null;
+                //TODO: Make an exception instead of null
+            }
         }
 
         User transientUser = User.builder()
@@ -45,19 +58,33 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .lastName(request.getLastName())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .phoneNumber(request.getPhoneNumber())
-                .birthdayDate(birthdayDate)
+                .birthdayDate(getParsedBirthdayDate(request))
                 .isEmailVerified(false)
                 .userRole(UserRole.CLIENT)
                 .enabled(true)
+                .addresses(new ArrayList<>())
                 .build();
 
-        User persistentUser = userService.saveUser(transientUser);
+        return saveUserAndGetAuthResponse(transientUser);
+    }
+
+    private AuthenticationResponse saveUserAndGetAuthResponse(User user){
+        User persistentUser = userService.saveUser(user);
 
         String token = JwtService.generateToken(persistentUser);
 
         return AuthenticationResponse.builder()
                 .jwtToken(token)
                 .build();
+    }
+
+    private LocalDate getParsedBirthdayDate(RegisterRequest request){
+        LocalDate birthdayDate = null;
+        if (request.getBirthdayDate() != null && !request.getBirthdayDate().equals("")){
+            DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd.MM.uuuu");
+            birthdayDate = LocalDate.parse(request.getBirthdayDate(), formatters);
+        }
+        return birthdayDate;
     }
 
     @Override
@@ -72,6 +99,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         if (!passwordEncoder.matches(request.getPassword(), persistentUser.getPassword())){
             return null;
+            //TODO: Make an exception instead of null
         }
 
         authManager.authenticate(

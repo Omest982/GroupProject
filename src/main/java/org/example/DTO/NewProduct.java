@@ -13,7 +13,7 @@ public class NewProduct {
     private List<Long> categoryIds;
     private Long brandId;
     private List<String> imageLinks;
-    private String group;
+    private String productGroup;
     private Sex sex;
     private Classification classification;
     private boolean isLiquid;

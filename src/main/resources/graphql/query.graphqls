@@ -18,7 +18,7 @@ type Query {
     authenticateUser(request: AuthenticationRequest!): AuthenticationResponse
 
     getAllCategories: [Category]
-    getCategoriesByCategoryParentId(categoryParentId: Long): [Category]
+    getCategoriesByCategoryParentId(parentCategoryId: Long!): [Category]
 
     getProductVariationsByProductId(productId: Long!): [ProductVariation]
 
