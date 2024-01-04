@@ -11,4 +11,7 @@ type Mutation{
     addProductVariation(productVariation: NewProductVariation!): ProductVariation
 
     addVariationDetails(variationDetails: NewVariationDetails!): VariationDetails
+
+    addOrder(order: NewOrder!): Order
+    addOrderDetails(orderDetails: NewOrderDetails!): Order
 }

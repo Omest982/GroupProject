@@ -31,17 +31,17 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getAllProductsByCategories(List<Category> categories) {
-        return productRepository.findByCategoriesIn(categories);
+        return productRepository.findAllByCategoriesIn(categories);
     }
 
     @Override
     public List<Product> getAllProductsByBrand(Brand brand) {
-        return productRepository.findByBrand(brand);
+        return productRepository.findAllByBrand(brand);
     }
 
     @Override
     public List<Product> getAllProductsByBrands(List<Brand> brands) {
-        return productRepository.findByBrandIn(brands);
+        return productRepository.findAllByBrandIn(brands);
     }
 
     @Override

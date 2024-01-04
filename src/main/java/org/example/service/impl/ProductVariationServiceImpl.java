@@ -33,7 +33,7 @@ public class ProductVariationServiceImpl implements ProductVariationService {
 
     @Override
     public List<ProductVariation> getAllProductVariationsByProductId(Long productId) {
-        return productVariationRepository.findByProductId(productId);
+        return productVariationRepository.findAllByProductId(productId);
     }
 
     @Override

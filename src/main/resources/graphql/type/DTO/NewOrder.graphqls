@@ -1,0 +1,11 @@
+input NewOrder{
+    region: String
+    city: String
+    street: String
+    house: String
+    firstName: String
+    lastName: String
+    phoneNumber: String
+    paymentMethod: PaymentMethod
+    userComment: String
+}

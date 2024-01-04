@@ -1,6 +1,7 @@
 package org.example.DTO;
 
 import lombok.Data;
+import org.example.entity.enums.PaymentMethod;
 
 @Data
 public class NewOrder {
@@ -11,7 +12,9 @@ public class NewOrder {
 
     private String firstName;
     private String lastName;
-    private String email;
     private String phoneNumber;
+
+    private PaymentMethod paymentMethod;
+    private String userComment;
 
 }

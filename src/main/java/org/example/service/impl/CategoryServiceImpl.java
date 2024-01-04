@@ -31,7 +31,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<Category> getAllCategoriesByNames(List<String> names) {
-        return categoryRepository.findByNameIn(names);
+        return categoryRepository.findAllByNameIn(names);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<Category> getAllCategoriesByParentCategoryId(Long parentCategoryId) {
-        return categoryRepository.findByParentCategoryId(parentCategoryId);
+        return categoryRepository.findAllByParentCategoryId(parentCategoryId);
     }
 
     @Override

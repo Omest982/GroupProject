@@ -24,7 +24,7 @@ public class VariationDetailsServiceImpl implements VariationDetailsService {
 
     @Override
     public List<VariationDetails> getAllVariationDetailsByProductVariationId(Long productVariationId) {
-        return variationDetailsRepository.findByProductVariationId(productVariationId);
+        return variationDetailsRepository.findAllByProductVariationId(productVariationId);
     }
 
     @Override

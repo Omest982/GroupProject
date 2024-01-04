@@ -1,6 +1,7 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.example.DTO.NewOrder;
 import org.example.entity.User;
 import org.example.repository.UserRepository;
 import org.example.service.UserService;
@@ -41,6 +42,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public User checkIfUserExistsByNewOrderShortInfo(NewOrder order) {
+        User user = getUserByPhoneNumber(order.getPhoneNumber());
+
+        if (user == null){
+            User transientUser = User.builder()
+                    .phoneNumber(order.getPhoneNumber())
+                    .firstName(order.getFirstName())
+                    .lastName(order.getLastName())
+                    .isEmailVerified(false)
+                    .enabled(true)
+                    .build();
+
+            user = saveUser(transientUser);
+        }
+
+        return user;
     }
 
 }
