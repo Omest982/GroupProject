@@ -6,5 +6,5 @@ import lombok.Data;
 public class NewOrderDetails {
     private Long orderId;
     private Long variationDetailsId;
-    private int quantity;
+    private Integer quantity;
 }

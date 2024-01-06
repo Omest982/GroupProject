@@ -23,6 +23,6 @@ public class OrderDetails{
     @OneToOne
     @JoinColumn(name = "variation_details_id")
     private VariationDetails variationDetails;
-    private int quantity;
+    private Integer quantity;
     private BigDecimal totalDetailPrice;
 }

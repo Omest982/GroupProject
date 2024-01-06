@@ -16,7 +16,7 @@ public class NewProduct {
     private String productGroup;
     private Sex sex;
     private Classification classification;
-    private boolean isLiquid;
+    private Boolean isLiquid;
     private Map<String, Object> additionalInfo;
     private String description;
     private List<Long> countriesMadeInIds;

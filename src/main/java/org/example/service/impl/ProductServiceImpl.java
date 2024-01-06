@@ -52,8 +52,6 @@ public class ProductServiceImpl implements ProductService {
         Country countryTradeMark = countryService.getCountryById(product.getCountryTradeMarkId());
         List<Image> images = imageService.addImages(product.getImageLinks());
 
-        System.out.println(product.getProductGroup());
-
         Product transientProduct = Product.builder()
                 .name(product.getName())
                 .images(images)
@@ -62,7 +60,7 @@ public class ProductServiceImpl implements ProductService {
                 .productGroup(product.getProductGroup())
                 .sex(product.getSex())
                 .classification(product.getClassification())
-                .isLiquid(product.isLiquid())
+                .isLiquid(product.getIsLiquid())
                 .additionalInfo(product.getAdditionalInfo())
                 .description(product.getDescription())
                 .countriesMadeIn(countriesMadeInList)

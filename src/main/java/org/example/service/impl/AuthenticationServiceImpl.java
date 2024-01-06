@@ -3,6 +3,8 @@ package org.example.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.example.entity.User;
 import org.example.entity.enums.UserRole;
+import org.example.exception.UserAlreadyExistsException;
+import org.example.exception.UserNotFoundException;
 import org.example.security.DTO.AuthenticationRequest;
 import org.example.security.DTO.AuthenticationResponse;
 import org.example.security.DTO.RegisterRequest;
@@ -29,8 +31,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public AuthenticationResponse register(RegisterRequest request) {
 
         if (userService.getUserByEmail(request.getEmail()) != null){
-            return null;
-            //TODO: Make an exception instead of null
+            throw new UserAlreadyExistsException("User with email '" + request.getEmail() + "' already exists!");
         }
 
         User checkUser = userService.getUserByPhoneNumber(request.getPhoneNumber());
@@ -47,8 +48,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
                 return saveUserAndGetAuthResponse(checkUser);
             }else {
-                return null;
-                //TODO: Make an exception instead of null
+                throw new UserAlreadyExistsException("User with email '" + request.getEmail() + "' already exists!");
             }
         }
 
@@ -93,13 +93,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         User persistentUser = userService.getUserByEmail(request.getEmail());
 
         if (persistentUser == null){
-            return null;
-            //TODO: Make an exception instead of null
+            throw new UserNotFoundException("User with email '" + request.getEmail() + "' not found!");
         }
 
         if (!passwordEncoder.matches(request.getPassword(), persistentUser.getPassword())){
-            return null;
-            //TODO: Make an exception instead of null
+            throw new UserNotFoundException("User with this password not found!");
         }
 
         authManager.authenticate(

@@ -1,7 +1,6 @@
 package org.example.entity;
 
 import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
-import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.example.entity.enums.Classification;
@@ -58,7 +57,7 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private Classification classification;
 
-    private boolean isLiquid;
+    private Boolean isLiquid;
 
     @Type(JsonBinaryType.class)
     @Column(columnDefinition = "jsonb")

@@ -33,7 +33,7 @@ public class User implements UserDetails {
     private boolean isEmailVerified;
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
-    private boolean enabled;
+    private Boolean enabled;
     private LocalDate birthdayDate;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Address> addresses;
