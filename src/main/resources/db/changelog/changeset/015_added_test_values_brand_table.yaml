@@ -176,7 +176,7 @@ databaseChangeLog:
                   value: "userTest"
               - column:
                   name: password
-                  value: "123456"
+                  value: "$2a$12$a4DVPwsyiTLHU3HQfsyFLO.FEHoeqRCG/qvfhDf0ieroLLw/H.K7m"
               - column:
                   name: user_role
                   value: "ADMIN"

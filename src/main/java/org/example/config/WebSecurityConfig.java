@@ -1,6 +1,7 @@
 package org.example.config;
 
 import lombok.RequiredArgsConstructor;
+import org.example.entity.enums.UserRole;
 import org.example.security.jwt.JwtAuthenticationFilter;
 import org.example.service.UserService;
 import org.springframework.context.annotation.Bean;
@@ -38,9 +39,9 @@ public class WebSecurityConfig {
 //                        .configurationSource(corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((requests) -> requests
+  //                              .requestMatchers("/admin").hasAuthority("ADMIN")
+  //                              .requestMatchers("/user").authenticated()
                                 .anyRequest().permitAll()
-//                        .requestMatchers("/", "/home").permitAll()
-//                        .anyRequest().authenticated()
                 )
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))

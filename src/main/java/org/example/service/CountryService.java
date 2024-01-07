@@ -10,4 +10,6 @@ public interface CountryService {
     Country getCountryById(Long id);
 
     List<Country> getAllCountriesByIds(List<Long> countriesMadeInIds);
+
+    Country addCountry(String countryName);
 }

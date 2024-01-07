@@ -10,6 +10,12 @@ type Query {
 
     getAllCountries: [Country]
 
+    getAllClassifications: [Classification]
+
+    getAllPaymentMethods: [PaymentMethod]
+
+    getAllSexes: [Sex]
+
     getAllProducts: [Product]
     getProductsByCategoryIds(categoryIds: [Long]!): [Product]
     getProductById(id: Long!): Product

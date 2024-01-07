@@ -27,4 +27,12 @@ public class CountryServiceImpl implements CountryService {
     public List<Country> getAllCountriesByIds(List<Long> countriesMadeInIds) {
         return countryRepository.findAllById(countriesMadeInIds);
     }
+
+    @Override
+    public Country addCountry(String countryName) {
+        Country country = Country.builder()
+                .name(countryName)
+                .build();
+        return countryRepository.save(country);
+    }
 }

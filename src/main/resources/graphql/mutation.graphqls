@@ -3,6 +3,8 @@ type Mutation{
 
     addCategory(categoryName: String!, parentCategoryId: Long): Category
 
+    addCountry(countryName: String!): Country
+
     registerUser(request: RegisterRequest!): AuthenticationResponse
 
     addProduct(product: NewProduct!): Product
