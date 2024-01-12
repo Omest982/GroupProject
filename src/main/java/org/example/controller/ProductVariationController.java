@@ -25,4 +25,16 @@ public class ProductVariationController {
     public ProductVariation addProductVariation(@Argument NewProductVariation productVariation){
         return productVariationService.addProductVariation(productVariation);
     }
+
+    @MutationMapping
+    public ProductVariation updateProductVariation(@Argument Long productVariationId,
+                                                   @Argument NewProductVariation updatedProductVariation){
+        return productVariationService.updateProductVariation(productVariationId,
+                updatedProductVariation);
+    }
+
+    @MutationMapping
+    public String deleteProductVariation(@Argument Long productVariationId){
+        return productVariationService.deleteProductVariation(productVariationId);
+    }
 }

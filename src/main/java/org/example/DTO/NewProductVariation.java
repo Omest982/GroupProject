@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class NewProductVariation {
     private String imageLink;
-    private Float amount;
+    private String variationName;
     private Long productId;
 }

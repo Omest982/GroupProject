@@ -48,4 +48,29 @@ public class CategoryServiceImpl implements CategoryService {
     public Category saveCategory(Category category) {
         return categoryRepository.save(category);
     }
+
+    @Override
+    public Category updateParentCategory(Long categoryId, Long parentCategoryId) {
+        Category category = getCategoryById(categoryId);
+        category.setParentCategoryId(parentCategoryId);
+        return saveCategory(category);
+    }
+
+    @Override
+    public Category addCategory(String categoryName, Long parentCategoryId) {
+        Category transientCategory = Category.builder()
+                .name(categoryName)
+                .parentCategoryId(parentCategoryId)
+                .build();
+        return saveCategory(transientCategory);
+    }
+
+    @Override
+    public String deleteCategory(Long categoryId) {
+        categoryRepository.deleteById(categoryId);
+        if (getCategoryById(categoryId) == null){
+            return "Successfully deleted category!";
+        }
+        return "Failed to delete category!";
+    }
 }

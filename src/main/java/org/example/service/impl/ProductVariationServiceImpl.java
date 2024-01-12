@@ -38,16 +38,39 @@ public class ProductVariationServiceImpl implements ProductVariationService {
 
     @Override
     public ProductVariation addProductVariation(NewProductVariation productVariation) {
-        Image variationImage = imageService.addImage(productVariation.getImageLink());
+        Image variationImage = imageService.addOrGetImage(productVariation.getImageLink());
         Product product = productService.getProductById(productVariation.getProductId());
 
         ProductVariation transientProductVariation = ProductVariation.builder()
                 .variationImage(variationImage)
-                .amount(productVariation.getAmount())
+                .variationName(productVariation.getVariationName())
                 .product(product)
                 .variationDetails(new ArrayList<>())
                 .build();
 
         return productVariationRepository.save(transientProductVariation);
+    }
+
+    @Override
+    public ProductVariation updateProductVariation(Long productVariationId, NewProductVariation updatedProductVariation) {
+        Image variationImage = imageService.addOrGetImage(updatedProductVariation.getImageLink());
+        Product product = productService.getProductById(updatedProductVariation.getProductId());
+
+        ProductVariation productVariation = getProductVariationById(productVariationId);
+
+        productVariation.setProduct(product);
+        productVariation.setVariationImage(variationImage);
+        productVariation.setVariationName(updatedProductVariation.getVariationName());
+
+        return productVariationRepository.save(productVariation);
+    }
+
+    @Override
+    public String deleteProductVariation(Long productVariationId) {
+        productVariationRepository.deleteById(productVariationId);
+        if (getProductVariationById(productVariationId) == null){
+            return "Successfully deleted product variation!";
+        }
+        return "Failed to delete product variation!";
     }
 }

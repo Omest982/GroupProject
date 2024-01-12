@@ -10,10 +10,14 @@ import java.util.List;
 public interface ProductService {
     List<Product> getAllProducts();
     Product getProductById(Long id);
-    List<Product> getAllProductsByCategories(List<Category> categories);
     List<Product> getAllProductsByBrand(Brand brand);
     List<Product> getAllProductsByBrands(List<Brand> brands);
     Product addProduct(NewProduct product);
     Product addImageToProduct(Long productId, String imageLink);
 
+    List<Product> getAllProductsByCategoryIds(List<Long> categoryIds);
+
+    Product updateProduct(Long productId, NewProduct updatedProduct);
+
+    String deleteProduct(Long productId);
 }

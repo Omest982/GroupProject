@@ -3,6 +3,7 @@ package org.example.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.example.DTO.NewOrder;
 import org.example.entity.User;
+import org.example.entity.enums.UserRole;
 import org.example.repository.UserRepository;
 import org.example.service.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -53,6 +54,7 @@ public class UserServiceImpl implements UserService {
                     .phoneNumber(order.getPhoneNumber())
                     .firstName(order.getFirstName())
                     .lastName(order.getLastName())
+                    .userRole(UserRole.CLIENT)
                     .isEmailVerified(false)
                     .enabled(true)
                     .build();

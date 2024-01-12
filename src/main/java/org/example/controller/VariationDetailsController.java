@@ -26,4 +26,16 @@ public class VariationDetailsController {
         return variationDetailsService.addVariationDetails(variationDetails);
     }
 
+    @MutationMapping
+    public VariationDetails updateVariationDetails(@Argument Long variationDetailsId,
+                                                   @Argument NewVariationDetails updatedVariationDetails){
+        return variationDetailsService.updateVariationDetails(variationDetailsId,
+                updatedVariationDetails);
+    }
+
+    @MutationMapping
+    public String deleteVariationDetails(@Argument Long variationDetailsId){
+        return variationDetailsService.deleteVariationDetails(variationDetailsId);
+    }
+
 }

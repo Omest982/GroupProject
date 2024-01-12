@@ -20,8 +20,8 @@ databaseChangeLog:
                     foreignKeyName: fk_product_variation_image
                     references: image(id)
               - column:
-                  name: amount
-                  type: float
+                  name: variation_name
+                  type: varchar(255)
               - column:
                   name: product_id
                   type: bigint

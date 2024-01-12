@@ -5,33 +5,42 @@ scalar Timestamp
 scalar Date
 
 type Query {
+    #Brand
     getBrandById(id: Long!): Brand
     getAllBrands: [Brand]
 
+    #Country
     getAllCountries: [Country]
 
+    #Enums
     getAllClassifications: [Classification]
-
     getAllPaymentMethods: [PaymentMethod]
-
+    getAllShippingFrom: [ShippingFrom]
     getAllSexes: [Sex]
 
+    #Product
     getAllProducts: [Product]
     getProductsByCategoryIds(categoryIds: [Long]!): [Product]
     getProductById(id: Long!): Product
 
+    #Order
     getAllOrdersByUserId(userId: Long!): [Order]
     getAllOrdersByUserPhoneNumber(userPhoneNumber: String!): [Order]
 
+    #User
     getAllUsers: [User]
     authenticateUser(request: AuthenticationRequest!): AuthenticationResponse
 
+    #Category
     getAllCategories: [Category]
     getCategoriesByCategoryParentId(parentCategoryId: Long!): [Category]
 
+    #ProductVariation
     getProductVariationsByProductId(productId: Long!): [ProductVariation]
 
+    #VariationDetails
     getVariationDetailsByProductVariationId(productVariationId: Long!): [VariationDetails]
 
+    #Mail
     sendActivationMail(mailParams: MailParams!): MailResponse
 }

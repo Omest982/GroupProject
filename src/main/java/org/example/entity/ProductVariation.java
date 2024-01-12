@@ -17,11 +17,11 @@ public class ProductVariation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id")
     private Image variationImage;
-    private Float amount;
-    @OneToMany(mappedBy = "productVariation", fetch = FetchType.LAZY)
+    private String variationName;
+    @OneToMany(mappedBy = "productVariation", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<VariationDetails> variationDetails;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")

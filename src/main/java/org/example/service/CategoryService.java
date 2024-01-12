@@ -19,4 +19,10 @@ public interface CategoryService {
     List<Category> getAllCategoriesByParentCategoryId(Long parentCategoryId);
 
     Category saveCategory(Category category);
+
+    Category updateParentCategory(Long categoryId, Long parentCategoryId);
+
+    Category addCategory(String categoryName, Long parentCategoryId);
+
+    String deleteCategory(Long categoryId);
 }

@@ -30,8 +30,45 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getAllProductsByCategories(List<Category> categories) {
-        return productRepository.findAllByCategoriesIn(categories);
+    public List<Product> getAllProductsByCategoryIds(List<Long> categoryIds) {
+        List<Category> categoryList = categoryService.getAllCategoriesByIds(categoryIds);
+        return productRepository.findAllByCategoriesIn(categoryList);
+    }
+
+    @Override
+    public Product updateProduct(Long productId, NewProduct updatedProduct) {
+        List<Category> categoryList = categoryService.getAllCategoriesByIds(updatedProduct.getCategoryIds());
+        Brand brand = brandService.getBrandById(updatedProduct.getBrandId());
+        List<Country> countriesMadeInList = countryService.getAllCountriesByIds(updatedProduct.getCountriesMadeInIds());
+        Country countryTradeMark = countryService.getCountryById(updatedProduct.getCountryTradeMarkId());
+        List<Image> images = imageService.addOrGetImages(updatedProduct.getImageLinks());
+
+        //TODO: Добавить проверки если null
+
+        Product product = getProductById(productId);
+
+        product.setName(updatedProduct.getName());
+        product.setImages(images);
+        product.setCategories(categoryList);
+        product.setBrand(brand);
+        product.setProductGroup(updatedProduct.getProductGroup());
+        product.setSex(updatedProduct.getSex());
+        product.setClassification(updatedProduct.getClassification());
+        product.setAdditionalInfo(updatedProduct.getAdditionalInfo());
+        product.setDescription(updatedProduct.getDescription());
+        product.setCountriesMadeIn(countriesMadeInList);
+        product.setCountryTradeMark(countryTradeMark);
+
+        return productRepository.save(product);
+    }
+
+    @Override
+    public String deleteProduct(Long productId) {
+        productRepository.deleteById(productId);
+        if (getProductById(productId) == null){
+            return "Successfully deleted product!";
+        }
+        return "Failed to delete product!";
     }
 
     @Override
@@ -50,7 +87,9 @@ public class ProductServiceImpl implements ProductService {
         Brand brand = brandService.getBrandById(product.getBrandId());
         List<Country> countriesMadeInList = countryService.getAllCountriesByIds(product.getCountriesMadeInIds());
         Country countryTradeMark = countryService.getCountryById(product.getCountryTradeMarkId());
-        List<Image> images = imageService.addImages(product.getImageLinks());
+        List<Image> images = imageService.addOrGetImages(product.getImageLinks());
+
+        //TODO: Добавить проверки если null
 
         Product transientProduct = Product.builder()
                 .name(product.getName())
@@ -60,7 +99,6 @@ public class ProductServiceImpl implements ProductService {
                 .productGroup(product.getProductGroup())
                 .sex(product.getSex())
                 .classification(product.getClassification())
-                .isLiquid(product.getIsLiquid())
                 .additionalInfo(product.getAdditionalInfo())
                 .description(product.getDescription())
                 .countriesMadeIn(countriesMadeInList)

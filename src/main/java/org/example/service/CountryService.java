@@ -12,4 +12,6 @@ public interface CountryService {
     List<Country> getAllCountriesByIds(List<Long> countriesMadeInIds);
 
     Country addCountry(String countryName);
+
+    String deleteCountry(Long countryId);
 }

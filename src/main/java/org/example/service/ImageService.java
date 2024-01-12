@@ -7,5 +7,10 @@ import java.util.List;
 public interface ImageService {
     Image addImage(String imageLink);
 
-    List<Image> addImages(List<String> imageLinks);
+    Image addOrGetImage(String imageLink);
+
+    List<Image> addOrGetImages(List<String> imageLinks);
+
+    Image getImageByImageLink(String imageLink);
+
 }

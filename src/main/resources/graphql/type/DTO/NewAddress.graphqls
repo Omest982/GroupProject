@@ -1,0 +1,6 @@
+input NewAddress {
+    region: String
+    city: String
+    street: String
+    house: String
+}

@@ -9,4 +9,6 @@ public interface BrandService {
     Brand getBrandById(Long id);
     Brand getBrandByName(String brandName);
     Brand addBrand(String brandName);
+
+    String deleteBrandById(Long brandId);
 }

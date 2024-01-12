@@ -4,19 +4,53 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.2.7&#10;Secured /admin and /user endpoints.&#10;Added queries and mutations.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/EnumController.java" afterDir="false" />
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.3.0&#10;Added variationName field in ProductVariation.&#10;Removed isLiquid field from Product.&#10;Added cascade.">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewAddress.graphqls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/BrandControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProductVariation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProductVariation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/BrandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CountryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CountryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/EnumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/EnumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductVariationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductVariationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/VariationDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/VariationDetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/ProductVariation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/ProductVariation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/ImageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/ImageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/BrandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/BrandService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/CountryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/CountryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/ProductVariationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductVariationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/VariationDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/VariationDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/BrandServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/BrandServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CountryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CountryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ImageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ImageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductVariationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductVariationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/VariationDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/VariationDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/007_create_product_variation_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/007_create_product_variation_table.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/015_added_test_values_brand_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/015_added_test_values_brand_table.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProduct.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProduct.graphqls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProductVariation.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProductVariation.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/Product.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/Product.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/ProductVariation.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/ProductVariation.graphqls" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704543283429</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="0.2.7&#10;Secured /admin and /user endpoints.&#10;Added queries and mutations.&#10;Fixed addProductVariation error.">
+      <created>1704664055277</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1704664055277</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -275,6 +316,7 @@
     <MESSAGE value="0.2.4&#10;Fixed @Arguments in Controllers.&#10;Changed loading order of liquibase.&#10;Fixed error with group in Product.&#10;Made more logic in AuthenticationServiceImpl register method." />
     <MESSAGE value="0.2.5&#10;Added new queries and mutations.&#10;Added logic for adding and getting orders.&#10;Added logic for adding orderDetails.&#10;Slightly renamed all .graphqls files." />
     <MESSAGE value="0.2.6&#10;Fixed issue with primitive data types.&#10;Created UserAlreadyExistsException and UserNotFoundException.&#10;Created GlobalExceptionHandler for handling exceptions." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.2.6&#10;Fixed issue with primitive data types.&#10;Created UserAlreadyExistsException and UserNotFoundException.&#10;Created GlobalExceptionHandler for handling exceptions." />
+    <MESSAGE value="0.2.7&#10;Secured /admin and /user endpoints.&#10;Added queries and mutations.&#10;Fixed addProductVariation error." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2.7&#10;Secured /admin and /user endpoints.&#10;Added queries and mutations.&#10;Fixed addProductVariation error." />
   </component>
 </project>

@@ -1,6 +1,7 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.example.DTO.NewAddress;
 import org.example.DTO.NewOrder;
 import org.example.DTO.NewOrderDetails;
 import org.example.entity.*;
@@ -55,11 +56,12 @@ public class OrderServiceImpl implements OrderService {
 
     private Address getPersistentAddress(Address transientAddress){
         Address persistantAddress = addressService.getAddressByAllFields(transientAddress);
+
         if (persistantAddress == null){
-            return null;
+            return addressService.saveAddress(transientAddress);
         }
 
-        return addressService.saveAddress(transientAddress);
+        return persistantAddress;
 
     }
 
@@ -110,6 +112,29 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Order> getAllOrdersByUserId(Long userId) {
         return orderRepository.findAllByUserId(userId);
+    }
+
+    @Override
+    public Order updateOrderAddress(Long orderId, NewAddress address) {
+        Order order = getOrderById(orderId);
+
+        Address orderAddress = Address.builder()
+                .region(address.getRegion())
+                .city(address.getCity())
+                .street(address.getStreet())
+                .house(address.getHouse())
+                .build();
+
+        Address persistantAddress = getPersistentAddress(orderAddress);
+
+        order.setAddress(persistantAddress);
+
+        return orderRepository.save(order);
+    }
+
+    @Override
+    public Order getOrderById(Long orderId) {
+        return orderRepository.findById(orderId).orElse(null);
     }
 
 

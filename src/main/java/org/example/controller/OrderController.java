@@ -1,8 +1,10 @@
 package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.DTO.NewAddress;
 import org.example.DTO.NewOrder;
 import org.example.DTO.NewOrderDetails;
+import org.example.entity.Address;
 import org.example.entity.Order;
 import org.example.service.OrderService;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -30,6 +32,11 @@ public class OrderController {
     @MutationMapping
     public Order addOrder(@Argument NewOrder order){
         return orderService.addOrder(order);
+    }
+
+    @MutationMapping
+    public Order updateOrderAddress(@Argument Long orderId, @Argument NewAddress address){
+        return orderService.updateOrderAddress(orderId, address);
     }
 
     @MutationMapping

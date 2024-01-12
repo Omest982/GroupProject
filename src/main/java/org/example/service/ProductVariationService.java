@@ -10,4 +10,8 @@ public interface ProductVariationService {
     ProductVariation getProductVariationById(Long productVariationId);
     List<ProductVariation> getAllProductVariationsByProductId(Long productId);
     ProductVariation addProductVariation(NewProductVariation productVariation);
+
+    ProductVariation updateProductVariation(Long productVariationId, NewProductVariation updatedProductVariation);
+
+    String deleteProductVariation(Long productVariationId);
 }

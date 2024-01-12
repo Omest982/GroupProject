@@ -4,7 +4,6 @@ input NewProduct {
     brandId: Long
     sex: Sex
     classification: Classification
-    isLiquid: Boolean
     additionalInfo: JSON
     countriesMadeInIds: [Long]
     countryTradeMarkId: Long

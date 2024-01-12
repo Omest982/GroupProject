@@ -1,19 +1,41 @@
 type Mutation{
+    #Brand
     addBrand(brandName: String!): Brand
+    deleteBrand(brandId: Long!): String
 
+    #Category
     addCategory(categoryName: String!, parentCategoryId: Long): Category
+    updateParentCategory(categoryId: Long!, parentCategoryId: Long!): Category
+    deleteCategory(categoryId: Long!): String
 
+    #Country
     addCountry(countryName: String!): Country
+    deleteCountry(countryId: Long!): String
 
+    #User
     registerUser(request: RegisterRequest!): AuthenticationResponse
 
+    #Product
     addProduct(product: NewProduct!): Product
+    updateProduct(productId: Long!, updatedProduct: NewProduct!): Product
+    deleteProduct(productId: Long!): String
     addImageToProduct(productId: Long!, imageLink: String!): Product
 
+    #ProductVariation
     addProductVariation(productVariation: NewProductVariation!): ProductVariation
+    updateProductVariation(productVariationId: Long!, updatedProductVariation: NewProductVariation!): ProductVariation
+    deleteProductVariation(productVariationId: Long!): String
 
+    #VariationDetails
     addVariationDetails(variationDetails: NewVariationDetails!): VariationDetails
+    updateVariationDetails(variationDetailsId: Long!, updatedVariationDetails: NewVariationDetails!): VariationDetails
+    deleteVariationDetails(variationDetailsId: Long!): String
 
+    #Order
     addOrder(order: NewOrder!): Order
-    addOrderDetails(orderDetails: NewOrderDetails!): Order
+    updateOrderAddress(orderId: Long!, address: NewAddress!): Order
+
+    #OrderDetails
+    addOrderDetails(orderDetails: NewOrderDetails!): OrderDetails
+    updateOrderDetails(orderDetailsId: Long, updatedOrderDetails: NewOrderDetails!): OrderDetails
 }

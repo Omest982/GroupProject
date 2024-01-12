@@ -24,4 +24,9 @@ public class CountryController {
     public Country addCountry(@Argument String countryName){
         return countryService.addCountry(countryName);
     }
+
+    @MutationMapping
+    public String deleteCountry(@Argument Long countryId){
+        return countryService.deleteCountry(countryId);
+    }
 }

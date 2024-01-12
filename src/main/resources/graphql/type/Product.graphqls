@@ -10,7 +10,6 @@ type Product {
     productStatus: ProductStatus
     sex: Sex
     classification: Classification
-    isLiquid: Boolean
     additionalInfo: JSON
     countriesMadeIn: [Country]
     countryTradeMark: Country

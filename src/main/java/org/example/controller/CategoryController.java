@@ -30,10 +30,16 @@ public class CategoryController {
 
     @MutationMapping
     public Category addCategory(@Argument String categoryName, @Argument Long parentCategoryId){
-        Category transientCategory = Category.builder()
-                .name(categoryName)
-                .parentCategoryId(parentCategoryId)
-                .build();
-        return categoryService.saveCategory(transientCategory);
+        return categoryService.addCategory(categoryName, parentCategoryId);
+    }
+
+    @MutationMapping
+    public Category updateParentCategory(@Argument Long categoryId, @Argument Long parentCategoryId){
+        return categoryService.updateParentCategory(categoryId, parentCategoryId);
+    }
+
+    @MutationMapping
+    public String deleteCategory(@Argument Long categoryId){
+        return categoryService.deleteCategory(categoryId);
     }
 }

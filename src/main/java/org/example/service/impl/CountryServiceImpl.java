@@ -35,4 +35,13 @@ public class CountryServiceImpl implements CountryService {
                 .build();
         return countryRepository.save(country);
     }
+
+    @Override
+    public String deleteCountry(Long countryId) {
+        countryRepository.deleteById(countryId);
+        if (getCountryById(countryId) == null){
+            return "Successfully deleted country!";
+        }
+        return "Failed to delete country!";
+    }
 }

@@ -82,17 +82,14 @@ databaseChangeLog:
                   name: classification
                   value: "ELITE"
               - column:
-                  name: is_liquid
-                  value: "true"
-              - column:
                   name: country_trade_mark_id
                   value: "1"
         - insert:
             tableName: product_variation
             columns:
               - column:
-                  name: amount
-                  value: "60"
+                  name: variation_name
+                  value: "60ml"
               - column:
                   name: image_id
                   value: "1"
@@ -103,8 +100,8 @@ databaseChangeLog:
             tableName: product_variation
             columns:
               - column:
-                  name: amount
-                  value: "200"
+                  name: variation_name
+                  value: "200ml"
               - column:
                   name: image_id
                   value: "2"
@@ -205,17 +202,14 @@ databaseChangeLog:
                   name: classification
                   value: "MASS_MARKET"
               - column:
-                  name: is_liquid
-                  value: "false"
-              - column:
                   name: country_trade_mark_id
                   value: "1"
         - insert:
             tableName: product_variation
             columns:
               - column:
-                  name: amount
-                  value: "1"
+                  name: variation_name
+                  value: "1шт"
               - column:
                   name: image_id
                   value: "3"

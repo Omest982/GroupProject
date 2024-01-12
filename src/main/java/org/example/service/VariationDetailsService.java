@@ -10,4 +10,8 @@ public interface VariationDetailsService {
     List<VariationDetails> getAllVariationDetailsByProductVariationId(Long productVariationId);
     VariationDetails getVariationDetailsById(Long variationDetailsId);
     VariationDetails addVariationDetails(NewVariationDetails variationDetails);
+
+    VariationDetails updateVariationDetails(Long variationDetailsId, NewVariationDetails updatedVariationDetails);
+
+    String deleteVariationDetails(Long variationDetailsId);
 }

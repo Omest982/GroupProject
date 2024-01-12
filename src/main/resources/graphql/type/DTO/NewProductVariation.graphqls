@@ -1,5 +1,5 @@
 input NewProductVariation{
     imageLink: String
-    amount: Float
+    variationName: String
     productId: Long
 }

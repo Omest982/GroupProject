@@ -47,4 +47,29 @@ public class VariationDetailsServiceImpl implements VariationDetailsService {
 
         return variationDetailsRepository.save(transientVariationDetails);
     }
+
+    @Override
+    public VariationDetails updateVariationDetails(Long variationDetailsId, NewVariationDetails updatedVariationDetails) {
+        ProductVariation productVariation = productVariationService.getProductVariationById(
+                updatedVariationDetails.getProductVariationId()
+        );
+
+        VariationDetails variationDetails = getVariationDetailsById(variationDetailsId);
+
+        variationDetails.setProductVariation(productVariation);
+        variationDetails.setSale(updatedVariationDetails.getSale());
+        variationDetails.setPrice(updatedVariationDetails.getPrice());
+        variationDetails.setShippingFrom(updatedVariationDetails.getShippingFrom());
+
+        return variationDetailsRepository.save(variationDetails);
+    }
+
+    @Override
+    public String deleteVariationDetails(Long variationDetailsId) {
+        variationDetailsRepository.deleteById(variationDetailsId);
+        if (getVariationDetailsById(variationDetailsId) == null){
+            return "Successfully deleted variation details!";
+        }
+        return "Failed to delete variation details!";
+    }
 }

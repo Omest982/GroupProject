@@ -1,6 +1,6 @@
 type ProductVariation {
     id: Long
     variationImage: Image
-    amount: Float
+    variationName: String
     variationDetails: [VariationDetails]
 }

@@ -2,7 +2,6 @@ package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.DTO.NewProduct;
-import org.example.entity.Category;
 import org.example.entity.Product;
 import org.example.service.CategoryService;
 import org.example.service.ProductService;
@@ -22,8 +21,7 @@ public class ProductController {
 
     @QueryMapping
     public List<Product> getProductsByCategoryIds(@Argument List<Long> categoryIds){
-        List<Category> categoryList = categoryService.getAllCategoriesByIds(categoryIds);
-        return productService.getAllProductsByCategories(categoryList);
+        return productService.getAllProductsByCategoryIds(categoryIds);
     }
 
     @QueryMapping
@@ -42,7 +40,18 @@ public class ProductController {
     }
 
     @MutationMapping
+    public Product updateProduct(@Argument Long productId, @Argument NewProduct updatedProduct){
+        return productService.updateProduct(productId, updatedProduct);
+    }
+
+    @MutationMapping
+    public String deleteProduct(@Argument Long productId){
+        return productService.deleteProduct(productId);
+    }
+
+    @MutationMapping
     public Product addImageToProduct(@Argument Long productId, @Argument String imageLink){
         return productService.addImageToProduct(productId, imageLink);
     }
+
 }

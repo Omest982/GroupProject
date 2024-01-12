@@ -29,10 +29,10 @@ public class Product {
 
     private String productGroup;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<ProductVariation> productVariations;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "products_images",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "image_id"))
@@ -56,8 +56,6 @@ public class Product {
 
     @Enumerated(EnumType.STRING)
     private Classification classification;
-
-    private Boolean isLiquid;
 
     @Type(JsonBinaryType.class)
     @Column(columnDefinition = "jsonb")

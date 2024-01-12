@@ -22,6 +22,11 @@ public class BrandController {
         return brandService.addBrand(brandName);
     }
 
+    @MutationMapping
+    public String deleteBrand(@Argument Long brandId){
+        return brandService.deleteBrandById(brandId);
+    }
+
     @QueryMapping
     public Brand getBrandById(@Argument Long id){
         return brandService.getBrandById(id);

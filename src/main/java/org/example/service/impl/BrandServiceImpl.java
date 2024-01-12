@@ -36,4 +36,13 @@ public class BrandServiceImpl implements BrandService {
                 .build();
         return brandRepository.save(transientBrand);
     }
+
+    @Override
+    public String deleteBrandById(Long brandId) {
+        brandRepository.deleteById(brandId);
+        if (getBrandById(brandId) == null){
+            return "Successfully deleted brand!";
+        }
+        return "Failed to delete brand!";
+    }
 }
