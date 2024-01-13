@@ -5,8 +5,11 @@ import org.example.entity.Category;
 import org.example.repository.CategoryRepository;
 import org.example.service.CategoryService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @Service
@@ -30,12 +33,12 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> getAllCategoriesByNames(List<String> names) {
+    public List<Category> getAllCategoriesByNames(Iterable<String> names) {
         return categoryRepository.findAllByNameIn(names);
     }
 
     @Override
-    public List<Category> getAllCategoriesByIds(List<Long> categoryIds) {
+    public List<Category> getAllCategoriesByIds(Iterable<Long> categoryIds) {
         return categoryRepository.findAllById(categoryIds);
     }
 
@@ -44,11 +47,13 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.findAllByParentCategoryId(parentCategoryId);
     }
 
+    @Transactional
     @Override
     public Category saveCategory(Category category) {
         return categoryRepository.save(category);
     }
 
+    @Transactional
     @Override
     public Category updateParentCategory(Long categoryId, Long parentCategoryId) {
         Category category = getCategoryById(categoryId);
@@ -56,6 +61,7 @@ public class CategoryServiceImpl implements CategoryService {
         return saveCategory(category);
     }
 
+    @Transactional
     @Override
     public Category addCategory(String categoryName, Long parentCategoryId) {
         Category transientCategory = Category.builder()
@@ -65,12 +71,10 @@ public class CategoryServiceImpl implements CategoryService {
         return saveCategory(transientCategory);
     }
 
+    @Transactional
     @Override
     public String deleteCategory(Long categoryId) {
         categoryRepository.deleteById(categoryId);
-        if (getCategoryById(categoryId) == null){
-            return "Successfully deleted category!";
-        }
-        return "Failed to delete category!";
+        return "Successfully deleted category!";
     }
 }

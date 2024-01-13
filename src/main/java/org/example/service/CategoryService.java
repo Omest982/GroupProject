@@ -2,7 +2,9 @@ package org.example.service;
 
 import org.example.entity.Category;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 public interface CategoryService {
 
@@ -12,9 +14,9 @@ public interface CategoryService {
 
     Category getCategoryByName(String categoryName);
 
-    List<Category> getAllCategoriesByNames(List<String> categoryNames);
+    List<Category> getAllCategoriesByNames(Iterable<String> categoryNames);
 
-    List<Category> getAllCategoriesByIds(List<Long> categoryIds);
+    List<Category> getAllCategoriesByIds(Iterable<Long> categoryIds);
 
     List<Category> getAllCategoriesByParentCategoryId(Long parentCategoryId);
 

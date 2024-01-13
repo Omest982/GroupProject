@@ -9,12 +9,14 @@ import org.example.service.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
+    @Transactional
     @Override
     public User saveUser(User user){
         return userRepository.save(user);
@@ -45,6 +47,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByEmail(email);
     }
 
+    @Transactional
     @Override
     public User checkIfUserExistsByNewOrderShortInfo(NewOrder order) {
         User user = getUserByPhoneNumber(order.getPhoneNumber());

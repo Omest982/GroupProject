@@ -13,6 +13,7 @@ import org.example.service.OrderService;
 import org.example.service.UserService;
 import org.example.service.VariationDetailsService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -29,6 +30,7 @@ public class OrderServiceImpl implements OrderService {
     private final UserService userService;
 
 
+    @Transactional
     @Override
     public Order addOrder(NewOrder order) {
         Address orderAddress = Address.builder()
@@ -48,7 +50,6 @@ public class OrderServiceImpl implements OrderService {
                 .userComment(order.getUserComment())
                 .orderStatus(OrderStatus.IN_PROGRESS)
                 .address(persistantAddress)
-                .orderDetails(new ArrayList<>())
                 .build();
 
         return orderRepository.save(transientOrder);
@@ -65,6 +66,7 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
+    @Transactional
     @Override
     public Order addOrderDetails(NewOrderDetails orderDetails) {
         Order order = orderRepository.findById(orderDetails.getOrderId()).orElse(null);
@@ -114,6 +116,7 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findAllByUserId(userId);
     }
 
+    @Transactional
     @Override
     public Order updateOrderAddress(Long orderId, NewAddress address) {
         Order order = getOrderById(orderId);

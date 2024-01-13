@@ -1,4 +1,35 @@
 package org.example.controller;
 
+import graphql.Assert;
+import org.example.entity.Brand;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.graphql.tester.AutoConfigureGraphQlTester;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.graphql.test.tester.GraphQlTester;
+
+@AutoConfigureGraphQlTester
+@SpringBootTest
 public class BrandControllerTest {
+    @Autowired
+    private GraphQlTester graphQlTester;
+    @Test
+    void shouldAddAndReturnBrand(){
+        graphQlTester.documentName("brand-mutation")
+                .variable("brandName", "Loui")
+                .execute()
+                .path("addBrand")
+                .entity(Brand.class)
+                .satisfies(brand -> {
+                    Assertions.assertEquals("Loui", brand.getName());
+                });
+
+        graphQlTester.documentName("brand-query")
+                .variable("id", 1)
+                .execute()
+                .path("getBrandById.name")
+                .entity(String.class)
+                .isEqualTo("Gucci");
+    }
 }

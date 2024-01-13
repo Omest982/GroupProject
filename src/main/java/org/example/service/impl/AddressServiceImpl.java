@@ -5,6 +5,7 @@ import org.example.entity.Address;
 import org.example.repository.AddressRepository;
 import org.example.service.AddressService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +21,7 @@ public class AddressServiceImpl implements AddressService {
         );
     }
 
+    @Transactional
     @Override
     public Address saveAddress(Address transientAddress) {
         return addressRepository.save(transientAddress);

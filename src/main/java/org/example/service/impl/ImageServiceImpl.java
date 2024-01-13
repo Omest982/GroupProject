@@ -5,15 +5,18 @@ import org.example.entity.Image;
 import org.example.repository.ImageRepository;
 import org.example.service.ImageService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class ImageServiceImpl implements ImageService {
     private final ImageRepository imageRepository;
 
+    @Transactional
     @Override
     public Image addImage(String imageLink) {
          Image transientImage = Image.builder()
@@ -22,6 +25,7 @@ public class ImageServiceImpl implements ImageService {
          return imageRepository.save(transientImage);
     }
 
+    @Transactional
     @Override
     public Image addOrGetImage(String imageLink) {
         Image image = getImageByImageLink(imageLink);
@@ -31,8 +35,9 @@ public class ImageServiceImpl implements ImageService {
         return image;
     }
 
+    @Transactional
     @Override
-    public List<Image> addOrGetImages(List<String> imageLinks) {
+    public List<Image> addOrGetImages(Set<String> imageLinks) {
         List<Image> imageList = new ArrayList<>();
 
         for (String imageLink: imageLinks){

@@ -1,0 +1,6 @@
+query get_brand($id: Long!) {
+    getBrandById(id: $id){
+        id
+        name
+    }
+}

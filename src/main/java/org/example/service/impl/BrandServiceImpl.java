@@ -5,6 +5,7 @@ import org.example.entity.Brand;
 import org.example.repository.BrandRepository;
 import org.example.service.BrandService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class BrandServiceImpl implements BrandService {
         return brandRepository.findByName(name);
     }
 
+    @Transactional
     @Override
     public Brand addBrand(String name) {
         Brand transientBrand = Brand.builder()
@@ -37,12 +39,10 @@ public class BrandServiceImpl implements BrandService {
         return brandRepository.save(transientBrand);
     }
 
+    @Transactional
     @Override
     public String deleteBrandById(Long brandId) {
         brandRepository.deleteById(brandId);
-        if (getBrandById(brandId) == null){
-            return "Successfully deleted brand!";
-        }
-        return "Failed to delete brand!";
+        return "Successfully deleted brand!";
     }
 }

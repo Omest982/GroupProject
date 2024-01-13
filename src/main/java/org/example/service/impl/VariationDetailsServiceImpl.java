@@ -8,6 +8,7 @@ import org.example.repository.VariationDetailsRepository;
 import org.example.service.ProductVariationService;
 import org.example.service.VariationDetailsService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class VariationDetailsServiceImpl implements VariationDetailsService {
         return variationDetailsRepository.findById(variationDetailsId).orElse(null);
     }
 
+    @Transactional
     @Override
     public VariationDetails addVariationDetails(NewVariationDetails variationDetails) {
         ProductVariation productVariation = productVariationService.getProductVariationById(
@@ -48,6 +50,7 @@ public class VariationDetailsServiceImpl implements VariationDetailsService {
         return variationDetailsRepository.save(transientVariationDetails);
     }
 
+    @Transactional
     @Override
     public VariationDetails updateVariationDetails(Long variationDetailsId, NewVariationDetails updatedVariationDetails) {
         ProductVariation productVariation = productVariationService.getProductVariationById(
@@ -64,12 +67,10 @@ public class VariationDetailsServiceImpl implements VariationDetailsService {
         return variationDetailsRepository.save(variationDetails);
     }
 
+    @Transactional
     @Override
     public String deleteVariationDetails(Long variationDetailsId) {
         variationDetailsRepository.deleteById(variationDetailsId);
-        if (getVariationDetailsById(variationDetailsId) == null){
-            return "Successfully deleted variation details!";
-        }
-        return "Failed to delete variation details!";
+        return "Successfully deleted variation details!";
     }
 }

@@ -9,7 +9,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -36,7 +38,7 @@ public class User implements UserDetails {
     private Boolean enabled;
     private LocalDate birthdayDate;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Address> addresses;
+    private Set<Address> addresses = new HashSet<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

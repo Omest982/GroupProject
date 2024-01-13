@@ -10,7 +10,9 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @Controller
@@ -20,7 +22,7 @@ public class ProductController {
     private final CategoryService categoryService;
 
     @QueryMapping
-    public List<Product> getProductsByCategoryIds(@Argument List<Long> categoryIds){
+    public List<Product> getProductsByCategoryIds(@Argument Iterable<Long> categoryIds){
         return productService.getAllProductsByCategoryIds(categoryIds);
     }
 

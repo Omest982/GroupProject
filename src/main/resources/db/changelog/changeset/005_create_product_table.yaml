@@ -38,9 +38,6 @@ databaseChangeLog:
                   name: classification
                   type: varchar(255)
               - column:
-                  name: is_liquid
-                  type: boolean
-              - column:
                   name: description
                   type: text
               - column:

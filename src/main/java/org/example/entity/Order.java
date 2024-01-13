@@ -9,7 +9,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -40,6 +42,6 @@ public class Order {
     @JoinColumn(name = "address_id")
     private Address address;
     @OneToMany(mappedBy = "order")
-    private List<OrderDetails> orderDetails;
+    private Set<OrderDetails> orderDetails = new HashSet<>();
 
 }

@@ -8,8 +8,7 @@ import org.example.entity.enums.ProductStatus;
 import org.example.entity.enums.Sex;
 import org.hibernate.annotations.Type;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @Setter
@@ -18,7 +17,6 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@ToString
 @Table(name = "product")
 public class Product {
     @Id
@@ -29,20 +27,27 @@ public class Product {
 
     private String productGroup;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<ProductVariation> productVariations;
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    //TODO: Разобраться почему не работает Set вместо List
+    private List<ProductVariation> productVariations = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "products_images",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "image_id"))
-    private List<Image> images;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JoinTable(
+            name = "products_images",
+            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "image_id", referencedColumnName = "id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"product_id", "image_id"})
+    )
+    private Set<Image> images = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "products_categories",
-        joinColumns = @JoinColumn(name = "product_id"),
-        inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private List<Category> categories;
+    @JoinTable(
+            name = "products_categories",
+            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"product_id", "category_id"})
+    )
+    private Set<Category> categories = new HashSet<>();
 
     @OneToOne
     @JoinColumn(name = "brand_id")
@@ -59,15 +64,17 @@ public class Product {
 
     @Type(JsonBinaryType.class)
     @Column(columnDefinition = "jsonb")
-    private Map<String, Object> additionalInfo;
+    private Map<String, Object> additionalInfo = new HashMap<>();
 
     private String description;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "products_countries_made_in",
+    @JoinTable(
+            name = "products_countries_made_in",
             joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "country_id"))
-    private List<Country> countriesMadeIn;
+            inverseJoinColumns = @JoinColumn(name = "country_id")
+    )
+    private Set<Country> countriesMadeIn = new HashSet<>();
 
     @OneToOne
     @JoinColumn(name = "country_trade_mark_id")

@@ -10,6 +10,7 @@ import org.example.service.ImageService;
 import org.example.service.ProductService;
 import org.example.service.ProductVariationService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,7 @@ public class ProductVariationServiceImpl implements ProductVariationService {
         return productVariationRepository.findAllByProductId(productId);
     }
 
+    @Transactional
     @Override
     public ProductVariation addProductVariation(NewProductVariation productVariation) {
         Image variationImage = imageService.addOrGetImage(productVariation.getImageLink());
@@ -45,12 +47,12 @@ public class ProductVariationServiceImpl implements ProductVariationService {
                 .variationImage(variationImage)
                 .variationName(productVariation.getVariationName())
                 .product(product)
-                .variationDetails(new ArrayList<>())
                 .build();
 
         return productVariationRepository.save(transientProductVariation);
     }
 
+    @Transactional
     @Override
     public ProductVariation updateProductVariation(Long productVariationId, NewProductVariation updatedProductVariation) {
         Image variationImage = imageService.addOrGetImage(updatedProductVariation.getImageLink());
@@ -65,12 +67,10 @@ public class ProductVariationServiceImpl implements ProductVariationService {
         return productVariationRepository.save(productVariation);
     }
 
+    @Transactional
     @Override
     public String deleteProductVariation(Long productVariationId) {
         productVariationRepository.deleteById(productVariationId);
-        if (getProductVariationById(productVariationId) == null){
-            return "Successfully deleted product variation!";
-        }
-        return "Failed to delete product variation!";
+        return "Successfully deleted product variation!";
     }
 }

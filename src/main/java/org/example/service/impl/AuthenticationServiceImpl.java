@@ -16,6 +16,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -29,6 +30,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authManager;
+    @Transactional
     @Override
     public AuthenticationResponse register(RegisterRequest request) {
 
@@ -44,7 +46,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 checkUser.setEmail(request.getEmail());
                 checkUser.setFirstName(request.getFirstName());
                 checkUser.setLastName(request.getLastName());
-                checkUser.setAddresses(new ArrayList<>());
                 checkUser.setBirthdayDate(getParsedBirthdayDate(request));
                 checkUser.setPassword(passwordEncoder.encode(request.getPassword()));
                 checkUser.setUserRole(UserRole.CLIENT);
@@ -66,7 +67,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .isEmailVerified(false)
                 .userRole(UserRole.CLIENT)
                 .enabled(true)
-                .addresses(new ArrayList<>())
                 .build();
 
         return saveUserAndGetAuthResponse(transientUser);
@@ -91,6 +91,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         return birthdayDate;
     }
 
+    @Transactional
     @Override
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
 

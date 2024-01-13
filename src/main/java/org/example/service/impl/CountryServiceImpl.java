@@ -5,6 +5,7 @@ import org.example.entity.Country;
 import org.example.repository.CountryRepository;
 import org.example.service.CountryService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -24,10 +25,11 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public List<Country> getAllCountriesByIds(List<Long> countriesMadeInIds) {
+    public List<Country> getAllCountriesByIds(Iterable<Long> countriesMadeInIds) {
         return countryRepository.findAllById(countriesMadeInIds);
     }
 
+    @Transactional
     @Override
     public Country addCountry(String countryName) {
         Country country = Country.builder()
@@ -36,12 +38,10 @@ public class CountryServiceImpl implements CountryService {
         return countryRepository.save(country);
     }
 
+    @Transactional
     @Override
     public String deleteCountry(Long countryId) {
         countryRepository.deleteById(countryId);
-        if (getCountryById(countryId) == null){
-            return "Successfully deleted country!";
-        }
-        return "Failed to delete country!";
+        return "Successfully deleted country!";
     }
 }

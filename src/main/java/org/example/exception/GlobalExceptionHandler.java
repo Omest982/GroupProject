@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.exception;
 
 import graphql.GraphQLError;
 import org.example.exception.UserAlreadyExistsException;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @GraphQlExceptionHandler
-    public GraphQLError handle(UserAlreadyExistsException ex) {
+    public GraphQLError handle(EntityAlreadyExistsException ex) {
         return GraphQLError.newError()
                 .errorType(ErrorType.BAD_REQUEST)
                 .message(ex.getMessage())
@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
     }
 
     @GraphQlExceptionHandler
-    public GraphQLError handle(UserNotFoundException ex) {
+    public GraphQLError handle(EntityNotFoundException ex) {
         return GraphQLError.newError()
                 .errorType(ErrorType.BAD_REQUEST)
                 .message(ex.getMessage())

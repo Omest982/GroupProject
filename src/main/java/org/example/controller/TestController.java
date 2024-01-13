@@ -1,19 +1,22 @@
 package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.example.entity.Product;
+import org.example.service.ProductService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
-@RequestMapping("/test")
+import java.util.List;
+
 @RestController
+@RequestMapping("/test")
+@RequiredArgsConstructor
 public class TestController {
-    @GetMapping
-    public String testMethod(){
-        String test = "12345-6789";
-        return test.substring(5);
+    private final ProductService productService;
+
+    @GetMapping("/getAllProducts")
+    public List<Product> getAllProducts(){
+        return productService.getAllProducts();
     }
 }
