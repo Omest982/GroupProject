@@ -3,6 +3,7 @@ package org.example.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.example.DTO.NewProduct;
 import org.example.entity.*;
+import org.example.exception.EntityNotFoundException;
 import org.example.repository.ProductRepository;
 import org.example.service.*;
 import org.springframework.stereotype.Service;
@@ -44,8 +45,6 @@ public class ProductServiceImpl implements ProductService {
         List<Country> countriesMadeInList = countryService.getAllCountriesByIds(updatedProduct.getCountriesMadeInIds());
         Country countryTradeMark = countryService.getCountryById(updatedProduct.getCountryTradeMarkId());
         List<Image> images = imageService.addOrGetImages(updatedProduct.getImageLinks());
-
-        //TODO: Добавить проверки если null
 
         Product product = getProductById(productId);
 
@@ -89,8 +88,6 @@ public class ProductServiceImpl implements ProductService {
         List<Country> countriesMadeInList = countryService.getAllCountriesByIds(product.getCountriesMadeInIds());
         Country countryTradeMark = countryService.getCountryById(product.getCountryTradeMarkId());
         List<Image> images = imageService.addOrGetImages(product.getImageLinks());
-
-        //TODO: Добавить проверки если null
 
         Product transientProduct = Product.builder()
                 .name(product.getName())

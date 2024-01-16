@@ -1,7 +1,9 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.example.DTO.NewAddress;
 import org.example.DTO.NewOrder;
+import org.example.entity.Address;
 import org.example.entity.User;
 import org.example.entity.enums.UserRole;
 import org.example.repository.UserRepository;
@@ -67,5 +69,4 @@ public class UserServiceImpl implements UserService {
 
         return user;
     }
-
 }

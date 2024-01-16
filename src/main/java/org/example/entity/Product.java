@@ -23,8 +23,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private String productGroup;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -34,8 +36,8 @@ public class Product {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "products_images",
-            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "image_id", referencedColumnName = "id"),
+            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "image_id", referencedColumnName = "id", nullable = false),
             uniqueConstraints = @UniqueConstraint(columnNames = {"product_id", "image_id"})
     )
     private Set<Image> images = new HashSet<>();
@@ -43,23 +45,26 @@ public class Product {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "products_categories",
-            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"),
+            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false),
             uniqueConstraints = @UniqueConstraint(columnNames = {"product_id", "category_id"})
     )
     private Set<Category> categories = new HashSet<>();
 
     @OneToOne
-    @JoinColumn(name = "brand_id")
+    @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private ProductStatus productStatus;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Sex sex;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Classification classification;
 
     @Type(JsonBinaryType.class)
@@ -71,12 +76,12 @@ public class Product {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "products_countries_made_in",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "country_id")
+            joinColumns = @JoinColumn(name = "product_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "country_id", nullable = false)
     )
     private Set<Country> countriesMadeIn = new HashSet<>();
 
     @OneToOne
-    @JoinColumn(name = "country_trade_mark_id")
+    @JoinColumn(name = "country_trade_mark_id", nullable = false)
     private Country countryTradeMark;
 }

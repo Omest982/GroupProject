@@ -30,8 +30,8 @@ public class OrderController {
     }
 
     @MutationMapping
-    public Order addOrder(@Argument NewOrder order){
-        return orderService.addOrder(order);
+    public Order addOrder(@Argument NewAddress address, @Argument NewOrder orderInfo){
+        return orderService.addOrder(address, orderInfo);
     }
 
     @MutationMapping

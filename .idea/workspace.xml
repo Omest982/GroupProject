@@ -4,13 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.3.1&#10;Added more abstract exceptions.&#10;Added @Transactional annotations.&#10;Changed List to Set in Entities (not everywhere).">
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.3.2&#10;Fixed error with Iterable in NewProduct(changed Iterable to Collection).&#10;Fixed error with LocalDateTime in Order(changed LocalDateTime to Timestamp).&#10;Figured out error with deletion of Product(fixed test values in db).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/GraphQLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/ProductVariation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/ProductVariation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/015_added_test_values_brand_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/015_added_test_values_brand_table.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/AddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/AddressServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/AddressServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewOrder.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewOrder.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/BrandControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/BrandControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +75,7 @@
       <recent name="G:\Коды\GroupProject\src\main\java\org\example" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Коды\GroupProject\src\main\resources\db\changelog\changeset" />
       <recent name="G:\Коды\GroupProject\src\main\resources\db\changelog" />
       <recent name="G:\Коды\GroupProject\src\test\resources\graphql-test" />
       <recent name="G:\Коды\GroupProject\src\main\resources\graphql\type" />
@@ -286,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705188859870</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="0.3.2&#10;Fixed error with Iterable in NewProduct(changed Iterable to Collection).&#10;Fixed error with LocalDateTime in Order(changed LocalDateTime to Timestamp).&#10;Figured out error with deletion of Product(fixed test values in db).">
+      <created>1705408760493</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1705408760493</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -345,6 +363,7 @@
     <MESSAGE value="0.2.7&#10;Secured /admin and /user endpoints.&#10;Added queries and mutations.&#10;Fixed addProductVariation error." />
     <MESSAGE value="0.3.0&#10;Added variationName field in ProductVariation.&#10;Removed isLiquid field from Product.&#10;Added cascade.&#10;Added mutations." />
     <MESSAGE value="0.3.1&#10;Added more abstract exceptions.&#10;Added @Transactional annotations.&#10;Changed List to Set in Entities (not everywhere)." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.3.1&#10;Added more abstract exceptions.&#10;Added @Transactional annotations.&#10;Changed List to Set in Entities (not everywhere)." />
+    <MESSAGE value="0.3.2&#10;Fixed error with Iterable in NewProduct(changed Iterable to Collection).&#10;Fixed error with LocalDateTime in Order(changed LocalDateTime to Timestamp).&#10;Figured out error with deletion of Product(fixed test values in db)." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.3.2&#10;Fixed error with Iterable in NewProduct(changed Iterable to Collection).&#10;Fixed error with LocalDateTime in Order(changed LocalDateTime to Timestamp).&#10;Figured out error with deletion of Product(fixed test values in db)." />
   </component>
 </project>

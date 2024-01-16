@@ -1,6 +1,8 @@
 package org.example.service;
 
+import org.example.DTO.NewAddress;
 import org.example.DTO.NewOrder;
+import org.example.entity.Address;
 import org.example.entity.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 

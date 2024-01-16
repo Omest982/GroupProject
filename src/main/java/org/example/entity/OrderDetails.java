@@ -18,11 +18,12 @@ public class OrderDetails{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "order_id", nullable = false)
     private Order order;
     @OneToOne
-    @JoinColumn(name = "variation_details_id")
+    @JoinColumn(name = "variation_details_id", nullable = false)
     private VariationDetails variationDetails;
+    @Column(nullable = false)
     private Integer quantity;
     private BigDecimal totalDetailPrice;
 }

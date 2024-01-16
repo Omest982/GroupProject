@@ -14,6 +14,7 @@ type Mutation{
 
     #User
     registerUser(request: RegisterRequest!): AuthenticationResponse
+    addUserAddress(userId: Long,address: NewAddress!): Address
 
     #Product
     addProduct(product: NewProduct!): Product
@@ -32,10 +33,10 @@ type Mutation{
     deleteVariationDetails(variationDetailsId: Long!): String
 
     #Order
-    addOrder(order: NewOrder!): Order
+    addOrder(address: NewAddress!, orderInfo: NewOrder!): Order
     updateOrderAddress(orderId: Long!, address: NewAddress!): Order
 
     #OrderDetails
-    addOrderDetails(orderDetails: NewOrderDetails!): OrderDetails
-    updateOrderDetails(orderDetailsId: Long, updatedOrderDetails: NewOrderDetails!): OrderDetails
+    addOrderDetails(orderDetails: NewOrderDetails!): Order
+    #updateOrderDetails(orderDetailsId: Long, updatedOrderDetails: NewOrderDetails!): OrderDetails
 }

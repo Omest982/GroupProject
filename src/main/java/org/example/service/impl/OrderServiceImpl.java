@@ -6,6 +6,8 @@ import org.example.DTO.NewOrder;
 import org.example.DTO.NewOrderDetails;
 import org.example.entity.*;
 import org.example.entity.enums.OrderStatus;
+import org.example.exception.EntityNotFoundException;
+import org.example.exception.UserNotFoundException;
 import org.example.repository.OrderDetailsRepository;
 import org.example.repository.OrderRepository;
 import org.example.service.AddressService;
@@ -32,15 +34,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Transactional
     @Override
-    public Order addOrder(NewOrder order) {
-        Address orderAddress = Address.builder()
-                .region(order.getRegion())
-                .city(order.getCity())
-                .street(order.getStreet())
-                .house(order.getHouse())
-                .build();
+    public Order addOrder(NewAddress address, NewOrder order) {
 
-        Address persistantAddress = getPersistentAddress(orderAddress);
+        Address persistantAddress = addressService.addOrGetAddress(address);
 
         User user = userService.checkIfUserExistsByNewOrderShortInfo(order);
 
@@ -50,46 +46,22 @@ public class OrderServiceImpl implements OrderService {
                 .userComment(order.getUserComment())
                 .orderStatus(OrderStatus.IN_PROGRESS)
                 .address(persistantAddress)
+                .sum(BigDecimal.valueOf(0))
                 .build();
 
         return orderRepository.save(transientOrder);
     }
 
-    private Address getPersistentAddress(Address transientAddress){
-        Address persistantAddress = addressService.getAddressByAllFields(transientAddress);
-
-        if (persistantAddress == null){
-            return addressService.saveAddress(transientAddress);
-        }
-
-        return persistantAddress;
-
-    }
-
     @Transactional
     @Override
     public Order addOrderDetails(NewOrderDetails orderDetails) {
-        Order order = orderRepository.findById(orderDetails.getOrderId()).orElse(null);
-
-        if (order == null){
-            return null;
-        }
+        Order order = getOrderById(orderDetails.getOrderId());
 
         VariationDetails variationDetails = variationDetailsService.getVariationDetailsById(
                 orderDetails.getVariationDetailsId()
         );
 
-        if (variationDetails == null){
-            return null;
-        }
-
-        BigDecimal sum = variationDetails.getPrice()
-                .multiply(BigDecimal.valueOf(orderDetails.getQuantity()));
-
-        BigDecimal sale = sum.multiply(variationDetails.getSale())
-                .divide(BigDecimal.valueOf(100), 0, RoundingMode.HALF_DOWN);
-
-        BigDecimal finalSum = sum.subtract(sale);
+        BigDecimal finalSum = getOrderDetailsSum(variationDetails, orderDetails);
 
         OrderDetails transientOrderDetails = OrderDetails.builder()
                 .order(order)
@@ -105,9 +77,27 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.save(order);
     }
 
+    private BigDecimal getOrderDetailsSum(VariationDetails variationDetails,
+                                   NewOrderDetails newOrderDetails){
+
+        BigDecimal sum = variationDetails.getPrice()
+                .multiply(BigDecimal.valueOf(newOrderDetails.getQuantity()));
+
+        BigDecimal sale = sum.multiply(variationDetails.getSale())
+                .divide(BigDecimal.valueOf(100), 0, RoundingMode.HALF_DOWN);
+
+        return sum.subtract(sale);
+    }
+
     @Override
     public List<Order> getAllOrdersByUserPhoneNumber(String userPhoneNumber) {
         User user = userService.getUserByPhoneNumber(userPhoneNumber);
+
+        if (user == null){
+            throw new UserNotFoundException("User with phone number " +
+                    userPhoneNumber + " not found!");
+        }
+
         return getAllOrdersByUserId(user.getId());
     }
 
@@ -121,14 +111,7 @@ public class OrderServiceImpl implements OrderService {
     public Order updateOrderAddress(Long orderId, NewAddress address) {
         Order order = getOrderById(orderId);
 
-        Address orderAddress = Address.builder()
-                .region(address.getRegion())
-                .city(address.getCity())
-                .street(address.getStreet())
-                .house(address.getHouse())
-                .build();
-
-        Address persistantAddress = getPersistentAddress(orderAddress);
+        Address persistantAddress = addressService.addOrGetAddress(address);
 
         order.setAddress(persistantAddress);
 
@@ -139,6 +122,4 @@ public class OrderServiceImpl implements OrderService {
     public Order getOrderById(Long orderId) {
         return orderRepository.findById(orderId).orElse(null);
     }
-
-
 }

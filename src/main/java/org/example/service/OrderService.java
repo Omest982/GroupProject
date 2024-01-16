@@ -9,7 +9,7 @@ import org.example.entity.Order;
 import java.util.List;
 
 public interface OrderService {
-    Order addOrder(NewOrder order);
+    Order addOrder(NewAddress address, NewOrder order);
 
     Order addOrderDetails(NewOrderDetails orderDetails);
 

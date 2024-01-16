@@ -25,16 +25,19 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String firstName;
+    @Column(nullable = false)
     private String lastName;
     @Column(unique = true)
     private String email;
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String phoneNumber;
     private String password;
-    private boolean isEmailVerified;
+    private Boolean isEmailVerified;
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
+    @Column(nullable = false)
     private Boolean enabled;
     private LocalDate birthdayDate;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")

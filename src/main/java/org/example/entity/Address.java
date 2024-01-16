@@ -20,6 +20,6 @@ public class Address {
     private String street;
     private String house;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 }

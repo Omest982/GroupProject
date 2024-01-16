@@ -10,23 +10,24 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.graphql.test.tester.GraphQlTester;
 
 @AutoConfigureGraphQlTester
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 public class BrandControllerTest {
     @Autowired
     private GraphQlTester graphQlTester;
     @Test
     void shouldAddAndReturnBrand(){
-        graphQlTester.documentName("brand-mutation")
+        Brand brandTest = graphQlTester.documentName("brand-mutation")
                 .variable("brandName", "Loui")
                 .execute()
                 .path("addBrand")
                 .entity(Brand.class)
                 .satisfies(brand -> {
                     Assertions.assertEquals("Loui", brand.getName());
-                });
+                })
+                .get();
 
         graphQlTester.documentName("brand-query")
-                .variable("id", 1)
+                .variable("id", brandTest.getId())
                 .execute()
                 .path("getBrandById.name")
                 .entity(String.class)
