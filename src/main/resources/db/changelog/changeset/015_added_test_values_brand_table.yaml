@@ -148,24 +148,6 @@ databaseChangeLog:
                   name: category_id
                   value: "1"
         - insert:
-            tableName: products_images
-            columns:
-              - column:
-                  name: product_id
-                  value: "1"
-              - column:
-                  name: image_id
-                  value: "1"
-        - insert:
-            tableName: products_images
-            columns:
-              - column:
-                  name: product_id
-                  value: "1"
-              - column:
-                  name: image_id
-                  value: "2"
-        - insert:
             tableName: users
             columns:
               - column:
@@ -255,13 +237,4 @@ databaseChangeLog:
               - column:
                   name: category_id
                   value: "2"
-        - insert:
-            tableName: products_images
-            columns:
-              - column:
-                  name: product_id
-                  value: "1"
-              - column:
-                  name: image_id
-                  value: "3"
 

@@ -8,9 +8,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -26,9 +25,9 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @CreationTimestamp
-    private LocalDateTime created;
+    private Timestamp created;
     @UpdateTimestamp
-    private LocalDateTime updated;
+    private Timestamp updated;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

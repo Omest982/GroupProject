@@ -27,11 +27,11 @@ public class Product {
 
     private String productGroup;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     //TODO: Разобраться почему не работает Set вместо List
     private List<ProductVariation> productVariations = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "products_images",
             joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
