@@ -18,7 +18,7 @@ public class VerificationServiceImpl implements VerificationService {
 
         User persistentUser = userService.getUserById(id);
 
-        persistentUser.setEmailVerified(true);
+        persistentUser.setIsEmailVerified(true);
 
         return userService.saveUser(persistentUser);
     }

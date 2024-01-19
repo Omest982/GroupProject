@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-product-variation-table
+      author: Ivan Poberezhets
+      changes:
+        - createTable: # создаем таблицу product_variation
+            tableName: product_variation
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: image_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_product_variation_image
+                    references: image(id)
+              - column:
+                  name: variation_name
+                  type: varchar(255)
+              - column:
+                  name: product_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_product_variation_product
+                    references: product(id)

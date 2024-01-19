@@ -8,6 +8,7 @@ input NewProduct {
     countriesMadeInIds: [Long]
     countryTradeMarkId: Long
     productGroup: String
+    productStatus: ProductStatus
     description: String
     imageLinks: [String]
 }

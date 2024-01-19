@@ -1,8 +1,10 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.DTO.NewProduct;
 import org.example.entity.*;
+import org.example.entity.enums.ProductStatus;
 import org.example.exception.EntityNotFoundException;
 import org.example.repository.ProductRepository;
 import org.example.service.*;
@@ -12,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 
 @RequiredArgsConstructor
+@Slf4j
 @Service
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
@@ -40,25 +43,23 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     @Override
     public Product updateProduct(Long productId, NewProduct updatedProduct) {
-        List<Category> categoryList = categoryService.getAllCategoriesByIds(updatedProduct.getCategoryIds());
-        Brand brand = brandService.getBrandById(updatedProduct.getBrandId());
-        List<Country> countriesMadeInList = countryService.getAllCountriesByIds(updatedProduct.getCountriesMadeInIds());
-        Country countryTradeMark = countryService.getCountryById(updatedProduct.getCountryTradeMarkId());
-        List<Image> images = imageService.addOrGetImages(updatedProduct.getImageLinks());
 
         Product product = getProductById(productId);
 
+        if (product == null){
+            log.error("Product not found!");
+            throw new EntityNotFoundException("Product with id " + productId + " was not found!");
+        }
+
+        initProductWithIds(product, updatedProduct);
+
         product.setName(updatedProduct.getName());
-        product.setImages(new HashSet<>(images));
-        product.setCategories(new HashSet<>(categoryList));
-        product.setBrand(brand);
         product.setProductGroup(updatedProduct.getProductGroup());
+        product.setProductStatus(updatedProduct.getProductStatus());
         product.setSex(updatedProduct.getSex());
         product.setClassification(updatedProduct.getClassification());
         product.setAdditionalInfo(updatedProduct.getAdditionalInfo());
         product.setDescription(updatedProduct.getDescription());
-        product.setCountriesMadeIn(new HashSet<>(countriesMadeInList));
-        product.setCountryTradeMark(countryTradeMark);
 
         return productRepository.save(product);
     }
@@ -80,28 +81,50 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAllByBrandIn(brands);
     }
 
+    private void initProductWithIds(Product product ,NewProduct newProduct){
+        List<Category> categoryList = categoryService.getAllCategoriesByIds(newProduct.getCategoryIds());
+        if (categoryList.size() == 0){
+            log.error("Creating product with no categories!");
+            throw new EntityNotFoundException("No categories were added!");
+        }
+
+        List<Country> countriesMadeInList = countryService.getAllCountriesByIds(newProduct.getCountriesMadeInIds());
+        if (countriesMadeInList.size() == 0){
+            log.error("Creating product with no countries made in!");
+            throw new EntityNotFoundException("No countries made in were added!");
+        }
+
+        List<Image> images = imageService.addOrGetImages(newProduct.getImageLinks());
+        if (images.size() == 0){
+            log.error("Creating product with no images!");
+            throw new EntityNotFoundException("No images were added!");
+        }
+
+        Country countryTradeMark = countryService.getCountryById(newProduct.getCountryTradeMarkId());
+        Brand brand = brandService.getBrandById(newProduct.getBrandId());
+
+        product.setCategories(new HashSet<>(categoryList));
+        product.setCountriesMadeIn(new HashSet<>(countriesMadeInList));
+        product.setImages(new HashSet<>(images));
+        product.setCountryTradeMark(countryTradeMark);
+        product.setBrand(brand);
+    }
+
     @Transactional
     @Override
     public Product addProduct(NewProduct product) {
-        List<Category> categoryList = categoryService.getAllCategoriesByIds(product.getCategoryIds());
-        Brand brand = brandService.getBrandById(product.getBrandId());
-        List<Country> countriesMadeInList = countryService.getAllCountriesByIds(product.getCountriesMadeInIds());
-        Country countryTradeMark = countryService.getCountryById(product.getCountryTradeMarkId());
-        List<Image> images = imageService.addOrGetImages(product.getImageLinks());
 
         Product transientProduct = Product.builder()
                 .name(product.getName())
-                .images(new HashSet<>(images))
-                .categories(new HashSet<>(categoryList))
-                .brand(brand)
                 .productGroup(product.getProductGroup())
+                .productStatus(product.getProductStatus())
                 .sex(product.getSex())
                 .classification(product.getClassification())
                 .additionalInfo(product.getAdditionalInfo())
                 .description(product.getDescription())
-                .countriesMadeIn(new HashSet<>(countriesMadeInList))
-                .countryTradeMark(countryTradeMark)
                 .build();
+
+        initProductWithIds(transientProduct, product);
 
         return productRepository.save(transientProduct);
     }

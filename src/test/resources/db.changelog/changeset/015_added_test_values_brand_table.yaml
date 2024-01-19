@@ -1,0 +1,240 @@
+databaseChangeLog:
+  - changeSet:
+      id: added-test-values
+      author: Ivan Poberezhets
+      changes:
+        - insert:
+            tableName: brand
+            columns:
+              - column:
+                  name: name
+                  value: "Gucci"
+        - insert:
+            tableName: brand
+            columns:
+              - column:
+                  name: name
+                  value: "Maybelline New York"
+        - insert:
+            tableName: brand
+            columns:
+              - column:
+                  name: name
+                  value: "Dior"
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: "Perfumery"
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: "Makeup"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: name
+                  value: "Ukraine"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: name
+                  value: "USA"
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: image_link
+                  value: "hIG78fe8a7GxmFs4g2a3t4t"
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: image_link
+                  value: "gmdDfo43imUJ98udj2a2dDNO2382a"
+        - insert:
+            tableName: image
+            columns:
+              - column:
+                  name: image_link
+                  value: "gmdDfo43imUJ98udj2a2dDNO2dadDwa2f3a232382a"
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: "Dior Sauvage"
+              - column:
+                  name: brand_id
+                  value: "3"
+              - column:
+                  name: sex
+                  value: "MALE"
+              - column:
+                  name: product_status
+                  value: "AVAILABLE"
+              - column:
+                  name: classification
+                  value: "ELITE"
+              - column:
+                  name: country_trade_mark_id
+                  value: "1"
+        - insert:
+            tableName: product_variation
+            columns:
+              - column:
+                  name: variation_name
+                  value: "60ml"
+              - column:
+                  name: image_id
+                  value: "1"
+              - column:
+                  name: product_id
+                  value: "1"
+        - insert:
+            tableName: product_variation
+            columns:
+              - column:
+                  name: variation_name
+                  value: "200ml"
+              - column:
+                  name: image_id
+                  value: "2"
+              - column:
+                  name: product_id
+                  value: "1"
+        - insert:
+            tableName: variation_details
+            columns:
+              - column:
+                  name: price
+                  value: "3867"
+              - column:
+                  name: sale
+                  value: "0"
+              - column:
+                  name: shipping_from
+                  value: "UA"
+              - column:
+                  name: product_variation_id
+                  value: "1"
+        - insert:
+            tableName: variation_details
+            columns:
+              - column:
+                  name: price
+                  value: "7739"
+              - column:
+                  name: sale
+                  value: "0"
+              - column:
+                  name: shipping_from
+                  value: "UA"
+              - column:
+                  name: product_variation_id
+                  value: "2"
+        - insert:
+            tableName: products_categories
+            columns:
+              - column:
+                  name: product_id
+                  value: "1"
+              - column:
+                  name: category_id
+                  value: "1"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: email
+                  value: "userTest"
+              - column:
+                  name: password
+                  value: "$2a$12$a4DVPwsyiTLHU3HQfsyFLO.FEHoeqRCG/qvfhDf0ieroLLw/H.K7m"
+              - column:
+                  name: user_role
+                  value: "ADMIN"
+              - column:
+                  name: enabled
+                  value: "true"
+              - column:
+                  name: is_email_verified
+                  value: "false"
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: "Maybelline New York Lash Sensational Sky High"
+              - column:
+                  name: brand_id
+                  value: "2"
+              - column:
+                  name: sex
+                  value: "UNISEX"
+              - column:
+                  name: product_status
+                  value: "AVAILABLE"
+              - column:
+                  name: classification
+                  value: "MASS_MARKET"
+              - column:
+                  name: country_trade_mark_id
+                  value: "1"
+        - insert:
+            tableName: product_variation
+            columns:
+              - column:
+                  name: variation_name
+                  value: "1шт"
+              - column:
+                  name: image_id
+                  value: "3"
+              - column:
+                  name: product_id
+                  value: "2"
+        - insert:
+            tableName: variation_details
+            columns:
+              - column:
+                  name: price
+                  value: "430"
+              - column:
+                  name: sale
+                  value: "10"
+              - column:
+                  name: shipping_from
+                  value: "UA"
+              - column:
+                  name: product_variation_id
+                  value: "3"
+        - insert:
+            tableName: variation_details
+            columns:
+              - column:
+                  name: price
+                  value: "470"
+              - column:
+                  name: sale
+                  value: "30"
+              - column:
+                  name: shipping_from
+                  value: "EU"
+              - column:
+                  name: product_variation_id
+                  value: "3"
+        - insert:
+            tableName: products_categories
+            columns:
+              - column:
+                  name: product_id
+                  value: "2"
+              - column:
+                  name: category_id
+                  value: "2"
+

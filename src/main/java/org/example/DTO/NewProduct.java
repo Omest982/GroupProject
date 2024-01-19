@@ -2,6 +2,7 @@ package org.example.DTO;
 
 import lombok.Data;
 import org.example.entity.enums.Classification;
+import org.example.entity.enums.ProductStatus;
 import org.example.entity.enums.Sex;
 
 import java.util.Collection;
@@ -16,6 +17,7 @@ public class NewProduct {
     private Set<String> imageLinks;
     private String productGroup;
     private Sex sex;
+    private ProductStatus productStatus;
     private Classification classification;
     private Map<String, Object> additionalInfo;
     private String description;

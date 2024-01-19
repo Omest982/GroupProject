@@ -1,6 +1,5 @@
 package org.example.controller;
 
-import graphql.Assert;
 import org.example.entity.Brand;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -31,6 +30,6 @@ public class BrandControllerTest {
                 .execute()
                 .path("getBrandById.name")
                 .entity(String.class)
-                .isEqualTo("Gucci");
+                .isEqualTo("Loui");
     }
 }

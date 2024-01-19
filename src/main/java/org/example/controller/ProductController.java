@@ -22,7 +22,7 @@ public class ProductController {
     private final CategoryService categoryService;
 
     @QueryMapping
-    public List<Product> getProductsByCategoryIds(@Argument Iterable<Long> categoryIds){
+    public List<Product> getProductsByCategoryIds(@Argument Collection<Long> categoryIds){
         return productService.getAllProductsByCategoryIds(categoryIds);
     }
 

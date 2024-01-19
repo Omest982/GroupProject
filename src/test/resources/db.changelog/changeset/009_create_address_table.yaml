@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-address-table
+      author: Ivan Poberezhets
+      changes:
+        - createTable: # создаем таблицу address
+            tableName: address
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: region
+                  type: varchar(255)
+              - column:
+                  name: city
+                  type: varchar(255)
+              - column:
+                  name: street
+                  type: varchar(255)
+              - column:
+                  name: house
+                  type: varchar(255)
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_address_users
+                    references: users(id)
