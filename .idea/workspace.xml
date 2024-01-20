@@ -4,31 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.4.0&#10;Changed Order adding logic.&#10;Added more checks on null in code.">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/001_create_users_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/002_create_brand_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/003_create_category_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/004_create_country_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/005_create_product_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/006_create_image_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/007_create_product_variation_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/008_create_variation_details_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/009_create_address_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/010_create_orders_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/011_create_order_details_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/012_create_products_images_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/013_create_products_categories_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/014_create_products_countries_made_in_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/015_added_test_values_brand_table.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db.changelog/db.changelog-master.yaml" afterDir="false" />
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.4.1&#10;Fixed adding product error.&#10;Made code more clear in adding products.&#10;Started adding tests with test containers.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/PageRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/PageRequest.graphqls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/EnumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/EnumController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/VerificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/VerificationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProduct.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProduct.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/BrandControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/BrandControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -320,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705442710308</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="0.4.1&#10;Fixed adding product error.&#10;Made code more clear in adding products.&#10;Started adding tests with test containers.">
+      <created>1705664962263</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1705664962263</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -381,6 +374,7 @@
     <MESSAGE value="0.3.1&#10;Added more abstract exceptions.&#10;Added @Transactional annotations.&#10;Changed List to Set in Entities (not everywhere)." />
     <MESSAGE value="0.3.2&#10;Fixed error with Iterable in NewProduct(changed Iterable to Collection).&#10;Fixed error with LocalDateTime in Order(changed LocalDateTime to Timestamp).&#10;Figured out error with deletion of Product(fixed test values in db)." />
     <MESSAGE value="0.4.0&#10;Changed Order adding logic.&#10;Added more checks on null in code." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.4.0&#10;Changed Order adding logic.&#10;Added more checks on null in code." />
+    <MESSAGE value="0.4.1&#10;Fixed adding product error.&#10;Made code more clear in adding products.&#10;Started adding tests with test containers." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.4.1&#10;Fixed adding product error.&#10;Made code more clear in adding products.&#10;Started adding tests with test containers." />
   </component>
 </project>

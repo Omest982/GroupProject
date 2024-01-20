@@ -1,9 +1,6 @@
 package org.example.controller;
 
-import org.example.entity.enums.Classification;
-import org.example.entity.enums.PaymentMethod;
-import org.example.entity.enums.Sex;
-import org.example.entity.enums.ShippingFrom;
+import org.example.entity.enums.*;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
@@ -28,5 +25,10 @@ public class EnumController {
     @QueryMapping
     public List<ShippingFrom> getAllShippingFrom(){
         return List.of(ShippingFrom.values());
+    }
+
+    @QueryMapping
+    public List<ProductStatus> getAllProductStatuses(){
+        return List.of(ProductStatus.values());
     }
 }

@@ -17,10 +17,13 @@ type Query {
     getAllPaymentMethods: [PaymentMethod]
     getAllShippingFrom: [ShippingFrom]
     getAllSexes: [Sex]
+    getAllProductStatuses: [ProductStatus]
 
     #Product
     getAllProducts: [Product]
+    getAllProductsPaged(pageRequestDTO: PageRequestDTO!): [Product]
     getProductsByCategoryIds(categoryIds: [Long]!): [Product]
+    getProductsByCategoryIdsPaged(categoryIds: [Long]!, pageRequestDTO: PageRequestDTO): [Product]
     getProductById(id: Long!): Product
 
     #Order
@@ -43,4 +46,7 @@ type Query {
 
     #Mail
     sendActivationMail(mailParams: MailParams!): MailResponse
+
+    #Search
+    searchProductsPaged(searchString: String!, pageRequestDTO: PageRequestDTO!): [Product]
 }

@@ -1,0 +1,4 @@
+input PageRequestDTO{
+    pageNumber: Int!
+    sizePerPage: Int!
+}

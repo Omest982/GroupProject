@@ -2,9 +2,11 @@ package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.DTO.NewProduct;
+import org.example.DTO.PageRequestDTO;
 import org.example.entity.Product;
-import org.example.service.CategoryService;
 import org.example.service.ProductService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -12,18 +14,22 @@ import org.springframework.stereotype.Controller;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 @RequiredArgsConstructor
 @Controller
 public class ProductController {
 
     private final ProductService productService;
-    private final CategoryService categoryService;
 
     @QueryMapping
     public List<Product> getProductsByCategoryIds(@Argument Collection<Long> categoryIds){
         return productService.getAllProductsByCategoryIds(categoryIds);
+    }
+
+    @QueryMapping
+    public Page<Product> getProductsByCategoryIdsPaged(@Argument Collection<Long> categoryIds,
+                                                       @Argument PageRequestDTO pageRequestDTO){
+        return productService.getAllProductsByCategoryIdsPaged(categoryIds, pageRequestDTO);
     }
 
     @QueryMapping
@@ -34,6 +40,17 @@ public class ProductController {
     @QueryMapping
     public List<Product> getAllProducts(){
         return productService.getAllProducts();
+    }
+
+    @QueryMapping
+    public Page<Product> getAllProductsPaged(@Argument PageRequestDTO pageRequestDTO){
+        return productService.getAllProducts(pageRequestDTO);
+    }
+
+    @QueryMapping
+    public Page<Product> searchProductsPaged(@Argument String searchString,
+                                             @Argument PageRequestDTO pageRequestDTO){
+        return productService.searchProductsPaged(searchString, pageRequestDTO);
     }
 
     @MutationMapping

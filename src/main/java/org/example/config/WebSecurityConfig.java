@@ -39,8 +39,8 @@ public class WebSecurityConfig {
 //                        .configurationSource(corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((requests) -> requests
-  //                              .requestMatchers("/admin").hasAuthority("ADMIN")
-  //                              .requestMatchers("/user").authenticated()
+                                .requestMatchers("*/admin/**").hasAuthority("ADMIN")
+                                .requestMatchers("*/user/**").authenticated()
                                 .anyRequest().permitAll()
                 )
                 .sessionManagement((session) -> session

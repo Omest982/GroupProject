@@ -3,11 +3,16 @@ package org.example.service.impl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.DTO.NewProduct;
+import org.example.DTO.PageRequestDTO;
 import org.example.entity.*;
 import org.example.entity.enums.ProductStatus;
 import org.example.exception.EntityNotFoundException;
 import org.example.repository.ProductRepository;
 import org.example.service.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +35,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public Page<Product> getAllProducts(PageRequestDTO pageRequestDTO) {
+        return productRepository.findAll(pageRequestDTO.getPageRequest());
+    }
+
+    @Override
     public Product getProductById(Long id) {
         return productRepository.findById(id).orElse(null);
     }
@@ -38,6 +48,12 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getAllProductsByCategoryIds(Iterable<Long> categoryIds) {
         List<Category> categoryList = categoryService.getAllCategoriesByIds(categoryIds);
         return productRepository.findAllByCategoriesIn(categoryList);
+    }
+
+    @Override
+    public Page<Product> getAllProductsByCategoryIdsPaged(Iterable<Long> categoryIds, PageRequestDTO pageRequestDTO) {
+        List<Category> categoryList = categoryService.getAllCategoriesByIds(categoryIds);
+        return productRepository.findAllByCategoriesIn(categoryList, pageRequestDTO.getPageRequest());
     }
 
     @Transactional
@@ -72,13 +88,32 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getAllProductsByBrand(Brand brand) {
-        return productRepository.findAllByBrand(brand);
-    }
+    public Page<Product> searchProductsPaged(String searchString ,PageRequestDTO pageRequestDTO) {
 
-    @Override
-    public List<Product> getAllProductsByBrands(Iterable<Brand> brands) {
-        return productRepository.findAllByBrandIn(brands);
+        if (searchString.length() <= 1){
+            return null;
+        }
+
+        Set<Product> answer = new HashSet<>();
+
+        String filteredString = searchString.replaceAll("\\pP", "");
+
+        List<String> stringList = List.of(filteredString.split(" "));
+
+        for (String str: stringList){
+
+            if (str.length() <= 1){
+                continue;
+            }
+
+            answer.addAll(productRepository.findAllByParams(str));
+        }
+
+        List<Product> answerList = new ArrayList<>(answer);
+        //Forming page answer
+        int start = pageRequestDTO.getPageNumber();
+        int end = Math.min((start + pageRequestDTO.getSizePerPage()), answer.size());
+        return new PageImpl<>(answerList.subList(start, end), pageRequestDTO.getPageRequest(), answer.size());
     }
 
     private void initProductWithIds(Product product ,NewProduct newProduct){
