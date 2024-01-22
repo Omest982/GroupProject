@@ -1,4 +1,4 @@
 input AuthenticationRequest{
-    email: String
-    password: String
+    email: String!
+    password: String!
 }

@@ -40,6 +40,12 @@ public class OrderServiceImpl implements OrderService {
 
         User user = userService.checkIfUserExistsByNewOrderShortInfo(order);
 
+        if (user.getEmail() != null){
+            if (!user.getAddresses().contains(persistantAddress)){
+                addressService.addUserAddress(user.getId(), address);
+            }
+        }
+
         Order transientOrder = Order.builder()
                 .user(user)
                 .paymentMethod(order.getPaymentMethod())

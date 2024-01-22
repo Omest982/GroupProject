@@ -25,9 +25,3 @@ databaseChangeLog:
               - column:
                   name: house
                   type: varchar(255)
-              - column:
-                  name: user_id
-                  type: bigint
-                  constraints:
-                    foreignKeyName: fk_address_users
-                    references: users(id)

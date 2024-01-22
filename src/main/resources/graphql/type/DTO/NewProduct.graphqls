@@ -1,14 +1,14 @@
 input NewProduct {
-    name: String
-    categoryIds: [Long]
-    brandId: Long
-    sex: Sex
-    classification: Classification
+    name: String!
+    categoryIds: [Long]!
+    brandId: Long!
+    sex: Sex!
+    classification: Classification!
     additionalInfo: JSON
-    countriesMadeInIds: [Long]
-    countryTradeMarkId: Long
-    productGroup: String
-    productStatus: ProductStatus
-    description: String
-    imageLinks: [String]
+    countriesMadeInIds: [Long]!
+    countryTradeMarkId: Long!
+    productGroup: String!
+    productStatus: ProductStatus!
+    description: String!
+    imageLinks: [String]!
 }

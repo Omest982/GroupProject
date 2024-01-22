@@ -4,17 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.4.1&#10;Fixed adding product error.&#10;Made code more clear in adding products.&#10;Started adding tests with test containers.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/PageRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/PageRequest.graphqls" afterDir="false" />
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.5.0&#10;Added paged get requests.&#10;Added search of products.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/015_create_users_addresses_table.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/016_added_admin.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/EnumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/EnumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/009_create_address_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/009_create_address_table.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/015_added_test_values_brand_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/AuthenticationRequest.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/AuthenticationRequest.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/AuthenticationResponse.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/AuthenticationResponse.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/MailParams.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/MailParams.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/MailResponse.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/MailResponse.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewAddress.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewAddress.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewOrder.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewOrder.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewOrderDetails.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewOrderDetails.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProduct.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProduct.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProductVariation.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProductVariation.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewVariationDetails.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewVariationDetails.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/PageRequest.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/PageRequestDTO.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/RegisterRequest.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/RegisterRequest.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/001_create_users_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/002_create_brand_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/003_create_category_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/004_create_country_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/005_create_product_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/006_create_image_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/007_create_product_variation_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/008_create_variation_details_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/009_create_address_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/010_create_orders_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/011_create_order_details_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/012_create_products_images_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/013_create_products_categories_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/014_create_products_countries_made_in_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/changeset/015_added_test_values_brand_table.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/db.changelog/db.changelog-master.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,19 +81,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/Коды/GroupProject/src/test/resources&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "G:/Коды/GroupProject/src/test/resources/db.changelog/changeset",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Коды\GroupProject\src\test\resources\db.changelog\changeset" />
       <recent name="G:\Коды\GroupProject\src\test\resources" />
       <recent name="G:\Коды\GroupProject\src\main\resources" />
       <recent name="G:\Коды\GroupProject\src\main\java\org\example" />
@@ -313,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705664962263</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="0.5.0&#10;Added paged get requests.&#10;Added search of products.">
+      <created>1705760537477</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1705760537477</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -375,6 +412,7 @@
     <MESSAGE value="0.3.2&#10;Fixed error with Iterable in NewProduct(changed Iterable to Collection).&#10;Fixed error with LocalDateTime in Order(changed LocalDateTime to Timestamp).&#10;Figured out error with deletion of Product(fixed test values in db)." />
     <MESSAGE value="0.4.0&#10;Changed Order adding logic.&#10;Added more checks on null in code." />
     <MESSAGE value="0.4.1&#10;Fixed adding product error.&#10;Made code more clear in adding products.&#10;Started adding tests with test containers." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.4.1&#10;Fixed adding product error.&#10;Made code more clear in adding products.&#10;Started adding tests with test containers." />
+    <MESSAGE value="0.5.0&#10;Added paged get requests.&#10;Added search of products." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.5.0&#10;Added paged get requests.&#10;Added search of products." />
   </component>
 </project>

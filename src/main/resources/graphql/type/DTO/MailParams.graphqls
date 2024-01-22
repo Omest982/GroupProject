@@ -1,4 +1,4 @@
 input MailParams {
-    id: Long
-    emailTo: String
+    id: Long!
+    emailTo: String!
 }

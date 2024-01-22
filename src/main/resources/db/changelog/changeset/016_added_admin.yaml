@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: added-admin
+      author: Ivan Poberezhets
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: email
+                  value: "Admin"
+              - column:
+                  name: password
+                  value: "$2a$12$/SrqfHUxOnpItXTx/AfXVORPm9Dh.feGEqvrD.EiTXyxYUKWNqkmS"
+              - column:
+                  name: user_role
+                  value: "ADMIN"
+              - column:
+                  name: enabled
+                  value: "true"
+              - column:
+                  name: is_email_verified
+                  value: "false"
+

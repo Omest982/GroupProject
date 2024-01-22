@@ -40,7 +40,12 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private Boolean enabled;
     private LocalDate birthdayDate;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    @JoinTable(
+            name = "users_addresses",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id", referencedColumnName = "id")
+    )
     private Set<Address> addresses = new HashSet<>();
 
     @Override

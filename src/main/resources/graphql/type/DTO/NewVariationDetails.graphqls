@@ -1,6 +1,6 @@
 input NewVariationDetails {
-    price: BigDecimal
-    sale: BigDecimal
-    shippingFrom: ShippingFrom
-    productVariationId: Long
+    price: BigDecimal!
+    sale: BigDecimal!
+    shippingFrom: ShippingFrom!
+    productVariationId: Long!
 }

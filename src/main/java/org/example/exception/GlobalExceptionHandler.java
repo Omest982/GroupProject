@@ -24,4 +24,20 @@ public class GlobalExceptionHandler {
                 .message(ex.getMessage())
                 .build();
     }
+
+    @GraphQlExceptionHandler
+    public GraphQLError handle(UserNotFoundException ex) {
+        return GraphQLError.newError()
+                .errorType(ErrorType.BAD_REQUEST)
+                .message(ex.getMessage())
+                .build();
+    }
+
+    @GraphQlExceptionHandler
+    public GraphQLError handle(UserAlreadyExistsException ex) {
+        return GraphQLError.newError()
+                .errorType(ErrorType.BAD_REQUEST)
+                .message(ex.getMessage())
+                .build();
+    }
 }

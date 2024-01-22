@@ -11,7 +11,9 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "address")
+//ShippingInfo
 public class Address {
+    //TODO: Изменить логику
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,7 +21,5 @@ public class Address {
     private String city;
     private String street;
     private String house;
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    //receivers info
 }

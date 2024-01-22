@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-users-addresses-table
+      author: Ivan Poberezhets
+      changes:
+        - createTable: # создаем таблицу users_addresses
+            tableName: users_addresses
+            columns:
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_users_addresses_users
+                    references: users(id)
+              - column:
+                  name: address_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_users_addresses_addresses
+                    references: address(id)
+

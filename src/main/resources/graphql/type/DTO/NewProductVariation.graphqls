@@ -1,5 +1,5 @@
 input NewProductVariation{
-    imageLink: String
-    variationName: String
-    productId: Long
+    imageLink: String!
+    variationName: String!
+    productId: Long!
 }

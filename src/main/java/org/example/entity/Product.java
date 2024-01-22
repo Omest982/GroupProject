@@ -37,8 +37,7 @@ public class Product {
     @JoinTable(
             name = "products_images",
             joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "image_id", referencedColumnName = "id", nullable = false),
-            uniqueConstraints = @UniqueConstraint(columnNames = {"product_id", "image_id"})
+            inverseJoinColumns = @JoinColumn(name = "image_id", referencedColumnName = "id", nullable = false)
     )
     private Set<Image> images = new HashSet<>();
 
@@ -46,8 +45,7 @@ public class Product {
     @JoinTable(
             name = "products_categories",
             joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false),
-            uniqueConstraints = @UniqueConstraint(columnNames = {"product_id", "category_id"})
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false)
     )
     private Set<Category> categories = new HashSet<>();
 
