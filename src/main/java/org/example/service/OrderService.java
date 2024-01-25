@@ -1,22 +1,22 @@
 package org.example.service;
 
-import org.example.DTO.NewAddress;
+import org.example.DTO.NewShippingInfo;
 import org.example.DTO.NewOrder;
 import org.example.DTO.NewOrderDetails;
-import org.example.entity.Address;
+import org.example.DTO.PageRequestDTO;
 import org.example.entity.Order;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface OrderService {
-    Order addOrder(NewAddress address, NewOrder order);
+    Order addOrder(NewShippingInfo newShippingInfo, NewOrder orderInfo, Long userId);
 
     Order addOrderDetails(NewOrderDetails orderDetails);
 
-    List<Order> getAllOrdersByUserPhoneNumber(String userPhoneNumber);
+    Page<Order> getAllOrdersByUserIdPaged(Long userId, PageRequestDTO pageRequestDTO);
 
-    List<Order> getAllOrdersByUserId(Long userId);
-
-    Order updateOrderAddress(Long orderId, NewAddress address);
+    Order updateOrderAddress(Long orderId, NewShippingInfo address);
     Order getOrderById(Long orderId);
 }

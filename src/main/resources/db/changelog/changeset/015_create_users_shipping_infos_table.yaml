@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-users-shipping-infos-table
+      author: Ivan Poberezhets
+      changes:
+        - createTable: # создаем таблицу users_shipping_infos
+            tableName: users_shipping_infos
+            columns:
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_users_shipping_infos_users
+                    references: users(id)
+              - column:
+                  name: shipping_info_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_users_shipping_infos_shipping_info
+                    references: shipping_info(id)
+

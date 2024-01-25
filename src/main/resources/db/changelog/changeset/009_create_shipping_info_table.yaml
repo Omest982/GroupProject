@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-address-table
+      id: create-shipping-info-table
       author: Ivan Poberezhets
       changes:
-        - createTable: # создаем таблицу address
-            tableName: address
+        - createTable: # создаем таблицу shipping_info
+            tableName: shipping_info
             columns:
               - column:
                   name: id
@@ -25,3 +25,13 @@ databaseChangeLog:
               - column:
                   name: house
                   type: varchar(255)
+              - column:
+                  name: recipient_first_name
+                  type: varchar(255)
+              - column:
+                  name: recipient_last_name
+                  type: varchar(255)
+              - column:
+                  name: recipient_phone_number
+                  type: varchar(255)
+

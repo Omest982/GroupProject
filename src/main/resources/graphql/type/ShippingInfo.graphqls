@@ -1,0 +1,10 @@
+type ShippingInfo {
+    id: Long
+    region: String
+    city: String
+    street: String
+    house: String
+    recipientFirstName: String
+    recipientLastName: String
+    recipientPhoneNumber: String
+}

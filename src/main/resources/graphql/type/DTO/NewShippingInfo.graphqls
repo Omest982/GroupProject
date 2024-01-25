@@ -1,0 +1,9 @@
+input NewShippingInfo {
+    region: String!
+    city: String!
+    street: String!
+    house: String!
+    recipientFirstName: String!
+    recipientLastName: String!
+    recipientPhoneNumber: String!
+}

@@ -1,25 +1,25 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.example.DTO.NewAddress;
+import org.example.DTO.NewShippingInfo;
 import org.example.DTO.NewOrder;
 import org.example.DTO.NewOrderDetails;
+import org.example.DTO.PageRequestDTO;
 import org.example.entity.*;
 import org.example.entity.enums.OrderStatus;
-import org.example.exception.EntityNotFoundException;
 import org.example.exception.UserNotFoundException;
 import org.example.repository.OrderDetailsRepository;
 import org.example.repository.OrderRepository;
-import org.example.service.AddressService;
+import org.example.service.ShippingInfoService;
 import org.example.service.OrderService;
 import org.example.service.UserService;
 import org.example.service.VariationDetailsService;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,30 +28,35 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final OrderDetailsRepository orderDetailsRepository;
     private final VariationDetailsService variationDetailsService;
-    private final AddressService addressService;
+    private final ShippingInfoService shippingInfoService;
     private final UserService userService;
 
 
     @Transactional
     @Override
-    public Order addOrder(NewAddress address, NewOrder order) {
+    public Order addOrder(NewShippingInfo newShippingInfo, NewOrder newOrder, Long userId) {
 
-        Address persistantAddress = addressService.addOrGetAddress(address);
+        ShippingInfo persistantShippingInfo = shippingInfoService.addOrGetShippingInfo(newShippingInfo);
 
-        User user = userService.checkIfUserExistsByNewOrderShortInfo(order);
+        User user = null;
 
-        if (user.getEmail() != null){
-            if (!user.getAddresses().contains(persistantAddress)){
-                addressService.addUserAddress(user.getId(), address);
+        if (userId != null){
+            user = userService.getUserById(userId);
+        }
+
+        if (user != null){
+            if(!user.getShippingInfos().contains(persistantShippingInfo)){
+                user.getShippingInfos().add(persistantShippingInfo);
+                userService.saveUser(user);
             }
         }
 
         Order transientOrder = Order.builder()
                 .user(user)
-                .paymentMethod(order.getPaymentMethod())
-                .userComment(order.getUserComment())
+                .paymentMethod(newOrder.getPaymentMethod())
+                .userComment(newOrder.getUserComment())
                 .orderStatus(OrderStatus.IN_PROGRESS)
-                .address(persistantAddress)
+                .shippingInfo(persistantShippingInfo)
                 .sum(BigDecimal.valueOf(0))
                 .build();
 
@@ -60,19 +65,19 @@ public class OrderServiceImpl implements OrderService {
 
     @Transactional
     @Override
-    public Order addOrderDetails(NewOrderDetails orderDetails) {
-        Order order = getOrderById(orderDetails.getOrderId());
+    public Order addOrderDetails(NewOrderDetails newOrderDetails) {
+        Order order = getOrderById(newOrderDetails.getOrderId());
 
         VariationDetails variationDetails = variationDetailsService.getVariationDetailsById(
-                orderDetails.getVariationDetailsId()
+                newOrderDetails.getVariationDetailsId()
         );
 
-        BigDecimal finalSum = getOrderDetailsSum(variationDetails, orderDetails);
+        BigDecimal finalSum = getOrderDetailsSum(variationDetails, newOrderDetails.getQuantity());
 
         OrderDetails transientOrderDetails = OrderDetails.builder()
                 .order(order)
                 .variationDetails(variationDetails)
-                .quantity(orderDetails.getQuantity())
+                .quantity(newOrderDetails.getQuantity())
                 .totalDetailPrice(finalSum)
                 .build();
 
@@ -84,10 +89,10 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private BigDecimal getOrderDetailsSum(VariationDetails variationDetails,
-                                   NewOrderDetails newOrderDetails){
+                                   Integer quantity){
 
         BigDecimal sum = variationDetails.getPrice()
-                .multiply(BigDecimal.valueOf(newOrderDetails.getQuantity()));
+                .multiply(BigDecimal.valueOf(quantity));
 
         BigDecimal sale = sum.multiply(variationDetails.getSale())
                 .divide(BigDecimal.valueOf(100), 0, RoundingMode.HALF_DOWN);
@@ -96,30 +101,18 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> getAllOrdersByUserPhoneNumber(String userPhoneNumber) {
-        User user = userService.getUserByPhoneNumber(userPhoneNumber);
-
-        if (user == null){
-            throw new UserNotFoundException("User with phone number " +
-                    userPhoneNumber + " not found!");
-        }
-
-        return getAllOrdersByUserId(user.getId());
-    }
-
-    @Override
-    public List<Order> getAllOrdersByUserId(Long userId) {
-        return orderRepository.findAllByUserId(userId);
+    public Page<Order> getAllOrdersByUserIdPaged(Long userId, PageRequestDTO pageRequestDTO) {
+        return orderRepository.findAllByUserId(userId, pageRequestDTO.getPageRequest());
     }
 
     @Transactional
     @Override
-    public Order updateOrderAddress(Long orderId, NewAddress address) {
+    public Order updateOrderAddress(Long orderId, NewShippingInfo newShippingInfo) {
         Order order = getOrderById(orderId);
 
-        Address persistantAddress = addressService.addOrGetAddress(address);
+        ShippingInfo persistantShippingInfo = shippingInfoService.addOrGetShippingInfo(newShippingInfo);
 
-        order.setAddress(persistantAddress);
+        order.setShippingInfo(persistantShippingInfo);
 
         return orderRepository.save(order);
     }

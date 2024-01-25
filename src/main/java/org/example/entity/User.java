@@ -42,11 +42,11 @@ public class User implements UserDetails {
     private LocalDate birthdayDate;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     @JoinTable(
-            name = "users_addresses",
+            name = "users_shipping_infos",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "address_id", referencedColumnName = "id")
+            inverseJoinColumns = @JoinColumn(name = "shipping_info_id", referencedColumnName = "id")
     )
-    private Set<Address> addresses = new HashSet<>();
+    private Set<ShippingInfo> shippingInfos = new HashSet<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

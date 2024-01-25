@@ -1,12 +1,13 @@
 package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.DTO.NewAddress;
+import org.example.DTO.NewShippingInfo;
 import org.example.DTO.NewOrder;
 import org.example.DTO.NewOrderDetails;
-import org.example.entity.Address;
+import org.example.DTO.PageRequestDTO;
 import org.example.entity.Order;
 import org.example.service.OrderService;
+import org.springframework.data.domain.Page;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -20,23 +21,20 @@ public class OrderController {
     private final OrderService orderService;
 
     @QueryMapping
-    public List<Order> getAllOrdersByUserPhoneNumber(@Argument String userPhoneNumber){
-        return orderService.getAllOrdersByUserPhoneNumber(userPhoneNumber);
-    }
-
-    @QueryMapping
-    public List<Order> getAllOrdersByUserId(@Argument Long userId){
-        return orderService.getAllOrdersByUserId(userId);
+    public Page<Order> getAllOrdersByUserIdPaged(@Argument Long userId, @Argument PageRequestDTO pageRequestDTO){
+        return orderService.getAllOrdersByUserIdPaged(userId, pageRequestDTO);
     }
 
     @MutationMapping
-    public Order addOrder(@Argument NewAddress address, @Argument NewOrder orderInfo){
-        return orderService.addOrder(address, orderInfo);
+    public Order addOrder(@Argument NewShippingInfo newShippingInfo,
+                          @Argument NewOrder orderInfo,
+                          @Argument Long userId){
+        return orderService.addOrder(newShippingInfo, orderInfo, userId);
     }
 
     @MutationMapping
-    public Order updateOrderAddress(@Argument Long orderId, @Argument NewAddress address){
-        return orderService.updateOrderAddress(orderId, address);
+    public Order updateOrderAddress(@Argument Long orderId, @Argument NewShippingInfo newShippingInfo){
+        return orderService.updateOrderAddress(orderId, newShippingInfo);
     }
 
     @MutationMapping

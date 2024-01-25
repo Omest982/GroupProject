@@ -10,9 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -33,7 +31,7 @@ public class Order {
     @Column(nullable = false)
     private Timestamp updated;
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -45,8 +43,8 @@ public class Order {
     @Column(nullable = false)
     private BigDecimal sum;
     @OneToOne
-    @JoinColumn(name = "address_id", nullable = false)
-    private Address address;
+    @JoinColumn(name = "shipping_info_id", nullable = false)
+    private ShippingInfo shippingInfo;
     @OneToMany(mappedBy = "order")
     private List<OrderDetails> orderDetails = new ArrayList<>();
 

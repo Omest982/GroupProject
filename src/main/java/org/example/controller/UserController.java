@@ -1,11 +1,11 @@
 package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.DTO.NewAddress;
-import org.example.entity.Address;
+import org.example.DTO.NewShippingInfo;
+import org.example.entity.ShippingInfo;
 import org.example.entity.User;
 import org.example.repository.UserRepository;
-import org.example.service.AddressService;
+import org.example.service.ShippingInfoService;
 import org.example.service.UserService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -17,20 +17,12 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class UserController {
-    private final UserService userService;
-    private final AddressService addressService;
-    //TODO: repository must be deleted to final version
-    private final UserRepository userRepository;
-
-    @QueryMapping
-    public List<User> getAllUsers(){
-        return userRepository.findAll();
-    }
+    private final ShippingInfoService shippingInfoService;
 
     @MutationMapping
-    public Address addUserAddress(@Argument Long userId,
-                                  @Argument NewAddress address){
-        return addressService.addUserAddress(userId, address);
+    public ShippingInfo addShippingInfoToUser(@Argument Long userId,
+                                       @Argument NewShippingInfo newShippingInfo){
+        return shippingInfoService.addShippingInfoToUser(userId, newShippingInfo);
     }
 
 }

@@ -38,8 +38,8 @@ databaseChangeLog:
                   name: sum
                   type: numeric
               - column:
-                  name: address_id
+                  name: shipping_info_id
                   type: bigint
                   constraints:
-                    foreignKeyName: fk_orders_address
-                    references: address(id)
+                    foreignKeyName: fk_orders_shipping_infos
+                    references: shipping_info(id)

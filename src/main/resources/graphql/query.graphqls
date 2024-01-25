@@ -27,15 +27,19 @@ type Query {
     getProductById(id: Long!): Product
 
     #Order
-    getAllOrdersByUserId(userId: Long!): [Order]
-    getAllOrdersByUserPhoneNumber(userPhoneNumber: String!): [Order]
+    getAllOrdersByUserIdPaged(userId: Long!, pageRequestDTO: PageRequestDTO!): [Order]
 
     #User
-    getAllUsers: [User]
     authenticateUser(request: AuthenticationRequest!): AuthenticationResponse
+
+    #Shipping info
+    getAllShippingInfos: [ShippingInfo]
+    getAllShippingInfosByUserId(userId: Long!): [ShippingInfo]
+    getShippingInfoById(shippingInfoId: Long!): ShippingInfo
 
     #Category
     getAllCategories: [Category]
+    getAllHeadCategories: [Category]
     getCategoriesByCategoryParentId(parentCategoryId: Long!): [Category]
 
     #ProductVariation

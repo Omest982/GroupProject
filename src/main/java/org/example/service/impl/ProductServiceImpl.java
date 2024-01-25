@@ -106,7 +106,7 @@ public class ProductServiceImpl implements ProductService {
                 continue;
             }
 
-            answer.addAll(productRepository.findAllByParams(str));
+            answer.addAll(productRepository.findAllByParam(str));
         }
 
         List<Product> answerList = new ArrayList<>(answer);

@@ -1,7 +1,4 @@
 input NewOrder{
-    firstName: String!
-    lastName: String!
-    phoneNumber: String!
     paymentMethod: PaymentMethod!
     userComment: String
 }

@@ -5,6 +5,6 @@ type Order{
     user: User
     orderStatus: OrderStatus
     sum: BigDecimal
-    address: Address
+    shippingInfo: ShippingInfo
     orderDetails: [OrderDetails]
 }

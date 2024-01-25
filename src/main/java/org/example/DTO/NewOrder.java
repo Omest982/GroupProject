@@ -10,10 +10,7 @@ import java.util.Set;
 
 @Data
 public class NewOrder {
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
-
     private PaymentMethod paymentMethod;
     private String userComment;
+    //Can add more fields
 }

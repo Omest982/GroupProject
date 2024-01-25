@@ -27,4 +27,6 @@ public interface CategoryService {
     Category addCategory(String categoryName, Long parentCategoryId);
 
     String deleteCategory(Long categoryId);
+
+    List<Category> getAllHeadCategories();
 }

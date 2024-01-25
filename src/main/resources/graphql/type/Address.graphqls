@@ -1,7 +1,0 @@
-type Address {
-    id: Long
-    region: String
-    city: String
-    street: String
-    house: String
-}

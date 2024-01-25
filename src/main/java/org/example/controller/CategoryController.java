@@ -28,6 +28,11 @@ public class CategoryController {
 
     }
 
+    @QueryMapping
+    public List<Category> getAllHeadCategories(){
+        return categoryService.getAllHeadCategories();
+    }
+
     @MutationMapping
     public Category addCategory(@Argument String categoryName, @Argument Long parentCategoryId){
         return categoryService.addCategory(categoryName, parentCategoryId);

@@ -77,4 +77,9 @@ public class CategoryServiceImpl implements CategoryService {
         categoryRepository.deleteById(categoryId);
         return "Successfully deleted category!";
     }
+
+    @Override
+    public List<Category> getAllHeadCategories() {
+        return categoryRepository.findAllHeadCategories();
+    }
 }
