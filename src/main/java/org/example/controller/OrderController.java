@@ -28,17 +28,18 @@ public class OrderController {
     @MutationMapping
     public Order addOrder(@Argument NewShippingInfo newShippingInfo,
                           @Argument NewOrder orderInfo,
-                          @Argument Long userId){
-        return orderService.addOrder(newShippingInfo, orderInfo, userId);
+                          @Argument Long userId,
+                          @Argument List<NewOrderDetails> orderDetailsInfo){
+        return orderService.addOrder(newShippingInfo, orderInfo, userId, orderDetailsInfo);
     }
 
     @MutationMapping
-    public Order updateOrderAddress(@Argument Long orderId, @Argument NewShippingInfo newShippingInfo){
+    public Order updateOrderShippingInfo(@Argument Long orderId, @Argument NewShippingInfo newShippingInfo){
         return orderService.updateOrderAddress(orderId, newShippingInfo);
     }
 
-    @MutationMapping
-    public Order addOrderDetails(@Argument NewOrderDetails orderDetails){
-        return  orderService.addOrderDetails(orderDetails);
-    }
+//    @MutationMapping
+//    public Order addOrderDetails(@Argument NewOrderDetails orderDetails){
+//        return  orderService.addOrderDetails(orderDetails);
+//    }
 }

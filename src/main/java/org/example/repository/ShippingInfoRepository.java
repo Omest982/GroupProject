@@ -29,5 +29,15 @@ public interface ShippingInfoRepository extends JpaRepository<ShippingInfo, Long
             @Param("recipientPhoneNumber") String recipientPhoneNumber
             );
 
-    List<ShippingInfo> findAllByUserId(Long userId);
+    @Query(value = """
+            SELECT id, region, city, street, house,
+            recipient_first_name, recipient_last_name, recipient_phone_number
+            FROM shipping_info
+            JOIN users_shipping_infos
+            ON users_shipping_infos.shipping_info_id = shipping_info.id
+            WHERE user_id = :userId
+            """
+            , nativeQuery = true
+    )
+    List<ShippingInfo> findAllByUserId(@Param("userId") Long userId);
 }

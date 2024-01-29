@@ -41,16 +41,9 @@ public class ImageServiceImpl implements ImageService {
         List<Image> imageList = new ArrayList<>();
 
         for (String imageLink: imageLinks){
-
-            Image image = getImageByImageLink(imageLink);
-
-            if (image == null){
-                imageList.add(addImage(imageLink));
-            }else {
-                imageList.add(image);
-            }
-
+            imageList.add(addOrGetImage(imageLink));
         }
+
         return imageList;
     }
 

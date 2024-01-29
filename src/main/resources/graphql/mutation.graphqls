@@ -24,19 +24,24 @@ type Mutation{
 
     #ProductVariation
     addProductVariation(productVariation: NewProductVariation!): ProductVariation
-    updateProductVariation(productVariationId: Long!, updatedProductVariation: NewProductVariation!): ProductVariation
+    updateProductVariation(productVariationId: Long!,
+        updatedProductVariation: NewProductVariation!): ProductVariation
     deleteProductVariation(productVariationId: Long!): String
 
     #VariationDetails
     addVariationDetails(variationDetails: NewVariationDetails!): VariationDetails
-    updateVariationDetails(variationDetailsId: Long!, updatedVariationDetails: NewVariationDetails!): VariationDetails
+    updateVariationDetails(variationDetailsId: Long!,
+        updatedVariationDetails: NewVariationDetails!): VariationDetails
     deleteVariationDetails(variationDetailsId: Long!): String
 
     #Order
-    addOrder(newShippingInfo: NewShippingInfo!, orderInfo: NewOrder!, userId: Long): Order
-    updateOrderAddress(orderId: Long!, newShippingInfo: NewShippingInfo!): Order
+    addOrder(newShippingInfo: NewShippingInfo!,
+        orderInfo: NewOrder!,
+        orderDetailsInfo: [NewOrderDetails]!,
+        userId: Long): Order
+    updateOrderShippingInfo(orderId: Long!, newShippingInfo: NewShippingInfo!): Order
 
     #OrderDetails
-    addOrderDetails(orderDetails: NewOrderDetails!): Order
+    #addOrderDetails(orderDetails: NewOrderDetails!): Order
     #updateOrderDetails(orderDetailsId: Long, updatedOrderDetails: NewOrderDetails!): OrderDetails
 }

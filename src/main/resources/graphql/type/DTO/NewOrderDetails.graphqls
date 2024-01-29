@@ -1,5 +1,4 @@
 input NewOrderDetails{
-    orderId: Long!
     variationDetailsId: Long!
     quantity: Int!
 }

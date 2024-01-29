@@ -3,6 +3,7 @@ package org.example.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -32,6 +33,4 @@ public class ShippingInfo {
     private String recipientLastName;
     @Column(nullable = false)
     private String recipientPhoneNumber;
-    @ManyToMany(mappedBy = "shippingInfos")
-    private Set<User> user;
 }

@@ -41,13 +41,13 @@ public class ShippingInfoServiceImpl implements ShippingInfoService {
                     userId + " not found!");
         }
 
-        ShippingInfo userShippingInfo = addOrGetShippingInfo(newShippingInfo);
+        ShippingInfo persistantShippingInfo = addOrGetShippingInfo(newShippingInfo);
 
-        user.getShippingInfos().add(userShippingInfo);
+        user.getShippingInfos().add(persistantShippingInfo);
 
         userService.saveUser(user);
 
-        return userShippingInfo;
+        return persistantShippingInfo;
     }
 
     @Transactional

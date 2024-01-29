@@ -4,42 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.5.1&#10;Changed address and user relations.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ShippingInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewShippingInfo.graphqls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/ShippingInfo.graphqls" afterDir="false" />
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.6.2&#10;Added mail message when adding order.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewShippingInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/ShippingInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/ShippingInfoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/CategoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/OrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ShippingInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/AddressServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ShippingInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/MailMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/MailMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/OrderAcceptedMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/OrderAcceptedMail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/VerificationMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/VerificationMail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ImageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ImageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MailSenderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MailSenderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/009_create_address_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/009_create_shipping_info_table.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/010_create_orders_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/010_create_orders_table.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/015_create_users_addresses_table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/015_create_users_shipping_infos_table.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/Address.graphqls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewAddress.graphqls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewOrder.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewOrder.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/Order.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/Order.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/User.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/User.graphqls" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -353,7 +327,28 @@
       <option name="project" value="LOCAL" />
       <updated>1705939859938</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="0.6.0&#10;Changed address to shippingInfo.&#10;Added new queries.&#10;Refactored some mutations.">
+      <created>1706189303808</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1706189303808</updated>
+    </task>
+    <task id="LOCAL-00026" summary="0.6.1&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems.">
+      <created>1706268848970</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1706268848970</updated>
+    </task>
+    <task id="LOCAL-00027" summary="0.6.2&#10;Added mail message when adding order.">
+      <created>1706534144283</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1706534144283</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -391,9 +386,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.0.2&#10;Updated database a bit.&#10;Implemented liquibase in project. Described all db in yaml files." />
-    <MESSAGE value="0.0.3&#10;Reworked relations in db, made them bidirectional instead of unidirectional.&#10;Started implementing GraphQl in project. Created GraphQl types for all classes." />
-    <MESSAGE value="0.0.4&#10;Fixed some tables and graphql types.&#10;Renamed user_status to user_role.&#10;Started implementing jwt authorization with Spring security." />
     <MESSAGE value="0.0.4&#10;Started implementing jwt authorization with Spring security.&#10;Inserted jwt filter in FilterChain.&#10;Added JwtUtils for operations with jwt token.&#10;Fixed some tables and graphql types.&#10;Renamed user_status to user_role.&#10;Fixed graphql always forbidden via csrf disable." />
     <MESSAGE value="0.0.5&#10;Implemented Jwt authorization.&#10;Created DTOs for authorization requests and responses.&#10;Created AuthenticationController for registration and authentication.&#10;Renamed for more meaning JwtUtils -&gt; JwtService, JwtFilter -&gt; JwtAuthenticationFilter.&#10;Slightly changed users table." />
     <MESSAGE value="0.1.0&#10;Added graphql mutations for adding products and brands and register user.&#10;Replaced REST controller for authentication with graphql.&#10;Created controllers based on graphql for Brand and Product.&#10;Created business logic for registration and authentication of user, adding product(figured out how to save incoming Json from graphql), adding brand." />
@@ -416,6 +408,19 @@
     <MESSAGE value="0.4.1&#10;Fixed adding product error.&#10;Made code more clear in adding products.&#10;Started adding tests with test containers." />
     <MESSAGE value="0.5.0&#10;Added paged get requests.&#10;Added search of products." />
     <MESSAGE value="0.5.1&#10;Changed address and user relations." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.5.1&#10;Changed address and user relations." />
+    <MESSAGE value="0.6.0&#10;Changed address to shippingInfo.&#10;Added new queries.&#10;Refactored some mutations." />
+    <MESSAGE value="0.6.1&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems." />
+    <MESSAGE value="0.6.2&#10;Added mail message when adding order." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.6.2&#10;Added mail message when adding order." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StackOverflowError" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

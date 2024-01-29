@@ -1,8 +1,11 @@
 package org.example.service;
 
-import org.example.DTO.MailParams;
+import org.example.DTO.mailMessages.VerificationMail;
+import org.example.DTO.mailMessages.OrderAcceptedMail;
 
 public interface MailSenderService {
-    void send(MailParams mailParams);
+    void sendEmailVerificationMail(VerificationMail verificationMail);
+
+    void sendOrderAcceptedMail(OrderAcceptedMail orderAcceptedParams);
 
 }

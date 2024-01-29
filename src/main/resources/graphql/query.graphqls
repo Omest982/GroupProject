@@ -6,6 +6,7 @@ scalar Date
 
 type Query {
     #Brand
+    #TODO: DELETE
     getBrandById(id: Long!): Brand
     getAllBrands: [Brand]
 
@@ -20,8 +21,10 @@ type Query {
     getAllProductStatuses: [ProductStatus]
 
     #Product
+    #TODO: DELETE
     getAllProducts: [Product]
     getAllProductsPaged(pageRequestDTO: PageRequestDTO!): [Product]
+    #TODO: DELETE
     getProductsByCategoryIds(categoryIds: [Long]!): [Product]
     getProductsByCategoryIdsPaged(categoryIds: [Long]!, pageRequestDTO: PageRequestDTO): [Product]
     getProductById(id: Long!): Product
@@ -33,6 +36,7 @@ type Query {
     authenticateUser(request: AuthenticationRequest!): AuthenticationResponse
 
     #Shipping info
+    #TODO: DELETE
     getAllShippingInfos: [ShippingInfo]
     getAllShippingInfosByUserId(userId: Long!): [ShippingInfo]
     getShippingInfoById(shippingInfoId: Long!): ShippingInfo
@@ -49,7 +53,7 @@ type Query {
     getVariationDetailsByProductVariationId(productVariationId: Long!): [VariationDetails]
 
     #Mail
-    sendActivationMail(mailParams: MailParams!): MailResponse
+    sendEmailVerificationMail(verificationMail: MailVerificationParams!): MailResponse
 
     #Search
     searchProductsPaged(searchString: String!, pageRequestDTO: PageRequestDTO!): [Product]

@@ -1,4 +1,4 @@
-input MailParams {
+input MailVerificationParams {
     id: Long!
     emailTo: String!
 }

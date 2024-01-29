@@ -112,8 +112,8 @@ public class ProductServiceImpl implements ProductService {
         List<Product> answerList = new ArrayList<>(answer);
         //Forming page answer
         int start = pageRequestDTO.getPageNumber();
-        int end = Math.min((start + pageRequestDTO.getSizePerPage()), answer.size());
-        return new PageImpl<>(answerList.subList(start, end), pageRequestDTO.getPageRequest(), answer.size());
+        int end = Math.min((start + pageRequestDTO.getSizePerPage()), answerList.size());
+        return new PageImpl<>(answerList.subList(start, end), pageRequestDTO.getPageRequest(), answerList.size());
     }
 
     private void initProductWithIds(Product product ,NewProduct newProduct){
@@ -164,11 +164,16 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.save(transientProduct);
     }
 
+
     @Transactional
     @Override
     public Product addImageToProduct(Long productId, String imageLink) {
         Product product = getProductById(productId);
-        Image image = imageService.addImage(imageLink);
+
+        Image image = Image.builder()
+                .imageLink(imageLink)
+                .build();
+
         product.getImages().add(image);
         return productRepository.save(product);
     }

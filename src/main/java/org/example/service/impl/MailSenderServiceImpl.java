@@ -1,7 +1,8 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.example.DTO.MailParams;
+import org.example.DTO.mailMessages.VerificationMail;
+import org.example.DTO.mailMessages.OrderAcceptedMail;
 import org.example.service.MailSenderService;
 import org.example.utils.CryptoTool;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,10 +20,10 @@ public class MailSenderServiceImpl implements MailSenderService {
     @Value("${spring.mail.username}")
     private String emailFrom;
     @Override
-    public void send(MailParams mailParams) {
-        String subject = "Подтверждение почты";
-        String messageBody = getActivationMailBody(mailParams.getId());
-        String emailTo = mailParams.getEmailTo();
+    public void sendEmailVerificationMail(VerificationMail verificationMail) {
+        String subject = "Email verification";
+        String messageBody = getVerificationMailBody(verificationMail.getUserId());
+        String emailTo = verificationMail.getEmailTo();
 
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setFrom(emailFrom);
@@ -33,10 +34,33 @@ public class MailSenderServiceImpl implements MailSenderService {
         javaMailSender.send(simpleMailMessage);
     }
 
-    private String getActivationMailBody(Long id) {
+    @Override
+    public void sendOrderAcceptedMail(OrderAcceptedMail orderAcceptedParams) {
+        String subject = "Makeup order confirmed!";
+        String messageBody = getOrderAcceptedBody(orderAcceptedParams.getOrderId());
+        String emailTo = orderAcceptedParams.getEmailTo();
+
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        simpleMailMessage.setFrom(emailFrom);
+        simpleMailMessage.setTo(emailTo);
+        simpleMailMessage.setSubject(subject);
+        simpleMailMessage.setText(messageBody);
+
+
+        System.out.println(messageBody);
+        System.out.println(emailTo);
+
+        javaMailSender.send(simpleMailMessage);
+    }
+
+    private String getVerificationMailBody(Long userId) {
         String msg = String.format("Для подтверждения вашей почты перейдите по ссылке:\n%s",
                 verificationServiceUri);
-        String hashedId = cryptoTool.hashOf(id);
-        return msg.replace("{id}", hashedId);
+        String hashedUserId = cryptoTool.hashOf(userId);
+        return msg.replace("{id}", hashedUserId);
+    }
+
+    private String getOrderAcceptedBody(Long orderId){
+        return "Your order with id " + orderId + " was confirmed!";
     }
 }

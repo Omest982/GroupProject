@@ -40,7 +40,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private Boolean enabled;
     private LocalDate birthdayDate;
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.PERSIST})
     @JoinTable(
             name = "users_shipping_infos",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),

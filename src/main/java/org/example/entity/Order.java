@@ -45,7 +45,7 @@ public class Order {
     @OneToOne
     @JoinColumn(name = "shipping_info_id", nullable = false)
     private ShippingInfo shippingInfo;
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderDetails> orderDetails = new ArrayList<>();
 
 }
