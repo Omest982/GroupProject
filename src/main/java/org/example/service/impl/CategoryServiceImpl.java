@@ -1,7 +1,9 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.entity.Category;
+import org.example.exception.EntityNotFoundException;
 import org.example.repository.CategoryRepository;
 import org.example.service.CategoryService;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 @RequiredArgsConstructor
+@Slf4j
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
@@ -56,18 +59,37 @@ public class CategoryServiceImpl implements CategoryService {
     @Transactional
     @Override
     public Category updateParentCategory(Long categoryId, Long parentCategoryId) {
+
+        isParentCategoryReal(parentCategoryId);
+
         Category category = getCategoryById(categoryId);
         category.setParentCategoryId(parentCategoryId);
         return saveCategory(category);
     }
 
+    private void isParentCategoryReal(Long parentCategoryId){
+        if (parentCategoryId != null){
+            Category parentCategory = getCategoryById(parentCategoryId);
+
+            if (parentCategory == null){
+                String errMsg = "Parent category with id " + parentCategoryId + " doesn't exist!";
+                log.error(errMsg);
+                throw new EntityNotFoundException(errMsg);
+            }
+        }
+    }
+
     @Transactional
     @Override
     public Category addCategory(String categoryName, Long parentCategoryId) {
+
+        isParentCategoryReal(parentCategoryId);
+
         Category transientCategory = Category.builder()
                 .name(categoryName)
                 .parentCategoryId(parentCategoryId)
                 .build();
+
         return saveCategory(transientCategory);
     }
 

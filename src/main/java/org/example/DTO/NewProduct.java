@@ -12,7 +12,7 @@ import java.util.Set;
 @Data
 public class NewProduct {
     private String name;
-    private Collection<Long> categoryIds;
+    private Long categoryId;
     private Long brandId;
     private Set<String> imageLinks;
     private String productGroup;

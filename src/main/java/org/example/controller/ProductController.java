@@ -22,11 +22,6 @@ public class ProductController {
     private final ProductService productService;
 
     @QueryMapping
-    public List<Product> getProductsByCategoryIds(@Argument Collection<Long> categoryIds){
-        return productService.getAllProductsByCategoryIds(categoryIds);
-    }
-
-    @QueryMapping
     public Page<Product> getProductsByCategoryIdsPaged(@Argument Collection<Long> categoryIds,
                                                        @Argument PageRequestDTO pageRequestDTO){
         return productService.getAllProductsByCategoryIdsPaged(categoryIds, pageRequestDTO);
@@ -38,13 +33,8 @@ public class ProductController {
     }
 
     @QueryMapping
-    public List<Product> getAllProducts(){
-        return productService.getAllProducts();
-    }
-
-    @QueryMapping
     public Page<Product> getAllProductsPaged(@Argument PageRequestDTO pageRequestDTO){
-        return productService.getAllProducts(pageRequestDTO);
+        return productService.getAllProductsPaged(pageRequestDTO);
     }
 
     @QueryMapping

@@ -15,8 +15,8 @@ import java.util.List;
 public class TestController {
     private final ProductService productService;
 
-    @GetMapping("/getAllProducts")
-    public List<Product> getAllProducts(){
-        return productService.getAllProducts();
-    }
+//    @GetMapping("/getAllProducts")
+//    public List<Product> getAllProducts(){
+//        return productService.getAllProducts();
+//    }
 }

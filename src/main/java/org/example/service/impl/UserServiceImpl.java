@@ -5,6 +5,7 @@ import org.example.DTO.NewOrder;
 import org.example.entity.User;
 import org.example.entity.enums.UserRole;
 import org.example.repository.UserRepository;
+import org.example.security.jwt.JwtService;
 import org.example.service.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -40,6 +41,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByPhoneNumber(String phoneNumber) {
         return userRepository.findByPhoneNumber(phoneNumber);
+    }
+
+    @Override
+    public User getUserByJwtToken(String jwtToken) {
+        String userEmail = JwtService.extractEmail(jwtToken);
+
+        return getUserByEmail(userEmail);
     }
 
     @Override

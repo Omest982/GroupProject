@@ -25,7 +25,6 @@ public class CategoryController {
     @QueryMapping
     public List<Category> getCategoriesByCategoryParentId(@Argument Long parentCategoryId){
         return categoryService.getAllCategoriesByParentCategoryId(parentCategoryId);
-
     }
 
     @QueryMapping

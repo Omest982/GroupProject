@@ -28,11 +28,6 @@ public class BrandController {
     }
 
     @QueryMapping
-    public Brand getBrandById(@Argument Long id){
-        return brandService.getBrandById(id);
-    }
-
-    @QueryMapping
     public List<Brand> getAllBrands(){
         return brandService.getAllBrands();
     }

@@ -18,11 +18,17 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
     private final ShippingInfoService shippingInfoService;
+    private final UserService userService;
 
     @MutationMapping
     public ShippingInfo addShippingInfoToUser(@Argument Long userId,
                                        @Argument NewShippingInfo newShippingInfo){
         return shippingInfoService.addShippingInfoToUser(userId, newShippingInfo);
+    }
+
+    @QueryMapping
+    public User getUserByJwtToken(@Argument String jwtToken){
+        return userService.getUserByJwtToken(jwtToken);
     }
 
 }

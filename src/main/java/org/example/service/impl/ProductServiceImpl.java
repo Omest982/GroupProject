@@ -29,13 +29,7 @@ public class ProductServiceImpl implements ProductService {
     private final ImageService imageService;
 
     @Override
-    public List<Product> getAllProducts() {
-        productRepository.findAll();
-        return productRepository.findAll();
-    }
-
-    @Override
-    public Page<Product> getAllProducts(PageRequestDTO pageRequestDTO) {
+    public Page<Product> getAllProductsPaged(PageRequestDTO pageRequestDTO) {
         return productRepository.findAll(pageRequestDTO.getPageRequest());
     }
 
@@ -45,15 +39,28 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getAllProductsByCategoryIds(Iterable<Long> categoryIds) {
-        List<Category> categoryList = categoryService.getAllCategoriesByIds(categoryIds);
-        return productRepository.findAllByCategoriesIn(categoryList);
-    }
-
-    @Override
     public Page<Product> getAllProductsByCategoryIdsPaged(Iterable<Long> categoryIds, PageRequestDTO pageRequestDTO) {
         List<Category> categoryList = categoryService.getAllCategoriesByIds(categoryIds);
         return productRepository.findAllByCategoriesIn(categoryList, pageRequestDTO.getPageRequest());
+    }
+
+    private List<Long> getAllParentCategoryIdsByCategoryId(Long categoryId) {
+        Category category = categoryService.getCategoryById(categoryId);
+
+        if (category.getParentCategoryId() == null){
+            return List.of(category.getId());
+        }
+
+        List<Long> categoryIdsList = new ArrayList<>();
+
+        while (category.getParentCategoryId() != null){
+            categoryIdsList.add(category.getId());
+            category = categoryService.getCategoryById(category.getParentCategoryId());
+        }
+
+        categoryIdsList.add(category.getId());
+
+        return categoryIdsList;
     }
 
     @Transactional
@@ -94,7 +101,7 @@ public class ProductServiceImpl implements ProductService {
             return null;
         }
 
-        Set<Product> answer = new HashSet<>();
+        Set<Product> answer = new TreeSet<>();
 
         String filteredString = searchString.replaceAll("\\pP", "");
 
@@ -110,14 +117,20 @@ public class ProductServiceImpl implements ProductService {
         }
 
         List<Product> answerList = new ArrayList<>(answer);
+
+        for (Product product: answerList){
+            System.out.println(product.getName());
+        }
+
         //Forming page answer
-        int start = pageRequestDTO.getPageNumber();
+        int start = (int) pageRequestDTO.getPageRequest().getOffset();
         int end = Math.min((start + pageRequestDTO.getSizePerPage()), answerList.size());
         return new PageImpl<>(answerList.subList(start, end), pageRequestDTO.getPageRequest(), answerList.size());
     }
 
     private void initProductWithIds(Product product ,NewProduct newProduct){
-        List<Category> categoryList = categoryService.getAllCategoriesByIds(newProduct.getCategoryIds());
+        List<Long> categoryIdsList = getAllParentCategoryIdsByCategoryId(newProduct.getCategoryId());
+        List<Category> categoryList = categoryService.getAllCategoriesByIds(categoryIdsList);
         if (categoryList.size() == 0){
             log.error("Creating product with no categories!");
             throw new EntityNotFoundException("No categories were added!");

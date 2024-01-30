@@ -1,6 +1,6 @@
 input NewProduct {
     name: String!
-    categoryIds: [Long]!
+    categoryId: Long!
     brandId: Long!
     sex: Sex!
     classification: Classification!

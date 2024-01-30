@@ -4,16 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.6.2&#10;Added mail message when adding order.">
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.6.1&#10;Added mail message when adding order.&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems.&#10;Fixed searchProductsPaged problem.&#10;Fixed order adding.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/MailMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/MailMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/OrderAcceptedMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/OrderAcceptedMail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/VerificationMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/VerificationMail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ImageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ImageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MailSenderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MailSenderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/BrandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProduct.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProduct.graphqls" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,7 +355,21 @@
       <option name="project" value="LOCAL" />
       <updated>1706534144283</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="0.6.1&#10;Added mail message when adding order.&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems.&#10;Fixed searchProductsPaged problem.&#10;Fixed order adding.">
+      <created>1706545573344</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1706545573344</updated>
+    </task>
+    <task id="LOCAL-00029" summary="0.6.1&#10;Added mail message when adding order.&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems.&#10;Fixed searchProductsPaged problem.&#10;Fixed order adding.">
+      <created>1706545634652</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1706545634652</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -386,7 +407,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.0.4&#10;Started implementing jwt authorization with Spring security.&#10;Inserted jwt filter in FilterChain.&#10;Added JwtUtils for operations with jwt token.&#10;Fixed some tables and graphql types.&#10;Renamed user_status to user_role.&#10;Fixed graphql always forbidden via csrf disable." />
     <MESSAGE value="0.0.5&#10;Implemented Jwt authorization.&#10;Created DTOs for authorization requests and responses.&#10;Created AuthenticationController for registration and authentication.&#10;Renamed for more meaning JwtUtils -&gt; JwtService, JwtFilter -&gt; JwtAuthenticationFilter.&#10;Slightly changed users table." />
     <MESSAGE value="0.1.0&#10;Added graphql mutations for adding products and brands and register user.&#10;Replaced REST controller for authentication with graphql.&#10;Created controllers based on graphql for Brand and Product.&#10;Created business logic for registration and authentication of user, adding product(figured out how to save incoming Json from graphql), adding brand." />
     <MESSAGE value="0.1.1&#10;Fixed AuthenticationController.&#10;Fixed name differences in graphql query and mutation with java classes." />
@@ -411,7 +431,8 @@
     <MESSAGE value="0.6.0&#10;Changed address to shippingInfo.&#10;Added new queries.&#10;Refactored some mutations." />
     <MESSAGE value="0.6.1&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems." />
     <MESSAGE value="0.6.2&#10;Added mail message when adding order." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.6.2&#10;Added mail message when adding order." />
+    <MESSAGE value="0.6.1&#10;Added mail message when adding order.&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems.&#10;Fixed searchProductsPaged problem.&#10;Fixed order adding." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.6.1&#10;Added mail message when adding order.&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems.&#10;Fixed searchProductsPaged problem.&#10;Fixed order adding." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

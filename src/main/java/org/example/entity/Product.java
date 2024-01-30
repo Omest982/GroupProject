@@ -3,10 +3,12 @@ package org.example.entity;
 import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
 import jakarta.persistence.*;
 import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
 import org.example.entity.enums.Classification;
 import org.example.entity.enums.ProductStatus;
 import org.example.entity.enums.Sex;
 import org.hibernate.annotations.Type;
+import org.springframework.lang.NonNull;
 
 import java.util.*;
 
@@ -18,22 +20,22 @@ import java.util.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "product")
-public class Product {
+public class Product implements Comparable<Product> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     @Column(nullable = false)
     private String productGroup;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     //TODO: Разобраться почему не работает Set вместо List
     private List<ProductVariation> productVariations = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinTable(
             name = "products_images",
             joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false),
@@ -82,4 +84,9 @@ public class Product {
     @OneToOne
     @JoinColumn(name = "country_trade_mark_id", nullable = false)
     private Country countryTradeMark;
+
+    @Override
+    public int compareTo(@NonNull Product otherProduct) {
+        return this.name.compareTo(otherProduct.getName());
+    }
 }

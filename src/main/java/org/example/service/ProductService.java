@@ -14,13 +14,13 @@ import java.util.List;
 import java.util.Set;
 
 public interface ProductService {
-    List<Product> getAllProducts();
-    Page<Product> getAllProducts(PageRequestDTO pageRequestDTO);
-    Product getProductById(Long id);
-    Product addProduct(NewProduct product);
-    Product addImageToProduct(Long productId, String imageLink);
+    Page<Product> getAllProductsPaged(PageRequestDTO pageRequestDTO);
 
-    List<Product> getAllProductsByCategoryIds(Iterable<Long> categoryIds);
+    Product getProductById(Long id);
+
+    Product addProduct(NewProduct product);
+
+    Product addImageToProduct(Long productId, String imageLink);
 
     Product updateProduct(Long productId, NewProduct updatedProduct);
 
