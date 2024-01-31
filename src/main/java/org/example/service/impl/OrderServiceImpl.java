@@ -12,6 +12,7 @@ import org.example.repository.OrderDetailsRepository;
 import org.example.repository.OrderRepository;
 import org.example.service.*;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -132,8 +133,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Page<Order> getAllOrdersByUserIdPaged(Long userId, PageRequestDTO pageRequestDTO) {
-        return orderRepository.findAllByUserId(userId, pageRequestDTO.getPageRequest());
+    public PageImpl<Order> getAllOrdersByUserIdPaged(Long userId, PageRequestDTO pageRequestDTO) {
+        Page<Order> orderPage = orderRepository.findAllByUserId(userId, pageRequestDTO.getPageRequest());
+        return new PageImpl<>(orderPage.stream().toList(), orderPage.getPageable(), orderPage.getTotalElements());
     }
 
     @Transactional

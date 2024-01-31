@@ -1,0 +1,4 @@
+type ProductPage {
+    content: [Product]
+    total: Long
+}

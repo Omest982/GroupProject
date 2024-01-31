@@ -31,11 +31,11 @@ public class Product implements Comparable<Product> {
     @Column(nullable = false)
     private String productGroup;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     //TODO: Разобраться почему не работает Set вместо List
     private List<ProductVariation> productVariations = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "products_images",
             joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false),

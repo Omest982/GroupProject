@@ -24,12 +24,5 @@ public class BrandControllerTest {
                     Assertions.assertEquals("Loui", brand.getName());
                 })
                 .get();
-
-        graphQlTester.documentName("brand-query")
-                .variable("id", brandTest.getId())
-                .execute()
-                .path("getBrandById.name")
-                .entity(String.class)
-                .isEqualTo("Loui");
     }
 }

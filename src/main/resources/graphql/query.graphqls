@@ -19,12 +19,13 @@ type Query {
     getAllProductStatuses: [ProductStatus]
 
     #Product
-    getAllProductsPaged(pageRequestDTO: PageRequestDTO!): [Product]
-    getProductsByCategoryIdsPaged(categoryIds: [Long]!, pageRequestDTO: PageRequestDTO!): [Product]
+    getAllProducts: [Product]
+    getAllProductsPaged(pageRequestDTO: PageRequestDTO!): ProductPage
+    getProductsByCategoryIdsPaged(categoryIds: [Long]!, pageRequestDTO: PageRequestDTO!): ProductPage
     getProductById(id: Long!): Product
 
     #Order
-    getAllOrdersByUserIdPaged(userId: Long!, pageRequestDTO: PageRequestDTO!): [Order]
+    getAllOrdersByUserIdPaged(userId: Long!, pageRequestDTO: PageRequestDTO!): OrderPage
 
     #User
     authenticateUser(request: AuthenticationRequest!): AuthenticationResponse
@@ -49,5 +50,5 @@ type Query {
     sendEmailVerificationMail(verificationMail: MailVerificationParams!): MailResponse
 
     #Search
-    searchProductsPaged(searchString: String!, pageRequestDTO: PageRequestDTO!): [Product]
+    searchProductsPaged(searchString: String!, pageRequestDTO: PageRequestDTO!): ProductPage
 }

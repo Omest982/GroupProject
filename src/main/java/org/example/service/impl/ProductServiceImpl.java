@@ -5,14 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.DTO.NewProduct;
 import org.example.DTO.PageRequestDTO;
 import org.example.entity.*;
-import org.example.entity.enums.ProductStatus;
 import org.example.exception.EntityNotFoundException;
 import org.example.repository.ProductRepository;
 import org.example.service.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,8 +26,9 @@ public class ProductServiceImpl implements ProductService {
     private final ImageService imageService;
 
     @Override
-    public Page<Product> getAllProductsPaged(PageRequestDTO pageRequestDTO) {
-        return productRepository.findAll(pageRequestDTO.getPageRequest());
+    public PageImpl<Product> getAllProductsPaged(PageRequestDTO pageRequestDTO) {
+        Page<Product> productPage = productRepository.findAll(pageRequestDTO.getPageRequest());
+        return new PageImpl<>(productPage.stream().toList(), productPage.getPageable(), productPage.getTotalElements());
     }
 
     @Override
@@ -39,9 +37,15 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Page<Product> getAllProductsByCategoryIdsPaged(Iterable<Long> categoryIds, PageRequestDTO pageRequestDTO) {
+    public PageImpl<Product> getAllProductsByCategoryIdsPaged(Iterable<Long> categoryIds, PageRequestDTO pageRequestDTO) {
         List<Category> categoryList = categoryService.getAllCategoriesByIds(categoryIds);
-        return productRepository.findAllByCategoriesIn(categoryList, pageRequestDTO.getPageRequest());
+        Page<Product> productPage = productRepository.findAllByCategoriesIn(categoryList, pageRequestDTO.getPageRequest());
+        return new PageImpl<>(productPage.stream().toList(), productPage.getPageable(), productPage.getTotalElements());
+    }
+
+    @Override
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
 
     private List<Long> getAllParentCategoryIdsByCategoryId(Long categoryId) {
@@ -95,7 +99,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Page<Product> searchProductsPaged(String searchString ,PageRequestDTO pageRequestDTO) {
+    public PageImpl<Product> searchProductsPaged(String searchString ,PageRequestDTO pageRequestDTO) {
 
         if (searchString.length() <= 1){
             return null;
@@ -117,10 +121,6 @@ public class ProductServiceImpl implements ProductService {
         }
 
         List<Product> answerList = new ArrayList<>(answer);
-
-        for (Product product: answerList){
-            System.out.println(product.getName());
-        }
 
         //Forming page answer
         int start = (int) pageRequestDTO.getPageRequest().getOffset();

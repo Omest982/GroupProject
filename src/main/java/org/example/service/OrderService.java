@@ -6,6 +6,7 @@ import org.example.DTO.NewOrderDetails;
 import org.example.DTO.PageRequestDTO;
 import org.example.entity.Order;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public interface OrderService {
                    Long userId,
                    List<NewOrderDetails> orderDetailsInfo);
 
-    Page<Order> getAllOrdersByUserIdPaged(Long userId, PageRequestDTO pageRequestDTO);
+    PageImpl<Order> getAllOrdersByUserIdPaged(Long userId, PageRequestDTO pageRequestDTO);
 
     Order updateOrderAddress(Long orderId, NewShippingInfo address);
     Order getOrderById(Long orderId);

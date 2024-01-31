@@ -4,23 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.6.1&#10;Added mail message when adding order.&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems.&#10;Fixed searchProductsPaged problem.&#10;Fixed order adding.">
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.6.2&#10;Deleted unnecessary queries.&#10;Slightly changed product adding logic.&#10;Fixed pagination bugs.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/pages/ProductPage.graphqls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/BrandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProduct.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/NewProduct.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/BrandControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/BrandControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/graphql-test/brand-query.graphql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -369,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706545634652</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="0.6.2&#10;Deleted unnecessary queries.&#10;Slightly changed product adding logic.&#10;Fixed pagination bugs.">
+      <created>1706637313382</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1706637313382</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -407,7 +409,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.0.5&#10;Implemented Jwt authorization.&#10;Created DTOs for authorization requests and responses.&#10;Created AuthenticationController for registration and authentication.&#10;Renamed for more meaning JwtUtils -&gt; JwtService, JwtFilter -&gt; JwtAuthenticationFilter.&#10;Slightly changed users table." />
     <MESSAGE value="0.1.0&#10;Added graphql mutations for adding products and brands and register user.&#10;Replaced REST controller for authentication with graphql.&#10;Created controllers based on graphql for Brand and Product.&#10;Created business logic for registration and authentication of user, adding product(figured out how to save incoming Json from graphql), adding brand." />
     <MESSAGE value="0.1.1&#10;Fixed AuthenticationController.&#10;Fixed name differences in graphql query and mutation with java classes." />
     <MESSAGE value="1.0.0&#10;Fully functional version of app.&#10;Fixed graphql cors error." />
@@ -432,7 +433,8 @@
     <MESSAGE value="0.6.1&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems." />
     <MESSAGE value="0.6.2&#10;Added mail message when adding order." />
     <MESSAGE value="0.6.1&#10;Added mail message when adding order.&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems.&#10;Fixed searchProductsPaged problem.&#10;Fixed order adding." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.6.1&#10;Added mail message when adding order.&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems.&#10;Fixed searchProductsPaged problem.&#10;Fixed order adding." />
+    <MESSAGE value="0.6.2&#10;Deleted unnecessary queries.&#10;Slightly changed product adding logic.&#10;Fixed pagination bugs." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.6.2&#10;Deleted unnecessary queries.&#10;Slightly changed product adding logic.&#10;Fixed pagination bugs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
