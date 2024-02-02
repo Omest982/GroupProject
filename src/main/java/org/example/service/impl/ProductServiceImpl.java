@@ -10,6 +10,7 @@ import org.example.repository.ProductRepository;
 import org.example.service.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -120,12 +121,15 @@ public class ProductServiceImpl implements ProductService {
             answer.addAll(productRepository.findAllByParam(str));
         }
 
-        List<Product> answerList = new ArrayList<>(answer);
+        List<Long> productIds = new ArrayList<>();
 
-        //Forming page answer
-        int start = (int) pageRequestDTO.getPageRequest().getOffset();
-        int end = Math.min((start + pageRequestDTO.getSizePerPage()), answerList.size());
-        return new PageImpl<>(answerList.subList(start, end), pageRequestDTO.getPageRequest(), answerList.size());
+        for (Product product: answer){
+            productIds.add(product.getId());
+        }
+
+        Page<Product> productPage = productRepository.findAllByIdIn(productIds, pageRequestDTO.getPageRequest());
+
+        return new PageImpl<>(productPage.stream().toList(), productPage.getPageable(), productPage.getTotalElements());
     }
 
     private void initProductWithIds(Product product ,NewProduct newProduct){

@@ -3,6 +3,7 @@ package org.example.repository;
 import org.example.entity.Category;
 import org.example.entity.Product;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +13,7 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findAllByCategoriesIn(Iterable<Category> categories);
+
     Page<Product> findAllByCategoriesIn(Iterable<Category> categories, Pageable pageRequest);
 
     @Query(value = """
@@ -24,4 +26,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
         """
     )
     List<Product> findAllByParam(@Param("param") String param);
+
+    Page<Product> findAllByIdIn(Iterable<Long> productId, Pageable pageable);
 }

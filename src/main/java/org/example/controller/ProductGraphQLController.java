@@ -16,7 +16,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-public class ProductController {
+public class ProductGraphQLController {
 
     private final ProductService productService;
 
