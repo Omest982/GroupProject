@@ -1,5 +1,6 @@
 package org.example.service.impl;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.example.entity.Brand;
 import org.example.repository.BrandRepository;
@@ -42,6 +43,11 @@ public class BrandServiceImpl implements BrandService {
     @Transactional
     @Override
     public String deleteBrandById(Long brandId) {
+
+        if (getBrandById(brandId) == null){
+            throw new EntityNotFoundException("brand with id " + brandId + " doesn't exist!");
+        }
+
         brandRepository.deleteById(brandId);
         return "Successfully deleted brand!";
     }

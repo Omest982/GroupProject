@@ -1,16 +1,15 @@
 package org.example.service.impl;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.DTO.NewProduct;
 import org.example.DTO.PageRequestDTO;
 import org.example.entity.*;
-import org.example.exception.EntityNotFoundException;
 import org.example.repository.ProductRepository;
 import org.example.service.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -75,8 +74,8 @@ public class ProductServiceImpl implements ProductService {
         Product product = getProductById(productId);
 
         if (product == null){
-            log.error("Product not found!");
-            throw new EntityNotFoundException("Product with id " + productId + " was not found!");
+            String msg ="Product with id " + productId + " was not found!";
+            throw new EntityNotFoundException(msg);
         }
 
         initProductWithIds(product, updatedProduct);
@@ -136,20 +135,20 @@ public class ProductServiceImpl implements ProductService {
         List<Long> categoryIdsList = getAllParentCategoryIdsByCategoryId(newProduct.getCategoryId());
         List<Category> categoryList = categoryService.getAllCategoriesByIds(categoryIdsList);
         if (categoryList.size() == 0){
-            log.error("Creating product with no categories!");
-            throw new EntityNotFoundException("No categories were added!");
+            String msg = "Creating product with no categories!";
+            throw new EntityNotFoundException(msg);
         }
 
         List<Country> countriesMadeInList = countryService.getAllCountriesByIds(newProduct.getCountriesMadeInIds());
         if (countriesMadeInList.size() == 0){
-            log.error("Creating product with no countries made in!");
-            throw new EntityNotFoundException("No countries made in were added!");
+            String msg = "Creating product with no countries made in!";
+            throw new EntityNotFoundException(msg);
         }
 
         List<Image> images = imageService.addOrGetImages(newProduct.getImageLinks());
         if (images.size() == 0){
-            log.error("Creating product with no images!");
-            throw new EntityNotFoundException("No images were added!");
+            String msg = "Creating product with no images!";
+            throw new EntityNotFoundException(msg);
         }
 
         Country countryTradeMark = countryService.getCountryById(newProduct.getCountryTradeMarkId());

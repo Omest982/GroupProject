@@ -1,11 +1,15 @@
 package org.example.DTO;
 
-import lombok.Data;
+import lombok.*;
 import org.example.entity.enums.ShippingFrom;
 
 import java.math.BigDecimal;
 
-@Data
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class NewVariationDetails {
     private BigDecimal price;
     private BigDecimal sale;

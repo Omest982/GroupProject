@@ -4,13 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.6.3&#10;Refactored pages.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductRESTController.java" afterDir="false" />
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.6.4&#10;Fixed duplicates on different pages.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/CategoryControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/CountryControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/ProductControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/graphql-test/brand-delete.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/graphql-test/category-add-with-parent.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/graphql-test/category-add.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/graphql-test/country-add.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/graphql-test/product-add.graphql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewOrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewOrderDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProductVariation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewProductVariation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewShippingInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewShippingInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewVariationDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/NewVariationDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/PageRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/PageRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductGraphQLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductGraphQLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductRESTController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exception/EntityNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/BrandServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/BrandServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/BrandControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/BrandControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/graphql-test/brand-mutation.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/graphql-test/brand-add.graphql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +86,11 @@
       <recent name="G:\Коды\GroupProject\src\main\java\org\example" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Коды\GroupProject\src\test\resources\graphql-test" />
+      <recent name="G:\Коды\GroupProject\src\test\resources\graphql-test\category" />
+      <recent name="G:\Коды\GroupProject\src\test\resources\graphql-test\brand" />
       <recent name="G:\Коды\GroupProject\src\main\resources\db\changelog\changeset" />
       <recent name="G:\Коды\GroupProject\src\main\resources\db\changelog" />
-      <recent name="G:\Коды\GroupProject\src\test\resources\graphql-test" />
-      <recent name="G:\Коды\GroupProject\src\main\resources\graphql\type" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.utils" />
@@ -138,9 +158,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CategoryControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GroupProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.CategoryControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.GroupProjectApplication" />
+        <item itemvalue="JUnit.CategoryControllerTest" />
         <item itemvalue="JUnit.BrandControllerTest" />
         <item itemvalue="JUnit.BrandControllerTest.shouldAddAndReturnBrand" />
         <item itemvalue="JUnit.BrandControllerTest.shouldReturnBrand" />
@@ -373,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706703463878</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="0.6.4&#10;Fixed duplicates on different pages.">
+      <created>1706874363379</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1706874363379</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -411,7 +454,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.1.1&#10;Fixed AuthenticationController.&#10;Fixed name differences in graphql query and mutation with java classes." />
     <MESSAGE value="1.0.0&#10;Fully functional version of app.&#10;Fixed graphql cors error." />
     <MESSAGE value="0.1.2&#10;Fixed graphql cors error." />
     <MESSAGE value="0.2.0&#10;Created new mutations for ProductVariation, VariationDetails.&#10;Created new queries for Country, ProductVariation, VariationDetails.&#10;Added description field to Product.&#10;Changed amount field in ProductVariation to float type.&#10;Slightly changed OrderDetails and BasketDetails.&#10;Created new DTOs for mutations." />
@@ -436,7 +478,8 @@
     <MESSAGE value="0.6.1&#10;Added mail message when adding order.&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems.&#10;Fixed searchProductsPaged problem.&#10;Fixed order adding." />
     <MESSAGE value="0.6.2&#10;Deleted unnecessary queries.&#10;Slightly changed product adding logic.&#10;Fixed pagination bugs." />
     <MESSAGE value="0.6.3&#10;Refactored pages." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.6.3&#10;Refactored pages." />
+    <MESSAGE value="0.6.4&#10;Fixed duplicates on different pages." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.6.4&#10;Fixed duplicates on different pages." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

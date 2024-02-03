@@ -1,17 +1,15 @@
 package org.example.service.impl;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.Category;
-import org.example.exception.EntityNotFoundException;
 import org.example.repository.CategoryRepository;
 import org.example.service.CategoryService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 @RequiredArgsConstructor
 @Slf4j
@@ -73,7 +71,6 @@ public class CategoryServiceImpl implements CategoryService {
 
             if (parentCategory == null){
                 String errMsg = "Parent category with id " + parentCategoryId + " doesn't exist!";
-                log.error(errMsg);
                 throw new EntityNotFoundException(errMsg);
             }
         }

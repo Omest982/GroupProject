@@ -1,6 +1,6 @@
 package org.example.controller;
 
-import org.example.entity.Brand;
+import org.example.entity.Country;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,18 +10,18 @@ import org.springframework.graphql.test.tester.GraphQlTester;
 
 @AutoConfigureGraphQlTester
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-public class BrandControllerTest {
+public class CountryControllerTest {
     @Autowired
     private GraphQlTester graphQlTester;
     @Test
-    void shouldAddBrand(){
-        graphQlTester.documentName("brand-add")
-                .variable("brandName", "Lacoste")
+    void shouldAddCategory(){
+        graphQlTester.documentName("country-add")
+                .variable("countryName", "Ukraine")
                 .execute()
-                .path("addBrand")
-                .entity(Brand.class)
-                .satisfies(brand -> {
-                    Assertions.assertEquals("Lacoste", brand.getName());
+                .path("addCountry")
+                .entity(Country.class)
+                .satisfies(country -> {
+                    Assertions.assertEquals("Ukraine", country.getName());
                 });
     }
 }

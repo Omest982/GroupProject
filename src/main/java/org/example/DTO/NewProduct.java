@@ -1,6 +1,6 @@
 package org.example.DTO;
 
-import lombok.Data;
+import lombok.*;
 import org.example.entity.enums.Classification;
 import org.example.entity.enums.ProductStatus;
 import org.example.entity.enums.Sex;
@@ -9,7 +9,11 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class NewProduct {
     private String name;
     private Long categoryId;

@@ -1,0 +1,6 @@
+mutation add_category_with_parent($categoryName: String!, $parentCategoryId: Long){
+    addCategory(categoryName: $categoryName, parentCategoryId: $parentCategoryId){
+        name
+        parentCategoryId
+    }
+}

@@ -1,15 +1,18 @@
 package org.example.DTO;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
-@Data
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class PageRequestDTO {
     private Integer pageNumber;
     private Integer sizePerPage;
-
     public PageRequest getPageRequest(){
-        return PageRequest.of(pageNumber, sizePerPage, Sort.Direction.ASC, "id");
+        return PageRequest.of(pageNumber, sizePerPage, Sort.by(Sort.Direction.ASC, "id"));
     }
 }

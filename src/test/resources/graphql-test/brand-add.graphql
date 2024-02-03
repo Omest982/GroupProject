@@ -1,6 +1,5 @@
 mutation add_brand($brandName: String!){
     addBrand(brandName: $brandName){
-        id
         name
     }
 }

@@ -1,0 +1,13 @@
+mutation add_product($newProduct: NewProduct!){
+    addProduct(product: $newProduct){
+        id
+        name
+        categories {
+            id
+        }
+        brand {
+            id
+        }
+
+    }
+}
