@@ -29,7 +29,7 @@ type Query {
 
     #User
     authenticateUser(request: AuthenticationRequest!): AuthenticationResponse
-    getUserByJwtToken(jwtToken: String): User
+    getUserByJwtToken(jwtToken: String!): User
 
     #Shipping info
     getAllShippingInfosByUserId(userId: Long!): [ShippingInfo]

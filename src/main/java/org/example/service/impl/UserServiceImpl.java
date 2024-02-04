@@ -45,6 +45,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByJwtToken(String jwtToken) {
+
+        if (JwtService.isTokenExpired(jwtToken)){
+            throw new RuntimeException("");
+        }
+
         String userEmail = JwtService.extractEmail(jwtToken);
 
         return getUserByEmail(userEmail);

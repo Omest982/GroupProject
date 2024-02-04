@@ -1,5 +1,5 @@
 package org.example.entity.enums;
 
 public enum OrderStatus {
-    IN_PROGRESS, COMPLETED, CANCELED
+    WAITING_FOR_PAYMENT, IN_PROGRESS, COMPLETED, CANCELED
 }

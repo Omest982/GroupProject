@@ -25,7 +25,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
-    private final OrderDetailsRepository orderDetailsRepository;
     private final VariationDetailsService variationDetailsService;
     private final ShippingInfoService shippingInfoService;
     private final UserService userService;

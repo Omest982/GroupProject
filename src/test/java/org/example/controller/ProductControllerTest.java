@@ -2,6 +2,7 @@ package org.example.controller;
 
 import org.example.DTO.NewProduct;
 import org.example.entity.Brand;
+import org.example.entity.Category;
 import org.example.entity.Country;
 import org.example.entity.Product;
 import org.example.entity.enums.Classification;
@@ -51,6 +52,13 @@ public class ProductControllerTest {
                     Assertions.assertEquals(1, product.getId());
                     Assertions.assertEquals("Calvin Klein Euphoria", product.getName());
                     Assertions.assertEquals("Lacoste", product.getBrand().getName());
+                    List<Category> categoryList = product.getCategories().stream().toList();
+                    Assertions.assertEquals("Men perfumery", categoryList.get(0).getName());
+                    Assertions.assertEquals("Perfumery", categoryList.get(1).getName());
+                    Assertions.assertEquals("Ukraine", product.getCountriesMadeIn().stream().toList().get(0).getName());
+                    Assertions.assertEquals("Ukraine", product.getCountryTradeMark().getName());
+                    Assertions.assertEquals("Fake!", product.getImages().stream().toList().get(0).getImageLink());
+                    Assertions.assertEquals(1, product.getImages().stream().toList().get(0).getId());
                 });
     }
 

@@ -17,12 +17,12 @@ public class CategoryControllerTest {
     @Order(1)
     void shouldAddCategory(){
         graphQlTester.documentName("category-add")
-                .variable("categoryName", "Perfume")
+                .variable("categoryName", "Perfumery")
                 .execute()
                 .path("addCategory")
                 .entity(Category.class)
                 .satisfies(category -> {
-                    Assertions.assertEquals("Perfume", category.getName());
+                    Assertions.assertEquals("Perfumery", category.getName());
                     Assertions.assertEquals(1, category.getId());
                 });
     }

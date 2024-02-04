@@ -3,11 +3,22 @@ mutation add_product($newProduct: NewProduct!){
         id
         name
         categories {
+            name
             id
         }
         brand {
+            name
             id
         }
-
+        countriesMadeIn {
+            name
+        }
+        countryTradeMark {
+            name
+        }
+        images {
+            id
+            imageLink
+        }
     }
 }
