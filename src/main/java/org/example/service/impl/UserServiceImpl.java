@@ -1,5 +1,6 @@
 package org.example.service.impl;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.example.DTO.NewOrder;
 import org.example.entity.User;
@@ -45,10 +46,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByJwtToken(String jwtToken) {
-
-        if (JwtService.isTokenExpired(jwtToken)){
-            throw new RuntimeException("");
-        }
 
         String userEmail = JwtService.extractEmail(jwtToken);
 

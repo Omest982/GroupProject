@@ -57,7 +57,7 @@ public class OrderServiceImpl implements OrderService {
                 .user(user)
                 .paymentMethod(newOrder.getPaymentMethod())
                 .userComment(newOrder.getUserComment())
-                .orderStatus(OrderStatus.IN_PROGRESS)
+                .orderStatus(OrderStatus.WAITING_FOR_PAYMENT)
                 .shippingInfo(persistantShippingInfo)
                 .sum(BigDecimal.valueOf(0))
                 .build();

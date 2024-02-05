@@ -38,21 +38,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             throw new UserAlreadyExistsException("User with email '" + request.getEmail() + "' already exists!");
         }
 
-        User checkUser = userService.getUserByPhoneNumber(request.getPhoneNumber());
-
-        if (checkUser != null){
-            if (checkUser.getEmail() == null){
-                checkUser.setEmail(request.getEmail());
-                checkUser.setFirstName(request.getFirstName());
-                checkUser.setLastName(request.getLastName());
-                checkUser.setBirthdayDate(getParsedBirthdayDate(request));
-                checkUser.setPassword(passwordEncoder.encode(request.getPassword()));
-                checkUser.setUserRole(UserRole.CLIENT);
-
-                return saveUserAndGetAuthResponse(checkUser);
-            }else {
-                throw new UserAlreadyExistsException("User with email '" + request.getEmail() + "' already exists!");
-            }
+        if (userService.getUserByPhoneNumber(request.getPhoneNumber()) != null){
+            throw new UserAlreadyExistsException("User with phone number '" + request.getPhoneNumber() + "' already exists!");
         }
 
         User transientUser = User.builder()
@@ -67,11 +54,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .enabled(true)
                 .build();
 
-        return saveUserAndGetAuthResponse(transientUser);
-    }
-
-    private AuthenticationResponse saveUserAndGetAuthResponse(User user){
-        User persistentUser = userService.saveUser(user);
+        User persistentUser = userService.saveUser(transientUser);
 
         String token = JwtService.generateToken(persistentUser);
 
@@ -105,7 +88,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
+                        persistentUser.getEmail(),
                         request.getPassword()
                 )
         );
