@@ -1,8 +1,8 @@
 package org.example.controller;
 
 import com.stripe.exception.StripeException;
+import com.stripe.model.checkout.Session;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.example.service.PaymentService;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +21,9 @@ public class PaymentController {
     }
 
     @PostMapping("/create-checkout-session")
-    public void createCheckoutSession(HttpServletResponse response,
-                                      HttpServletRequest request,
-                                      @RequestBody Long orderId) throws StripeException, IOException {
-        paymentService.createCheckoutSession(response, request, orderId);
+    public String createCheckoutSession(HttpServletRequest request,
+                                         @RequestBody Long orderId) throws StripeException, IOException {
+        Session session = paymentService.createCheckoutSession(request, orderId);
+        return session.getUrl();
     }
 }

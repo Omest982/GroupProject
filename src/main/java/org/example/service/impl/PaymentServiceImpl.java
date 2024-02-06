@@ -5,7 +5,6 @@ import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.example.entity.Order;
 import org.example.entity.OrderDetails;
@@ -19,7 +18,6 @@ import org.example.utils.UrlTool;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -36,7 +34,7 @@ public class PaymentServiceImpl implements PaymentService {
     private final CryptoTool cryptoTool;
     private static final String CURRENCY = "usd";
     @Override
-    public void createCheckoutSession(HttpServletResponse response, HttpServletRequest request, Long orderId) throws StripeException, IOException {
+    public Session createCheckoutSession(HttpServletRequest request, Long orderId) throws StripeException{
         Stripe.apiKey = stripeApiKey;
 
         String urlPrefix = urlTool.getFullUrlPrefix(request);
@@ -52,10 +50,7 @@ public class PaymentServiceImpl implements PaymentService {
                 .addAllLineItem(lineItemList)
                 .build();
 
-        Session session = Session.create(params);
-
-        response.sendRedirect(session.getUrl());
-        response.setStatus(303);
+        return Session.create(params);
     }
 
     @Override
@@ -86,7 +81,6 @@ public class PaymentServiceImpl implements PaymentService {
         for (OrderDetails orderDetails: orderDetailsList){
             String productName = orderDetails.getVariationDetails().getProductVariation().getProduct().getName();
             Long quantity = orderDetails.getQuantity().longValue();
-            String productDescription = orderDetails.getVariationDetails().getProductVariation().getProduct().getDescription();
             String imageLink = orderDetails.getVariationDetails().getProductVariation().getVariationImage().getImageLink();
             BigDecimal price = orderDetails.getTotalDetailPrice()
                     .divide(BigDecimal.valueOf(orderDetails.getQuantity()), RoundingMode.UP)
@@ -99,7 +93,6 @@ public class PaymentServiceImpl implements PaymentService {
                             .setCurrency(CURRENCY)
                             .setProductData(SessionCreateParams.LineItem.PriceData.ProductData.builder()
                                     .setName(productName)
-                                    .setDescription(productDescription)
                                     .addImage(imageLink)
                                     .build())
                             .build())

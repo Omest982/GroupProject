@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.6.7&#10;Fixed jwt bug.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/DTO/ExceptionResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/OrderException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/PaymentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/PaymentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/UrlTool.java" afterDir="false" />
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.7.0&#10;Added payment in project.&#10;Refactored exceptions.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/PaymentServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -423,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1707137158299</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="0.7.0&#10;Added payment in project.&#10;Refactored exceptions.">
+      <created>1707245637807</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1707245637807</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -461,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.2.1&#10;Deleted Basket and BasketDetails from the project.&#10;Slightly changed adding a Product.&#10;Fixed graphql Product with adding new fields.&#10;Added new method for ImageService.&#10;Replaced in User username with email, added phone, isEmailVerified and birthday fields." />
     <MESSAGE value="0.2.2&#10;Added MailController for sending mails.&#10;Added VerificationController for verifying user email.&#10;Added CryptoTool for encoding and decoding user id in mail verification.&#10;Fixed in users table columns phoneNumber and email with unique constrain.&#10;Added Date type in GraphQlConfig.&#10;Added DateTimeFormatter in AuthenticationServiceImpl.&#10;Fixed graphql order_details." />
     <MESSAGE value="0.2.3&#10;Added userComment and paymentMethod fields to Order.&#10;Added categoryParentId to Category.&#10;Added address field to User." />
     <MESSAGE value="0.2.3&#10;Added userComment and paymentMethod fields to Order.&#10;Added categoryParentId field to Category.&#10;Added address field to User." />
@@ -486,7 +485,8 @@
     <MESSAGE value="0.6.5&#10;Added test cases.&#10;Refactored some code." />
     <MESSAGE value="0.6.6&#10;Added test cases." />
     <MESSAGE value="0.6.7&#10;Fixed jwt bug." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.6.7&#10;Fixed jwt bug." />
+    <MESSAGE value="0.7.0&#10;Added payment in project.&#10;Refactored exceptions." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.7.0&#10;Added payment in project.&#10;Refactored exceptions." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
