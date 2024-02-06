@@ -21,4 +21,6 @@ public interface OrderService {
 
     Order updateOrderAddress(Long orderId, NewShippingInfo address);
     Order getOrderById(Long orderId);
+
+    Order saveOrder(Order order);
 }

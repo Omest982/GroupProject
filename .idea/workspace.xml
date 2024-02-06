@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.6.5&#10;Added test cases.&#10;Refactored some code.">
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.6.7&#10;Fixed jwt bug.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/PaymentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/DTO/ExceptionResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/OrderException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/PaymentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/PaymentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/UrlTool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/enums/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/enums/OrderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/CategoryControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/CategoryControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/ProductControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/ProductControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/graphql-test/product-add.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/graphql-test/product-add.graphql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -407,7 +409,21 @@
       <option name="project" value="LOCAL" />
       <updated>1706959741906</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="0.6.6&#10;Added test cases.">
+      <created>1707073824119</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1707073824119</updated>
+    </task>
+    <task id="LOCAL-00035" summary="0.6.7&#10;Fixed jwt bug.">
+      <created>1707137158299</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1707137158299</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -445,8 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.1.2&#10;Fixed graphql cors error." />
-    <MESSAGE value="0.2.0&#10;Created new mutations for ProductVariation, VariationDetails.&#10;Created new queries for Country, ProductVariation, VariationDetails.&#10;Added description field to Product.&#10;Changed amount field in ProductVariation to float type.&#10;Slightly changed OrderDetails and BasketDetails.&#10;Created new DTOs for mutations." />
     <MESSAGE value="0.2.1&#10;Deleted Basket and BasketDetails from the project.&#10;Slightly changed adding a Product.&#10;Fixed graphql Product with adding new fields.&#10;Added new method for ImageService.&#10;Replaced in User username with email, added phone, isEmailVerified and birthday fields." />
     <MESSAGE value="0.2.2&#10;Added MailController for sending mails.&#10;Added VerificationController for verifying user email.&#10;Added CryptoTool for encoding and decoding user id in mail verification.&#10;Fixed in users table columns phoneNumber and email with unique constrain.&#10;Added Date type in GraphQlConfig.&#10;Added DateTimeFormatter in AuthenticationServiceImpl.&#10;Fixed graphql order_details." />
     <MESSAGE value="0.2.3&#10;Added userComment and paymentMethod fields to Order.&#10;Added categoryParentId to Category.&#10;Added address field to User." />
@@ -470,7 +484,9 @@
     <MESSAGE value="0.6.3&#10;Refactored pages." />
     <MESSAGE value="0.6.4&#10;Fixed duplicates on different pages." />
     <MESSAGE value="0.6.5&#10;Added test cases.&#10;Refactored some code." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.6.5&#10;Added test cases.&#10;Refactored some code." />
+    <MESSAGE value="0.6.6&#10;Added test cases." />
+    <MESSAGE value="0.6.7&#10;Fixed jwt bug." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.6.7&#10;Fixed jwt bug." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

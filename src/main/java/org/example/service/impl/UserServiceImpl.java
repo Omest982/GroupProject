@@ -1,10 +1,7 @@
 package org.example.service.impl;
 
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.example.DTO.NewOrder;
 import org.example.entity.User;
-import org.example.entity.enums.UserRole;
 import org.example.repository.UserRepository;
 import org.example.security.jwt.JwtService;
 import org.example.service.UserService;

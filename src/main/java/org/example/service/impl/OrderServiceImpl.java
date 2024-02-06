@@ -8,6 +8,7 @@ import org.example.DTO.PageRequestDTO;
 import org.example.DTO.mailMessages.OrderAcceptedMail;
 import org.example.entity.*;
 import org.example.entity.enums.OrderStatus;
+import org.example.entity.enums.PaymentMethod;
 import org.example.repository.OrderDetailsRepository;
 import org.example.repository.OrderRepository;
 import org.example.service.*;
@@ -53,11 +54,17 @@ public class OrderServiceImpl implements OrderService {
             }
         }
 
+        OrderStatus orderStatus = OrderStatus.IN_PROGRESS;
+
+        if (newOrder.getPaymentMethod() == PaymentMethod.CARD){
+            orderStatus = OrderStatus.WAITING_FOR_PAYMENT;
+        }
+
         Order transientOrder = Order.builder()
                 .user(user)
                 .paymentMethod(newOrder.getPaymentMethod())
                 .userComment(newOrder.getUserComment())
-                .orderStatus(OrderStatus.WAITING_FOR_PAYMENT)
+                .orderStatus(orderStatus)
                 .shippingInfo(persistantShippingInfo)
                 .sum(BigDecimal.valueOf(0))
                 .build();
@@ -152,5 +159,10 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order getOrderById(Long orderId) {
         return orderRepository.findById(orderId).orElse(null);
+    }
+
+    @Override
+    public Order saveOrder(Order order) {
+        return orderRepository.save(order);
     }
 }
