@@ -22,6 +22,9 @@
         <jackson.version>2.15.3</jackson.version>
         <hashids.version>1.0.3</hashids.version>
         <h2.version>2.2.224</h2.version>
+        <stripe.version>24.14.0</stripe.version>
+        <graphql.test.version>1.2.4</graphql.test.version>
+        <postgres.test.version>1.18.3</postgres.test.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
@@ -31,7 +34,7 @@
         <dependency>
             <groupId>com.stripe</groupId>
             <artifactId>stripe-java</artifactId>
-            <version>24.14.0</version>
+            <version>${stripe.version}</version>
         </dependency>
 
         <dependency>
@@ -147,7 +150,7 @@
         <dependency>
             <groupId>org.springframework.graphql</groupId>
             <artifactId>spring-graphql-test</artifactId>
-            <version>1.2.4</version>
+            <version>${graphql.test.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -155,7 +158,7 @@
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>postgresql</artifactId>
-            <version>1.18.3</version>
+            <version>${postgres.test.version}</version>
             <scope>test</scope>
         </dependency>
 

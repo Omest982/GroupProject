@@ -5,6 +5,7 @@ import org.example.DTO.mailMessages.VerificationMail;
 import org.example.DTO.MailResponse;
 import org.example.service.MailSenderService;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Controller;
 public class MailController {
     private final MailSenderService mailSenderService;
 
-    @QueryMapping
+    @MutationMapping
     public MailResponse sendEmailVerificationMail(@Argument VerificationMail verificationMail){
         mailSenderService.sendEmailVerificationMail(verificationMail);
 

@@ -41,6 +41,9 @@ type Mutation{
         userId: Long): Order
     updateOrderShippingInfo(orderId: Long!, newShippingInfo: NewShippingInfo!): Order
 
+    #Mail
+    sendEmailVerificationMail(verificationMail: VerificationMail!): MailResponse
+
     #OrderDetails
     #addOrderDetails(orderDetails: NewOrderDetails!): Order
     #updateOrderDetails(orderDetailsId: Long, updatedOrderDetails: NewOrderDetails!): OrderDetails

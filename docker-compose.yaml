@@ -1,26 +1,41 @@
 version: "3.9"
 
 services:
-  db:
-    image: postgres
+  make_up_db:
     container_name: make_up_db
+    image: postgres:16.1
     restart: unless-stopped
     ports:
-      - "5432:5432"
+      - ${DB_LOCAL_PORT}:${DB_DOCKER_PORT}
+    expose:
+      - ${DB_DOCKER_PORT}
     environment:
-      - "POSTGRES_DB=make_up"
-      - "POSTGRES_PASSWORD=66vd52d"
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
 
-  app:
+  make_up_app:
+    container_name: make_up_app
     depends_on:
-      - db
+      - make_up_db
     restart: on-failure
-    container_name: make_up
     image: make_up_app
     build: .
     ports:
-      - "8080:8080"
+      - ${SERVER_LOCAL_PORT}:${SERVER_DOCKER_PORT}
+    expose:
+      - ${SERVER_DOCKER_PORT}
     environment:
-      db-url: jdbc:postgresql://db:5432/make_up
-      db-username: postgres
-      db-password: 66vd52d
+      - SERVER_PORT=${SERVER_LOCAL_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=make_up_db
+      - DB_PORT=${DB_LOCAL_PORT}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - STRIPE_API_KEY=${STRIPE_API_KEY}
+      - CRYPTO_SALT=${CRYPTO_SALT}
+      - LOCAL_DOMAIN=${LOCAL_DOMAIN}

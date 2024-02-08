@@ -17,6 +17,7 @@ import org.example.utils.CryptoTool;
 import org.example.utils.UrlTool;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -53,6 +54,7 @@ public class PaymentServiceImpl implements PaymentService {
         return Session.create(params);
     }
 
+    @Transactional
     @Override
     public String paymentSuccess(String orderIdHashed) {
         Long orderId = cryptoTool.idOf(orderIdHashed);

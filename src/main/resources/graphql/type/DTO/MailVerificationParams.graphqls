@@ -1,4 +1,0 @@
-input MailVerificationParams {
-    id: Long!
-    emailTo: String!
-}

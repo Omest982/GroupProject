@@ -46,9 +46,6 @@ type Query {
     #VariationDetails
     getVariationDetailsByProductVariationId(productVariationId: Long!): [VariationDetails]
 
-    #Mail
-    sendEmailVerificationMail(verificationMail: MailVerificationParams!): MailResponse
-
     #Search
     searchProductsPaged(searchString: String!, pageRequestDTO: PageRequestDTO!): ProductPage
 }
