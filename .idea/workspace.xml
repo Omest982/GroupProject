@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.7.2&#10;Refactored some code.">
-      <change afterPath="$PROJECT_DIR$/.env-sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/CreateSessionDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.8.0&#10;Finished docker-compose file.&#10;Fixed bugs.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/PaymentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/query.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/MailVerificationParams.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/MailVerificationParams.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/enum/OrderStatus.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/enum/OrderStatus.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -440,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1707247335159</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="0.8.0&#10;Finished docker-compose file.&#10;Fixed bugs.">
+      <created>1707432621393</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1707432621394</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -478,7 +475,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.2.3&#10;Added userComment and paymentMethod fields to Order.&#10;Added categoryParentId to Category.&#10;Added address field to User." />
     <MESSAGE value="0.2.3&#10;Added userComment and paymentMethod fields to Order.&#10;Added categoryParentId field to Category.&#10;Added address field to User." />
     <MESSAGE value="0.2.4&#10;Fixed @Arguments in Controllers.&#10;Changed loading order of liquibase.&#10;Fixed error with group in Product.&#10;Made more logic in AuthenticationServiceImpl register method." />
     <MESSAGE value="0.2.5&#10;Added new queries and mutations.&#10;Added logic for adding and getting orders.&#10;Added logic for adding orderDetails.&#10;Slightly renamed all .graphqls files." />
@@ -503,7 +499,8 @@
     <MESSAGE value="0.6.7&#10;Fixed jwt bug." />
     <MESSAGE value="0.7.0&#10;Added payment in project.&#10;Refactored exceptions." />
     <MESSAGE value="0.7.1&#10;Refactored some code." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.7.1&#10;Refactored some code." />
+    <MESSAGE value="0.8.0&#10;Finished docker-compose file.&#10;Fixed bugs." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.8.0&#10;Finished docker-compose file.&#10;Fixed bugs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
