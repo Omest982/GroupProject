@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   make_up_db:
-    container_name: make-up-db
+    container_name: make_up_db
     image: postgres:16.1
     restart: unless-stopped
     ports:
@@ -15,9 +15,9 @@ services:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
 
   make_up_app:
-    container_name: make-up-app
+    container_name: make_up_app
     depends_on:
-      - make-up-db
+      - make_up_db
     restart: on-failure
     image: make-up-app
     build: .

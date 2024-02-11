@@ -5,6 +5,7 @@ import org.example.DTO.NewProduct;
 import org.example.DTO.PageRequestDTO;
 import org.example.entity.Product;
 import org.example.service.ProductService;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -27,6 +28,7 @@ public class ProductController {
     }
 
     @QueryMapping
+    @Cacheable("product")
     public Product getProductById(@Argument Long id){
         return productService.getProductById(id);
     }

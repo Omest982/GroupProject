@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.8.0&#10;Finished docker-compose file.&#10;Fixed bugs.">
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.8.1&#10;Minor fixes.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/CacheConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GroupProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GroupProjectApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Brand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,17 +52,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/Коды/GroupProject/src/test/resources/db.changelog/changeset&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "G:/Коды/GroupProject/src/test/resources/db.changelog/changeset",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\Коды\GroupProject\src\test\resources\db.changelog\changeset" />
@@ -437,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1707432621394</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="0.8.1&#10;Minor fixes.">
+      <created>1707654361212</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1707654361212</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -475,7 +489,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.2.3&#10;Added userComment and paymentMethod fields to Order.&#10;Added categoryParentId field to Category.&#10;Added address field to User." />
     <MESSAGE value="0.2.4&#10;Fixed @Arguments in Controllers.&#10;Changed loading order of liquibase.&#10;Fixed error with group in Product.&#10;Made more logic in AuthenticationServiceImpl register method." />
     <MESSAGE value="0.2.5&#10;Added new queries and mutations.&#10;Added logic for adding and getting orders.&#10;Added logic for adding orderDetails.&#10;Slightly renamed all .graphqls files." />
     <MESSAGE value="0.2.6&#10;Fixed issue with primitive data types.&#10;Created UserAlreadyExistsException and UserNotFoundException.&#10;Created GlobalExceptionHandler for handling exceptions." />
@@ -500,7 +513,8 @@
     <MESSAGE value="0.7.0&#10;Added payment in project.&#10;Refactored exceptions." />
     <MESSAGE value="0.7.1&#10;Refactored some code." />
     <MESSAGE value="0.8.0&#10;Finished docker-compose file.&#10;Fixed bugs." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.8.0&#10;Finished docker-compose file.&#10;Fixed bugs." />
+    <MESSAGE value="0.8.1&#10;Minor fixes." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.8.1&#10;Minor fixes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

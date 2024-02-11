@@ -3,13 +3,13 @@ package org.example.entity;
 import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.example.entity.enums.Classification;
 import org.example.entity.enums.ProductStatus;
 import org.example.entity.enums.Sex;
 import org.hibernate.annotations.Type;
 import org.springframework.lang.NonNull;
 
+import java.io.Serializable;
 import java.util.*;
 
 @Getter
@@ -20,7 +20,7 @@ import java.util.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "product")
-public class Product implements Comparable<Product> {
+public class Product implements Comparable<Product>, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
