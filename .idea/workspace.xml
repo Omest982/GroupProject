@@ -4,25 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.8.2&#10;Configurated and started adding to project redis for caching.">
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.8.3&#10;Deleted caching from project.&#10;Added password recovery function.&#10;Refactored mail massage dto.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DTO/PasswordRecoveryDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DTO/mailMessages/VerificationMail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/CacheConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/VerificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/VerificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/ShippingInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/ShippingInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/MailSenderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MailSenderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/VerificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/VerificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MailSenderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MailSenderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/VerificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/VerificationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/MailResponse.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/mail/MailResponse.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/VerificationMail.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/mail/VerificationMail.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/mail/MailMassage.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/type/DTO/mail/MailMessage.graphqls" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -459,7 +450,21 @@
       <option name="project" value="LOCAL" />
       <updated>1707654361212</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="0.8.2&#10;Added password recovery function.&#10;Refactored mail massage dto.">
+      <created>1707912201721</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1707912201721</updated>
+    </task>
+    <task id="LOCAL-00041" summary="0.8.3&#10;Deleted caching from project.&#10;Added password recovery function.&#10;Refactored mail massage dto.">
+      <created>1707913092056</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1707913092056</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -497,8 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.2.4&#10;Fixed @Arguments in Controllers.&#10;Changed loading order of liquibase.&#10;Fixed error with group in Product.&#10;Made more logic in AuthenticationServiceImpl register method." />
-    <MESSAGE value="0.2.5&#10;Added new queries and mutations.&#10;Added logic for adding and getting orders.&#10;Added logic for adding orderDetails.&#10;Slightly renamed all .graphqls files." />
     <MESSAGE value="0.2.6&#10;Fixed issue with primitive data types.&#10;Created UserAlreadyExistsException and UserNotFoundException.&#10;Created GlobalExceptionHandler for handling exceptions." />
     <MESSAGE value="0.2.7&#10;Secured /admin and /user endpoints.&#10;Added queries and mutations.&#10;Fixed addProductVariation error." />
     <MESSAGE value="0.3.0&#10;Added variationName field in ProductVariation.&#10;Removed isLiquid field from Product.&#10;Added cascade.&#10;Added mutations." />
@@ -522,7 +525,9 @@
     <MESSAGE value="0.7.1&#10;Refactored some code." />
     <MESSAGE value="0.8.0&#10;Finished docker-compose file.&#10;Fixed bugs." />
     <MESSAGE value="0.8.1&#10;Minor fixes." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.8.1&#10;Minor fixes." />
+    <MESSAGE value="0.8.2&#10;Added password recovery function.&#10;Refactored mail massage dto." />
+    <MESSAGE value="0.8.3&#10;Deleted caching from project.&#10;Added password recovery function.&#10;Refactored mail massage dto." />
+    <option name="LAST_COMMIT_MESSAGE" value="0.8.3&#10;Deleted caching from project.&#10;Added password recovery function.&#10;Refactored mail massage dto." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

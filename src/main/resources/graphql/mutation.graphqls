@@ -42,8 +42,8 @@ type Mutation{
     updateOrderShippingInfo(orderId: Long!, newShippingInfo: NewShippingInfo!): Order
 
     #Mail
-    sendVerificationMail(verificationMail: MailMassage!): MailResponse
-    sendPasswordRecoveryMail(passwordRecoveryMail: MailMassage!): MailResponse
+    sendVerificationMail(verificationMail: MailMessage!): MailResponse
+    sendPasswordRecoveryMail(passwordRecoveryMail: MailMessage!): MailResponse
 
     #OrderDetails
     #addOrderDetails(orderDetails: NewOrderDetails!): Order

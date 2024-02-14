@@ -1,6 +1,8 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.example.DTO.PasswordRecoveryDTO;
 import org.example.entity.User;
 import org.example.service.UserService;
 import org.example.service.VerificationService;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class VerificationServiceImpl implements VerificationService {
     private final CryptoTool cryptoTool;
@@ -17,25 +20,33 @@ public class VerificationServiceImpl implements VerificationService {
     private final PasswordEncoder passwordEncoder;
     @Override
     @Transactional
-    public User verifyEmail(String userId) {
+    public Boolean verifyEmail(String userId) {
         Long id = cryptoTool.idOf(userId);
 
         User persistentUser = userService.getUserById(id);
 
         persistentUser.setIsEmailVerified(true);
 
-        return userService.saveUser(persistentUser);
+        userService.saveUser(persistentUser);
+
+        return true;
     }
 
     @Override
     @Transactional
-    public User passwordRecovery(String userId, String newPassword) {
+    public Boolean passwordRecovery(String userId, PasswordRecoveryDTO passwordRecoveryDTO) {
         Long id = cryptoTool.idOf(userId);
 
         User persistentUser = userService.getUserById(id);
 
-        persistentUser.setPassword(passwordEncoder.encode(newPassword));
+        log.info(passwordRecoveryDTO.getNewPassword());
 
-        return userService.saveUser(persistentUser);
+        persistentUser.setPassword(passwordEncoder.encode(passwordRecoveryDTO.getNewPassword()));
+
+        log.info(persistentUser.getPassword());
+
+        userService.saveUser(persistentUser);
+
+        return true;
     }
 }

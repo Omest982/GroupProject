@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.DTO.PasswordRecoveryDTO;
 import org.example.entity.User;
 import org.example.service.UserService;
 import org.example.service.VerificationService;
@@ -16,13 +17,21 @@ public class VerificationController {
 
     @GetMapping("/email")
     public String verifyEmail(@RequestParam String id) {
-        verificationService.verifyEmail(id);
-        return "Successful verification!";
+
+        if (verificationService.verifyEmail(id)){
+            return "Successful verification!";
+        }
+
+        return "Failed to verify!";
     }
 
     @PostMapping("/password")
-    public String passwordRecovery(@RequestParam String id, @RequestBody String newPassword) {
-        verificationService.passwordRecovery(id, newPassword);
-        return "Successful verification!";
+    public String passwordRecovery(@RequestParam String id, @RequestBody PasswordRecoveryDTO passwordRecoveryDTO) {
+
+        if (verificationService.passwordRecovery(id, passwordRecoveryDTO)){
+            return "Successful recovery!";
+        }
+
+        return "Failed to recover!";
     }
 }

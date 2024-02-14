@@ -2,6 +2,7 @@ package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.example.entity.User;
+import org.example.exception.UserNotFoundException;
 import org.example.repository.UserRepository;
 import org.example.security.jwt.JwtService;
 import org.example.service.UserService;
@@ -33,7 +34,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(Long userId) {
-        return userRepository.findById(userId).orElse(null);
+        return userRepository.findById(userId).orElseThrow(()
+                -> new UserNotFoundException("User with id " + userId + " not found!"));
     }
 
     @Override

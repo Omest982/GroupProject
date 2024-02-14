@@ -14,8 +14,8 @@ public class MailController {
     private final MailSenderService mailSenderService;
 
     @MutationMapping
-    public MailResponse sendVerificationMail(@Argument MailMessage mailMessage){
-        mailSenderService.sendEmailVerificationMail(mailMessage);
+    public MailResponse sendVerificationMail(@Argument MailMessage verificationMail){
+        mailSenderService.sendEmailVerificationMail(verificationMail);
 
         return MailResponse.builder()
                 .response("Sent!")
@@ -23,8 +23,8 @@ public class MailController {
     }
 
     @MutationMapping
-    public MailResponse sendPasswordRecoveryMail(@Argument MailMessage mailMessage){
-        mailSenderService.sendPasswordRecoveryMail(mailMessage);
+    public MailResponse sendPasswordRecoveryMail(@Argument MailMessage passwordRecoveryMail){
+        mailSenderService.sendPasswordRecoveryMail(passwordRecoveryMail);
 
         return MailResponse.builder()
                 .response("Sent!")

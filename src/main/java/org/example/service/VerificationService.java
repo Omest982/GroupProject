@@ -1,9 +1,9 @@
 package org.example.service;
 
-import org.example.entity.User;
+import org.example.DTO.PasswordRecoveryDTO;
 
 public interface VerificationService {
-    User verifyEmail(String userId);
+    Boolean verifyEmail(String userId);
 
-    User passwordRecovery(String userId, String newPassword);
+    Boolean passwordRecovery(String userId, PasswordRecoveryDTO passwordRecoveryDTO);
 }
