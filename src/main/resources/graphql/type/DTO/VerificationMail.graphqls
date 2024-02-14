@@ -1,4 +1,0 @@
-input VerificationMail {
-    userId: Long!
-    emailTo: String!
-}

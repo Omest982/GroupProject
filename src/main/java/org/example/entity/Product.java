@@ -9,7 +9,6 @@ import org.example.entity.enums.Sex;
 import org.hibernate.annotations.Type;
 import org.springframework.lang.NonNull;
 
-import java.io.Serializable;
 import java.util.*;
 
 @Getter
@@ -20,7 +19,7 @@ import java.util.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "product")
-public class Product implements Comparable<Product>, Serializable {
+public class Product implements Comparable<Product> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

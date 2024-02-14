@@ -28,7 +28,6 @@ public class ProductController {
     }
 
     @QueryMapping
-    @Cacheable("product")
     public Product getProductById(@Argument Long id){
         return productService.getProductById(id);
     }

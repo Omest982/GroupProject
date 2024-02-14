@@ -19,4 +19,10 @@ public class VerificationController {
         verificationService.verifyEmail(id);
         return "Successful verification!";
     }
+
+    @PostMapping("/password")
+    public String passwordRecovery(@RequestParam String id, @RequestBody String newPassword) {
+        verificationService.passwordRecovery(id, newPassword);
+        return "Successful verification!";
+    }
 }
