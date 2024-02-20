@@ -1,4 +1,4 @@
-package org.example.DTO.mailMessages;
+package org.example.DTO.mail;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;

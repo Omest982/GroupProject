@@ -1,8 +1,8 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.example.DTO.mailMessages.MailMessage;
-import org.example.DTO.mailMessages.OrderAcceptedMail;
+import org.example.DTO.mail.MailMessage;
+import org.example.DTO.mail.OrderAcceptedMail;
 import org.example.entity.User;
 import org.example.service.MailSenderService;
 import org.example.service.UserService;

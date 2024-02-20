@@ -2,7 +2,7 @@ package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.DTO.MailResponse;
-import org.example.DTO.mailMessages.MailMessage;
+import org.example.DTO.mail.MailMessage;
 import org.example.service.MailSenderService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;

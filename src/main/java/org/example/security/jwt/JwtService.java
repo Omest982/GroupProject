@@ -6,6 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.example.entity.User;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.security.Key;
 import java.util.Date;
@@ -13,8 +14,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JwtService {
-    private final static String SECRET = "CRClPakWbPafJH12umy4hdV4MNNeutKv62UjIsg278Uh4nfj7";
-    private final static long EXPIRATION_TIME = 100000 * 60;
+    @Value("${jwt.secret}")
+    private static String jwtSecret;
+    @Value("@{jwt.expiration}")
+    private static Long expirationTime;
 
     public static String generateToken(User user){
         return generateToken(new HashMap<>(), user);
@@ -28,7 +31,7 @@ public class JwtService {
         return Jwts.builder()
                 .setClaims(extraClaims)
                 .setSubject(user.getEmail())
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -60,7 +63,7 @@ public class JwtService {
     }
 
     private static Key getSignInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(SECRET);
+        byte[] keyBytes = Decoders.BASE64.decode(jwtSecret);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 }

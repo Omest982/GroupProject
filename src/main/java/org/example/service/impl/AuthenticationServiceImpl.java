@@ -6,9 +6,9 @@ import org.example.entity.User;
 import org.example.entity.enums.UserRole;
 import org.example.exception.UserAlreadyExistsException;
 import org.example.exception.UserNotFoundException;
-import org.example.security.DTO.AuthenticationRequest;
-import org.example.security.DTO.AuthenticationResponse;
-import org.example.security.DTO.RegisterRequest;
+import org.example.DTO.security.AuthenticationRequest;
+import org.example.DTO.security.AuthenticationResponse;
+import org.example.DTO.security.RegisterRequest;
 import org.example.security.jwt.JwtService;
 import org.example.service.AuthenticationService;
 import org.example.service.UserService;
@@ -20,7 +20,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 @RequiredArgsConstructor
 @Slf4j
