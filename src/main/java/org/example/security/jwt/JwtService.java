@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import lombok.*;
 import org.example.entity.User;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -13,17 +14,18 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+@NoArgsConstructor
+@Data
 public class JwtService {
     @Value("${jwt.secret}")
-    private static String jwtSecret;
-    @Value("@{jwt.expiration}")
-    private static Long expirationTime;
-
-    public static String generateToken(User user){
+    private String jwtSecret;
+    @Value("${jwt.expiration}")
+    private long expirationTime;
+    public String generateToken(User user){
         return generateToken(new HashMap<>(), user);
     }
 
-    public static String generateToken(
+    public String generateToken(
             Map<String, Object> extraClaims,
             User user){
 
@@ -36,25 +38,25 @@ public class JwtService {
                 .compact();
     }
 
-    public static boolean isTokenValid(String token, User user){
+    public boolean isTokenValid(String token, User user){
         String email = extractEmail(token);
 
         return (user.getEmail().equals(email) && !isTokenExpired(token));
     }
 
-    public static boolean isTokenExpired(String token){
+    public boolean isTokenExpired(String token){
         return extractExpiration(token).before(new Date());
     }
 
-    public static Date extractExpiration(String token){
+    public Date extractExpiration(String token){
         return extractAllClaims(token).getExpiration();
     }
 
-    public static String extractEmail(String token){
+    public String extractEmail(String token){
         return extractAllClaims(token).getSubject();
     }
 
-    private static Claims extractAllClaims(String token){
+    private Claims extractAllClaims(String token){
         return Jwts.parserBuilder()
                 .setSigningKey(getSignInKey())
                 .build()
@@ -62,7 +64,7 @@ public class JwtService {
                 .getBody();
     }
 
-    private static Key getSignInKey() {
+    private Key getSignInKey() {
         byte[] keyBytes = Decoders.BASE64.decode(jwtSecret);
         return Keys.hmacShaKeyFor(keyBytes);
     }

@@ -1,6 +1,7 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.DTO.mail.MailMessage;
 import org.example.DTO.mail.OrderAcceptedMail;
 import org.example.entity.User;
@@ -13,10 +14,12 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class MailSenderServiceImpl implements MailSenderService {
     private final UserService userService;
     private final JavaMailSender javaMailSender;
+    //private final ApiClient postmarkApiClient;
     private final CryptoTool cryptoTool;
     @Value("${service.verification.uri}")
     private String verificationServiceUri;
@@ -25,7 +28,7 @@ public class MailSenderServiceImpl implements MailSenderService {
     @Value("${spring.mail.username}")
     private String emailFrom;
     @Override
-    public void sendEmailVerificationMail(MailMessage mailMessage) {
+    public void sendEmailVerificationMail(MailMessage mailMessage){
         String subject = "Email verification";
         String emailTo = mailMessage.getEmailTo();
         User user = userService.getUserByEmail(emailTo);
@@ -38,6 +41,14 @@ public class MailSenderServiceImpl implements MailSenderService {
         simpleMailMessage.setText(messageBody);
 
         javaMailSender.send(simpleMailMessage);
+
+//        Message message = new Message();
+//        message.setFrom(emailFrom);
+//        message.setSubject(subject);
+//        message.setTo(emailTo);
+//        message.setTextBody(messageBody);
+//
+//        MessageResponse response = postmarkApiClient.deliverMessage(message);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package org.example.exception.DTO;
+package org.example.DTO.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

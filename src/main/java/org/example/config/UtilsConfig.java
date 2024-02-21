@@ -1,5 +1,6 @@
 package org.example.config;
 
+import org.example.security.jwt.JwtService;
 import org.example.utils.CryptoTool;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -13,5 +14,10 @@ public class UtilsConfig {
     @Bean
     public CryptoTool getCryptoTool(){
         return new CryptoTool(salt);
+    }
+
+    @Bean
+    public JwtService getJwtService(){
+        return new JwtService();
     }
 }

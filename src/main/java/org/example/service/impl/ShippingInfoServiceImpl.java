@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.DTO.NewShippingInfo;
 import org.example.entity.ShippingInfo;
 import org.example.entity.User;
-import org.example.exception.UserNotFoundException;
+import org.example.exception.EntityNotFoundException;
 import org.example.repository.ShippingInfoRepository;
 import org.example.service.ShippingInfoService;
 import org.example.service.UserService;
@@ -37,7 +37,7 @@ public class ShippingInfoServiceImpl implements ShippingInfoService {
         User user = userService.getUserById(userId);
 
         if (user == null){
-            throw new UserNotFoundException("User with id " +
+            throw new EntityNotFoundException("User with id " +
                     userId + " not found!");
         }
 

@@ -14,7 +14,7 @@ public class MailController {
     private final MailSenderService mailSenderService;
 
     @MutationMapping
-    public MailResponse sendVerificationMail(@Argument MailMessage verificationMail){
+    public MailResponse sendVerificationMail(@Argument MailMessage verificationMail) {
         mailSenderService.sendEmailVerificationMail(verificationMail);
 
         return MailResponse.builder()

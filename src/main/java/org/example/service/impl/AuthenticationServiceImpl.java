@@ -2,13 +2,13 @@ package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.entity.User;
-import org.example.entity.enums.UserRole;
-import org.example.exception.UserAlreadyExistsException;
-import org.example.exception.UserNotFoundException;
 import org.example.DTO.security.AuthenticationRequest;
 import org.example.DTO.security.AuthenticationResponse;
 import org.example.DTO.security.RegisterRequest;
+import org.example.entity.User;
+import org.example.entity.enums.UserRole;
+import org.example.exception.EntityAlreadyExistsException;
+import org.example.exception.EntityNotFoundException;
 import org.example.security.jwt.JwtService;
 import org.example.service.AuthenticationService;
 import org.example.service.UserService;
@@ -29,17 +29,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authManager;
+    private final JwtService jwtService;
     @Transactional
     @Override
     public AuthenticationResponse register(RegisterRequest request) {
-
-        if (userService.getUserByEmail(request.getEmail()) != null){
-            throw new UserAlreadyExistsException("User with email '" + request.getEmail() + "' already exists!");
-        }
-
-        if (userService.getUserByPhoneNumber(request.getPhoneNumber()) != null){
-            throw new UserAlreadyExistsException("User with phone number '" + request.getPhoneNumber() + "' already exists!");
-        }
 
         User transientUser = User.builder()
                 .email(request.getEmail())
@@ -55,7 +48,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         User persistentUser = userService.saveUser(transientUser);
 
-        String token = JwtService.generateToken(persistentUser);
+        String token = jwtService.generateToken(persistentUser);
 
         return AuthenticationResponse.builder()
                 .jwtToken(token)
@@ -77,12 +70,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         User persistentUser = userService.getUserByEmail(request.getEmail());
 
-        if (persistentUser == null){
-            throw new UserNotFoundException("User with email '" + request.getEmail() + "' not found!");
-        }
-
         if (!passwordEncoder.matches(request.getPassword(), persistentUser.getPassword())){
-            throw new UserNotFoundException("User with this password not found!");
+            throw new EntityNotFoundException("User with this email or password not found!");
         }
 
         authManager.authenticate(
@@ -92,7 +81,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 )
         );
 
-        String token = JwtService.generateToken(persistentUser);
+        String token = jwtService.generateToken(persistentUser);
 
         return AuthenticationResponse.builder()
                 .jwtToken(token)
