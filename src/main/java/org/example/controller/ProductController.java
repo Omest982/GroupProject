@@ -5,6 +5,8 @@ import org.example.DTO.NewProduct;
 import org.example.DTO.PageRequestDTO;
 import org.example.entity.Product;
 import org.example.service.ProductService;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -28,7 +30,9 @@ public class ProductController {
     }
 
     @QueryMapping
+    @Cacheable(value = "product", key = "#id")
     public Product getProductById(@Argument Long id){
+        System.out.println("Product method activated");
         return productService.getProductById(id);
     }
 
@@ -54,16 +58,19 @@ public class ProductController {
     }
 
     @MutationMapping
+    @CachePut(value = "product", key = "#productId")
     public Product updateProduct(@Argument Long productId, @Argument NewProduct updatedProduct){
         return productService.updateProduct(productId, updatedProduct);
     }
 
     @MutationMapping
+    @CacheEvict(value = "product", key = "#productId")
     public String deleteProduct(@Argument Long productId){
         return productService.deleteProduct(productId);
     }
 
     @MutationMapping
+    @CachePut(value = "product", key = "#productId")
     public Product addImageToProduct(@Argument Long productId, @Argument String imageLink){
         return productService.addImageToProduct(productId, imageLink);
     }
