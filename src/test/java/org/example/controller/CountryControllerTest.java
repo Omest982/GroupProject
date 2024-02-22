@@ -15,7 +15,7 @@ public class CountryControllerTest {
     private GraphQlTester graphQlTester;
     @Test
     void shouldAddCategory(){
-        graphQlTester.documentName("country-add")
+        graphQlTester.documentName("country_add")
                 .variable("countryName", "Ukraine")
                 .execute()
                 .path("addCountry")

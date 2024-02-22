@@ -7,6 +7,7 @@ import org.example.DTO.security.AuthenticationResponse;
 import org.example.DTO.security.RegisterRequest;
 import org.example.entity.User;
 import org.example.entity.enums.UserRole;
+import org.example.exception.EntityAlreadyExistsException;
 import org.example.exception.EntityNotFoundException;
 import org.example.security.jwt.JwtService;
 import org.example.service.AuthenticationService;
@@ -32,6 +33,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Transactional
     @Override
     public AuthenticationResponse register(RegisterRequest request) {
+
+        if (userService.isUserExistsByEmailAndPhoneNumber(request.getEmail(), request.getPhoneNumber())){
+            throw new EntityAlreadyExistsException("User with this email or password already exists!");
+        }
 
         User transientUser = User.builder()
                 .email(request.getEmail())

@@ -1,4 +1,4 @@
-mutation add_category($categoryName: String!){
+mutation category_add($categoryName: String!){
     addCategory(categoryName: $categoryName){
         id
         name

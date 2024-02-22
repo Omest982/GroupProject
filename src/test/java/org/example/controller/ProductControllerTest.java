@@ -43,7 +43,7 @@ public class ProductControllerTest {
         newProduct.put("classification", Classification.ELITE);
         newProduct.put("description", "Cool!");
 
-        graphQlTester.documentName("product-add")
+        graphQlTester.documentName("product_add")
                 .variable("newProduct", newProduct)
                 .execute()
                 .path("addProduct")

@@ -1,4 +1,4 @@
-mutation add_brand($brandName: String!){
+mutation brand_add($brandName: String!){
     addBrand(brandName: $brandName){
         name
     }

@@ -1,4 +1,4 @@
-mutation add_country($countryName: String!){
+mutation country_add($countryName: String!){
     addCountry(countryName: $countryName){
         name
     }

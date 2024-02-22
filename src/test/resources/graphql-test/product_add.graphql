@@ -1,4 +1,4 @@
-mutation add_product($newProduct: NewProduct!){
+mutation product_add($newProduct: NewProduct!){
     addProduct(product: $newProduct){
         id
         name

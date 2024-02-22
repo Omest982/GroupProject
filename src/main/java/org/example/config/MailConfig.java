@@ -5,11 +5,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MailConfig {
-    @Value("${postmark.api-key}")
-    private String postmarkApiKey;
-
-//    @Bean
-//    public ApiClient getClient(){
-//        return Postmark.getApiClient(postmarkApiKey);
-//    }
+//    @Value("${postmark.api-key}")
+//    private String postmarkApiKey;
+//
+////    @Bean
+////    public ApiClient getClient(){
+////        return Postmark.getApiClient(postmarkApiKey);
+////    }
 }
