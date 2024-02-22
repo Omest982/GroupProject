@@ -12,10 +12,6 @@ public interface CategoryService {
 
     Category getCategoryById(Long id);
 
-    Category getCategoryByName(String categoryName);
-
-    List<Category> getAllCategoriesByNames(Iterable<String> categoryNames);
-
     List<Category> getAllCategoriesByIds(Iterable<Long> categoryIds);
 
     List<Category> getAllCategoriesByParentCategoryId(Long parentCategoryId);

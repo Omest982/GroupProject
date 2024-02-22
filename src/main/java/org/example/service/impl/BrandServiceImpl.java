@@ -26,11 +26,6 @@ public class BrandServiceImpl implements BrandService {
         return brandRepository.findById(id).orElse(null);
     }
 
-    @Override
-    public Brand getBrandByName(String name) {
-        return brandRepository.findByName(name);
-    }
-
     @Transactional
     @Override
     public Brand addBrand(String name) {

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ShippingInfoRepository extends JpaRepository<ShippingInfo, Long> {
     @Query(value = """
@@ -19,7 +20,7 @@ public interface ShippingInfoRepository extends JpaRepository<ShippingInfo, Long
                 AND upper(s.recipientPhoneNumber) = upper(:recipientPhoneNumber)
         """
     )
-    ShippingInfo findByAllFields(
+    Optional<ShippingInfo> findByAllFields(
             @Param("region") String region,
             @Param("city") String city,
             @Param("street") String street,

@@ -2,7 +2,6 @@ package org.example.service.impl;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.example.entity.Category;
 import org.example.repository.CategoryRepository;
 import org.example.service.CategoryService;
@@ -12,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @RequiredArgsConstructor
-@Slf4j
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
@@ -26,16 +24,6 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Category getCategoryById(Long id) {
         return categoryRepository.findById(id).orElse(null);
-    }
-
-    @Override
-    public Category getCategoryByName(String name) {
-        return categoryRepository.findByName(name);
-    }
-
-    @Override
-    public List<Category> getAllCategoriesByNames(Iterable<String> names) {
-        return categoryRepository.findAllByNameIn(names);
     }
 
     @Override

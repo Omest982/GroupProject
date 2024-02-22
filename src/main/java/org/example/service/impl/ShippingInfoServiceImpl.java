@@ -28,18 +28,13 @@ public class ShippingInfoServiceImpl implements ShippingInfoService {
                 shippingInfo.getRecipientFirstName(),
                 shippingInfo.getRecipientLastName(),
                 shippingInfo.getRecipientPhoneNumber()
-        );
+        ).orElse(null);
     }
 
     @Transactional
     @Override
     public ShippingInfo addShippingInfoToUser(Long userId, NewShippingInfo newShippingInfo) {
         User user = userService.getUserById(userId);
-
-        if (user == null){
-            throw new EntityNotFoundException("User with id " +
-                    userId + " not found!");
-        }
 
         ShippingInfo persistantShippingInfo = addOrGetShippingInfo(newShippingInfo);
 

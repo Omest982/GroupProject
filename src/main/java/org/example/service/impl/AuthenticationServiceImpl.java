@@ -7,7 +7,6 @@ import org.example.DTO.security.AuthenticationResponse;
 import org.example.DTO.security.RegisterRequest;
 import org.example.entity.User;
 import org.example.entity.enums.UserRole;
-import org.example.exception.EntityAlreadyExistsException;
 import org.example.exception.EntityNotFoundException;
 import org.example.security.jwt.JwtService;
 import org.example.service.AuthenticationService;
@@ -50,6 +49,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         String token = jwtService.generateToken(persistentUser);
 
+        log.info(String.format("Registered user with %s email", persistentUser.getEmail()));
+
         return AuthenticationResponse.builder()
                 .jwtToken(token)
                 .build();
@@ -82,6 +83,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         );
 
         String token = jwtService.generateToken(persistentUser);
+
+        log.info(String.format("Authenticated user with %s email", persistentUser.getEmail()));
 
         return AuthenticationResponse.builder()
                 .jwtToken(token)
