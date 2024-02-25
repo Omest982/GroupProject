@@ -59,8 +59,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean isUserExistsByEmailAndPhoneNumber(String email, String phoneNumber) {
-        return userRepository.existsByEmailAndPhoneNumber(email, phoneNumber);
+    public Boolean isUserExistsByEmailOrPhoneNumber(String email, String phoneNumber) {
+        return userRepository.existsByEmailOrPhoneNumber(email, phoneNumber);
     }
 
     @Override

@@ -17,10 +17,9 @@ public class AuthenticationController {
     private final AuthenticationService authService;
 
     @MutationMapping
-    public AuthenticationResponse registerUser(
+    public Boolean registerUser(
             @Argument RegisterRequest request){
-
-        return authService.register(request);
+         return authService.register(request);
     }
 
     @QueryMapping

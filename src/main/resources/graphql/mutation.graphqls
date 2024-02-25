@@ -13,7 +13,7 @@ type Mutation{
     deleteCountry(countryId: Long!): String
 
     #User
-    registerUser(request: RegisterRequest!): AuthenticationResponse
+    registerUser(request: RegisterRequest!): Boolean
     addShippingInfoToUser(userId: Long!, newShippingInfo: NewShippingInfo!): ShippingInfo
 
     #Product

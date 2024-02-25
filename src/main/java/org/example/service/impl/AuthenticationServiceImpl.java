@@ -14,6 +14,7 @@ import org.example.service.AuthenticationService;
 import org.example.service.UserService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,10 +33,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final JwtService jwtService;
     @Transactional
     @Override
-    public AuthenticationResponse register(RegisterRequest request) {
+    public Boolean register(RegisterRequest request) {
 
-        if (userService.isUserExistsByEmailAndPhoneNumber(request.getEmail(), request.getPhoneNumber())){
-            throw new EntityAlreadyExistsException("User with this email or password already exists!");
+        if (userService.isUserExistsByEmailOrPhoneNumber(request.getEmail(), request.getPhoneNumber())){
+            throw new EntityAlreadyExistsException("User with this email or phone number already exists!");
         }
 
         User transientUser = User.builder()
@@ -52,13 +53,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         User persistentUser = userService.saveUser(transientUser);
 
-        String token = jwtService.generateToken(persistentUser);
-
         log.info(String.format("Registered user with %s email", persistentUser.getEmail()));
 
-        return AuthenticationResponse.builder()
-                .jwtToken(token)
-                .build();
+        return true;
     }
 
     private LocalDate getParsedBirthdayDate(RegisterRequest request){
@@ -74,22 +71,16 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
 
-        User persistentUser = userService.getUserByEmail(request.getEmail());
-
-        if (!passwordEncoder.matches(request.getPassword(), persistentUser.getPassword())){
-            throw new EntityNotFoundException("User with this email or password not found!");
-        }
-
-        authManager.authenticate(
+         Authentication authentication = authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        persistentUser.getEmail(),
+                        request.getEmail(),
                         request.getPassword()
                 )
         );
 
-        String token = jwtService.generateToken(persistentUser);
+        String token = jwtService.generateToken(authentication);
 
-        log.info(String.format("Authenticated user with %s email", persistentUser.getEmail()));
+        log.info(String.format("Authenticated user with %s email", request.getEmail()));
 
         return AuthenticationResponse.builder()
                 .jwtToken(token)

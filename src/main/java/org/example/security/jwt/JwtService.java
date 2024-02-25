@@ -8,6 +8,7 @@ import io.jsonwebtoken.security.Keys;
 import lombok.*;
 import org.example.entity.User;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
 
 import java.security.Key;
 import java.util.Date;
@@ -21,14 +22,15 @@ public class JwtService {
     private String jwtSecret;
     @Value("${jwt.expiration}")
     private long expirationTime;
-    public String generateToken(User user){
-        return generateToken(new HashMap<>(), user);
+    public String generateToken(Authentication authentication){
+        return generateToken(new HashMap<>(), authentication);
     }
 
     public String generateToken(
             Map<String, Object> extraClaims,
-            User user){
+            Authentication authentication){
 
+        User user = (User) authentication.getPrincipal();
 
         return Jwts.builder()
                 .setClaims(extraClaims)

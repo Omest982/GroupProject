@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.DTO.NewVariationDetails;
 import org.example.entity.ProductVariation;
 import org.example.entity.VariationDetails;
+import org.example.exception.EntityNotFoundException;
 import org.example.repository.VariationDetailsRepository;
 import org.example.service.ProductVariationService;
 import org.example.service.VariationDetailsService;
@@ -30,7 +31,8 @@ public class VariationDetailsServiceImpl implements VariationDetailsService {
 
     @Override
     public VariationDetails getVariationDetailsById(Long variationDetailsId) {
-        return variationDetailsRepository.findById(variationDetailsId).orElse(null);
+        return variationDetailsRepository.findById(variationDetailsId).orElseThrow(()
+        -> new EntityNotFoundException(String.format("Variation details with id %s not found!", variationDetailsId)));
     }
 
     @Transactional

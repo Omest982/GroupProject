@@ -18,5 +18,5 @@ public interface UserService extends UserDetailsService {
 
     User getUserByJwtToken(String jwtToken);
 
-    Boolean isUserExistsByEmailAndPhoneNumber(String email, String phoneNumber);
+    Boolean isUserExistsByEmailOrPhoneNumber(String email, String phoneNumber);
 }

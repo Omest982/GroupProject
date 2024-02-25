@@ -44,9 +44,7 @@ public class OrderServiceImpl implements OrderService {
 
         if (userId != null){
             user = userService.getUserById(userId);
-        }
 
-        if (user != null){
             if(!user.getShippingInfos().contains(persistantShippingInfo)){
                 user.getShippingInfos().add(persistantShippingInfo);
                 userService.saveUser(user);
@@ -70,6 +68,7 @@ public class OrderServiceImpl implements OrderService {
 
         Order finalOrder = addAllOrderDetailsAndSave(orderDetailsInfo, transientOrder);
 
+        //TODO: in final version comment out
 //        if (user != null){
 //            sendOrderConfirmedMessage(finalOrder.getId(), user.getEmail());
 //        }
@@ -78,10 +77,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private void sendOrderConfirmedMessage(Long orderId, String userEmail) {
+
         OrderAcceptedMail orderAcceptedMail = OrderAcceptedMail.builder()
                 .orderId(orderId)
                 .emailTo(userEmail)
                 .build();
+
         mailSenderService.sendOrderAcceptedMail(orderAcceptedMail);
     }
 
@@ -132,7 +133,7 @@ public class OrderServiceImpl implements OrderService {
                 .multiply(BigDecimal.valueOf(quantity));
 
         BigDecimal sale = sum.multiply(variationDetails.getSale())
-                .divide(BigDecimal.valueOf(100), 0, RoundingMode.HALF_DOWN);
+                .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_DOWN);
 
         return sum.subtract(sale);
     }

@@ -5,7 +5,7 @@ import org.example.DTO.security.AuthenticationResponse;
 import org.example.DTO.security.RegisterRequest;
 
 public interface AuthenticationService {
-    AuthenticationResponse register(RegisterRequest request);
+    Boolean register(RegisterRequest request);
 
     AuthenticationResponse authenticate(AuthenticationRequest request);
 }
