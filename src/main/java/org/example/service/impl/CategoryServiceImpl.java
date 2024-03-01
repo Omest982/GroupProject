@@ -22,8 +22,9 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category getCategoryById(Long id) {
-        return categoryRepository.findById(id).orElse(null);
+    public Category getCategoryById(Long categoryId) {
+        return categoryRepository.findById(categoryId).orElseThrow(()
+        -> new EntityNotFoundException(String.format("Category with id %s not found!", categoryId)));
     }
 
     @Override
@@ -58,7 +59,7 @@ public class CategoryServiceImpl implements CategoryService {
             Category parentCategory = getCategoryById(parentCategoryId);
 
             if (parentCategory == null){
-                String errMsg = "Parent category with id " + parentCategoryId + " doesn't exist!";
+                String errMsg = "Category can't be used as parent. Category with id " + parentCategoryId + " doesn't exist!";
                 throw new EntityNotFoundException(errMsg);
             }
         }

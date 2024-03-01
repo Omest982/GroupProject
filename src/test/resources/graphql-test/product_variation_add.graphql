@@ -1,0 +1,6 @@
+mutation product_variation_add($productVariation: NewProductVariation!) {
+    addProductVariation(productVariation: $productVariation){
+        id
+        variationName
+    }
+}

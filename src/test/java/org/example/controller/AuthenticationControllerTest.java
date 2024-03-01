@@ -19,7 +19,7 @@ public class AuthenticationControllerTest {
 
     @Test
     @Order(1)
-    void shouldRegisterUser(){
+    void registerUser(){
         Map<String, Object> newRegisterRequest = new HashMap<>();
         newRegisterRequest.put("firstName", "Ivan");
         newRegisterRequest.put("lastName", "Poberezhets");
@@ -40,18 +40,45 @@ public class AuthenticationControllerTest {
 
     @Test
     @Order(2)
-    void shouldFailRegistration(){
+    void failRegistrationEmailDuplicate(){
         Map<String, Object> newRegisterRequest = new HashMap<>();
         newRegisterRequest.put("firstName", "Ivan");
         newRegisterRequest.put("lastName", "Poberezhets");
         newRegisterRequest.put("password", "123456");
         newRegisterRequest.put("email", "omest982@gmail.com");
+        newRegisterRequest.put("phoneNumber", "654321");
+        newRegisterRequest.put("birthdayDate", "16.02.2004");
+
+        graphQlTester.documentName("user_register")
+                .variable("request", newRegisterRequest)
+                .execute()
+                .errors()
+                .satisfy(exception ->{
+                    Assertions.assertEquals(
+                            "User with this email or phone number already exists!",
+                            exception.get(0).getMessage());
+                });
+    }
+
+    @Test
+    @Order(3)
+    void failRegistrationPhoneDuplicate() {
+        Map<String, Object> newRegisterRequest = new HashMap<>();
+        newRegisterRequest.put("firstName", "Ivan");
+        newRegisterRequest.put("lastName", "Poberezhets");
+        newRegisterRequest.put("password", "123456");
+        newRegisterRequest.put("email", "vasya.pupkin@gmail.com");
         newRegisterRequest.put("phoneNumber", "123456");
         newRegisterRequest.put("birthdayDate", "16.02.2004");
 
         graphQlTester.documentName("user_register")
                 .variable("request", newRegisterRequest)
                 .execute()
-                .errors();
+                .errors()
+                .satisfy(exception ->{
+                    Assertions.assertEquals(
+                            "User with this email or phone number already exists!",
+                            exception.get(0).getMessage());
+                });
     }
 }

@@ -10,7 +10,7 @@ public interface CategoryService {
 
     List<Category> getAllCategories();
 
-    Category getCategoryById(Long id);
+    Category getCategoryById(Long categoryId);
 
     List<Category> getAllCategoriesByIds(Iterable<Long> categoryIds);
 

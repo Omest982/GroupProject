@@ -15,7 +15,7 @@ public class CategoryControllerTest {
     private GraphQlTester graphQlTester;
     @Test
     @Order(1)
-    void shouldAddCategory(){
+    void addCategory(){
         graphQlTester.documentName("category_add")
                 .variable("categoryName", "Perfumery")
                 .execute()
@@ -29,7 +29,7 @@ public class CategoryControllerTest {
 
     @Test
     @Order(2)
-    void shouldAddCategoryWithParent(){
+    void addCategoryWithParent(){
         graphQlTester.documentName("category_add_with_parent")
                 .variable("categoryName", "Men perfumery")
                 .variable("parentCategoryId", 1)

@@ -1,0 +1,7 @@
+mutation variation_details_add ($variationDetails: NewVariationDetails!) {
+    addVariationDetails(variationDetails: $variationDetails){
+        id
+        price
+        sale
+    }
+}

@@ -14,7 +14,7 @@ public class BrandControllerTest {
     @Autowired
     private GraphQlTester graphQlTester;
     @Test
-    void shouldAddBrand(){
+    void addBrand(){
         graphQlTester.documentName("brand_add")
                 .variable("brandName", "Lacoste")
                 .execute()

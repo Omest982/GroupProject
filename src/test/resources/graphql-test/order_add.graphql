@@ -1,0 +1,15 @@
+mutation order_add($newShippingInfo: NewShippingInfo!,
+    $userId: Long!,
+    $orderDetailsInfo: [NewOrderDetails]!,
+    $orderInfo: NewOrder!){
+    addOrder(newShippingInfo: $newShippingInfo,
+        userId: $userId,
+        orderDetailsInfo: $orderDetailsInfo,
+        orderInfo: $orderInfo
+    ){
+        id
+        orderDetails {
+            totalDetailPrice
+        }
+    }
+}
