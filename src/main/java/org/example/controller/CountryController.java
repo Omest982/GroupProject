@@ -26,7 +26,7 @@ public class CountryController {
     }
 
     @MutationMapping
-    public String deleteCountry(@Argument Long countryId){
+    public Boolean deleteCountry(@Argument Long countryId){
         return countryService.deleteCountry(countryId);
     }
 }

@@ -2,6 +2,7 @@ package org.example.entity;
 
 import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.example.entity.enums.Classification;
 import org.example.entity.enums.ProductStatus;
@@ -24,10 +25,11 @@ public class Product implements Comparable<Product> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
+    @NotNull
     private String name;
 
-    @Column(nullable = false)
+    @NotNull
     private String productGroup;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -51,19 +53,20 @@ public class Product implements Comparable<Product> {
     private Set<Category> categories = new HashSet<>();
 
     @OneToOne
-    @JoinColumn(name = "brand_id", nullable = false)
+    @JoinColumn(name = "brand_id")
+    @NotNull
     private Brand brand;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @NotNull
     private ProductStatus productStatus;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @NotNull
     private Sex sex;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @NotNull
     private Classification classification;
 
     @Type(JsonBinaryType.class)
@@ -81,7 +84,7 @@ public class Product implements Comparable<Product> {
     private Set<Country> countriesMadeIn = new HashSet<>();
 
     @OneToOne
-    @JoinColumn(name = "country_trade_mark_id", nullable = false)
+    @NotNull
     private Country countryTradeMark;
 
     @Override

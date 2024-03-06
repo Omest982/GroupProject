@@ -8,6 +8,8 @@ import org.example.service.VerificationService;
 import org.example.utils.CryptoTool;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.AbstractSequentialList;
+
 @RestController
 @RequestMapping("/verification")
 @RequiredArgsConstructor
@@ -16,22 +18,14 @@ public class VerificationController {
     private final VerificationService verificationService;
 
     @GetMapping("/email")
-    public String verifyEmail(@RequestParam String id) {
+    public Boolean verifyEmail(@RequestParam String id) {
 
-        if (verificationService.verifyEmail(id)){
-            return "Successful verification!";
-        }
-
-        return "Failed to verify!";
+        return verificationService.verifyEmail(id);
     }
 
     @PostMapping("/password")
-    public String passwordRecovery(@RequestParam String id, @RequestBody PasswordRecoveryDTO passwordRecoveryDTO) {
+    public Boolean passwordRecovery(@RequestParam String id, @RequestBody PasswordRecoveryDTO passwordRecoveryDTO) {
 
-        if (verificationService.passwordRecovery(id, passwordRecoveryDTO)){
-            return "Successful recovery!";
-        }
-
-        return "Failed to recover!";
+        return verificationService.passwordRecovery(id, passwordRecoveryDTO);
     }
 }

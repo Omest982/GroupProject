@@ -43,7 +43,7 @@ public class CategoryController {
     }
 
     @MutationMapping
-    public String deleteCategory(@Argument Long categoryId){
+    public Boolean deleteCategory(@Argument Long categoryId){
         return categoryService.deleteCategory(categoryId);
     }
 }

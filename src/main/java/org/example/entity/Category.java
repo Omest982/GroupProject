@@ -1,6 +1,7 @@
 package org.example.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Getter
@@ -15,7 +16,8 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true, nullable = false)
+    @Column(unique = true)
+    @NotNull
     private String name;
     private Long parentCategoryId;
 }

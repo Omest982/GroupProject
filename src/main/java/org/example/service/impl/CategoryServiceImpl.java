@@ -81,9 +81,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Transactional
     @Override
-    public String deleteCategory(Long categoryId) {
+    public Boolean deleteCategory(Long categoryId) {
         categoryRepository.deleteById(categoryId);
-        return "Successfully deleted category!";
+        return true;
     }
 
     @Override

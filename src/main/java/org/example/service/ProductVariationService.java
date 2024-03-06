@@ -13,5 +13,5 @@ public interface ProductVariationService {
 
     ProductVariation updateProductVariation(Long productVariationId, NewProductVariation updatedProductVariation);
 
-    String deleteProductVariation(Long productVariationId);
+    Boolean deleteProductVariation(Long productVariationId);
 }

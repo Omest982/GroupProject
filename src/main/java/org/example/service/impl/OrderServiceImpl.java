@@ -68,10 +68,9 @@ public class OrderServiceImpl implements OrderService {
 
         Order finalOrder = addAllOrderDetailsAndSave(orderDetailsInfo, transientOrder);
 
-        //TODO: in final version comment out
-//        if (user != null){
-//            sendOrderConfirmedMessage(finalOrder.getId(), user.getEmail());
-//        }
+        if (user != null){
+            sendOrderConfirmedMessage(finalOrder.getId(), user.getEmail());
+        }
 
         return finalOrder;
     }

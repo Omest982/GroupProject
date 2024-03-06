@@ -69,8 +69,8 @@ public class ProductVariationServiceImpl implements ProductVariationService {
 
     @Transactional
     @Override
-    public String deleteProductVariation(Long productVariationId) {
+    public Boolean deleteProductVariation(Long productVariationId) {
         productVariationRepository.deleteById(productVariationId);
-        return "Successfully deleted product variation!";
+        return true;
     }
 }

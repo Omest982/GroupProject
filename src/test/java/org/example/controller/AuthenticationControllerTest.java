@@ -32,10 +32,8 @@ public class AuthenticationControllerTest {
                 .variable("request", newRegisterRequest)
                 .execute()
                 .path("registerUser")
-                .entity(AuthenticationResponse.class)
-                .satisfies(response -> {
-                    Assertions.assertNotNull(response.getJwtToken());
-                });
+                .entity(Boolean.class)
+                .satisfies(Assertions::assertTrue);
     }
 
     @Test

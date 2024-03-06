@@ -23,7 +23,7 @@ public class BrandController {
     }
 
     @MutationMapping
-    public String deleteBrand(@Argument Long brandId){
+    public Boolean deleteBrand(@Argument Long brandId){
         return brandService.deleteBrandById(brandId);
     }
 

@@ -34,7 +34,7 @@ public class ProductVariationController {
     }
 
     @MutationMapping
-    public String deleteProductVariation(@Argument Long productVariationId){
+    public Boolean deleteProductVariation(@Argument Long productVariationId){
         return productVariationService.deleteProductVariation(productVariationId);
     }
 }

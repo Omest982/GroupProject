@@ -39,6 +39,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             throw new EntityAlreadyExistsException("User with this email or phone number already exists!");
         }
 
+        
+
         User transientUser = User.builder()
                 .email(request.getEmail())
                 .firstName(request.getFirstName())

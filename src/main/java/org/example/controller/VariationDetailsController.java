@@ -34,7 +34,7 @@ public class VariationDetailsController {
     }
 
     @MutationMapping
-    public String deleteVariationDetails(@Argument Long variationDetailsId){
+    public Boolean deleteVariationDetails(@Argument Long variationDetailsId){
         return variationDetailsService.deleteVariationDetails(variationDetailsId);
     }
 

@@ -4,19 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="0.8.10&#10;Refactored code.">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/OrderControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/service/ProductServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/graphql-test/order_add.graphql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/graphql-test/product_variation_add.graphql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/graphql-test/variation_details_add.graphql" afterDir="false" />
+    <list default="true" id="32fec2ee-1f42-4102-a5f6-ea24a01f970b" name="Changes" comment="1.0.0&#10;Refactored returning values.&#10;Refactored code.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/BrandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/CountryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CountryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductVariationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductVariationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/VariationDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/VariationDetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/VerificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/VerificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Brand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/OrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/OrderDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/BrandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/BrandService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/CountryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/CountryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/ProductVariationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductVariationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/VariationDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/VariationDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/BrandServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/BrandServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CountryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/CountryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductVariationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductVariationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/VariationDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/VariationDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/mutation.graphqls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/AuthenticationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/AuthenticationControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/BrandControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/BrandControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/CategoryControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/CategoryControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/ProductControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/ProductControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/OrderControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/ProductServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/ProductServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/graphql-test/user_register.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/graphql-test/user_register.graphql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,16 +62,12 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2YAB4QnfCJtmu4Q7gm5kT60eavB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -56,10 +76,19 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.GroupProjectApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthenticationControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.GroupProject [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.GroupProject [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.GroupProject [test].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/Коды/GroupProject/src/test/resources/db.changelog/changeset&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Github/GroupProject&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -74,18 +103,18 @@
       <recent name="G:\Коды\GroupProject\src\main\java\org\example" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Github\GroupProject" />
       <recent name="G:\Коды\GroupProject\src\main\resources\graphql\type\DTO\mail" />
       <recent name="G:\Коды\GroupProject" />
       <recent name="G:\Коды\GroupProject\src\test\resources\graphql-test" />
       <recent name="G:\Коды\GroupProject\src\test\resources\graphql-test\category" />
-      <recent name="G:\Коды\GroupProject\src\test\resources\graphql-test\brand" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.utils" />
       <recent name="org.example.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProductServiceImplTest.addProduct">
+  <component name="RunManager" selected="Application.GroupProjectApplication">
     <configuration name="GroupProjectApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.GroupProjectApplication" />
       <module name="GroupProject" />
@@ -95,6 +124,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GroupProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.AuthenticationControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -110,22 +154,6 @@
       <option name="PACKAGE_NAME" value="org.example.controller" />
       <option name="MAIN_CLASS_NAME" value="org.example.controller.ProductControllerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductControllerTest.shouldAddProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="GroupProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.controller" />
-      <option name="MAIN_CLASS_NAME" value="org.example.controller.ProductControllerTest" />
-      <option name="METHOD_NAME" value="shouldAddProduct" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -163,13 +191,20 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProductServiceImplTest.addProduct" />
-        <item itemvalue="JUnit.ProductServiceImplTest" />
-        <item itemvalue="JUnit.ProductControllerTest" />
-        <item itemvalue="JUnit.ProductControllerTest.shouldAddProduct" />
         <item itemvalue="Application.GroupProjectApplication" />
+        <item itemvalue="JUnit.AuthenticationControllerTest" />
+        <item itemvalue="JUnit.ProductServiceImplTest" />
+        <item itemvalue="JUnit.ProductServiceImplTest.addProduct" />
+        <item itemvalue="JUnit.ProductControllerTest" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-19.0.2-corretto-19.0.2-4caba194b151-48ba4555" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -509,7 +544,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708887113801</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="1.0.0&#10;Refactored returning values.">
+      <option name="closed" value="true" />
+      <created>1709719714850</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1709719714850</updated>
+    </task>
+    <task id="LOCAL-00049" summary="1.0.0&#10;Refactored returning values.&#10;Refactored code.">
+      <option name="closed" value="true" />
+      <created>1709722579529</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1709722579529</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -547,8 +598,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.4.1&#10;Fixed adding product error.&#10;Made code more clear in adding products.&#10;Started adding tests with test containers." />
-    <MESSAGE value="0.5.0&#10;Added paged get requests.&#10;Added search of products." />
     <MESSAGE value="0.5.1&#10;Changed address and user relations." />
     <MESSAGE value="0.6.0&#10;Changed address to shippingInfo.&#10;Added new queries.&#10;Refactored some mutations." />
     <MESSAGE value="0.6.1&#10;Changed order adding logic.&#10;Fixed User - ShippingInfo problems." />
@@ -572,7 +621,9 @@
     <MESSAGE value="0.8.7&#10;Refactored code." />
     <MESSAGE value="0.8.9&#10;Refactored code.&#10;Added tests." />
     <MESSAGE value="0.8.10&#10;Refactored code." />
-    <option name="LAST_COMMIT_MESSAGE" value="0.8.10&#10;Refactored code." />
+    <MESSAGE value="1.0.0&#10;Refactored returning values." />
+    <MESSAGE value="1.0.0&#10;Refactored returning values.&#10;Refactored code." />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.0&#10;Refactored returning values.&#10;Refactored code." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -581,11 +632,6 @@
           <properties class="java.lang.StackOverflowError" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/service/impl/ProductServiceImpl.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>

@@ -1,6 +1,7 @@
 package org.example.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.example.entity.enums.OrderStatus;
 import org.example.entity.enums.PaymentMethod;
@@ -25,22 +26,22 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @CreationTimestamp
-    @Column(nullable = false)
+    @NotNull
     private Timestamp created;
     @UpdateTimestamp
-    @Column(nullable = false)
+    @NotNull
     private Timestamp updated;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @NotNull
     private PaymentMethod paymentMethod;
     private String userComment;
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @NotNull
     private OrderStatus orderStatus;
-    @Column(nullable = false)
+    @NotNull
     private BigDecimal sum;
     @OneToOne
     @JoinColumn(name = "shipping_info_id", nullable = false)

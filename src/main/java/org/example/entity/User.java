@@ -1,6 +1,8 @@
 package org.example.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.example.entity.enums.UserRole;
 import org.springframework.security.core.GrantedAuthority;
@@ -25,19 +27,21 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @NotNull
     private String firstName;
-    @Column(nullable = false)
+    @NotNull
     private String lastName;
     @Column(unique = true)
+    @Email(message = "Please provide a valid email address")
     private String email;
-    @Column(unique = true, nullable = false)
+    @Column(unique = true)
+    @NotNull
     private String phoneNumber;
     private String password;
     private Boolean isEmailVerified;
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
-    @Column(nullable = false)
+    @NotNull
     private Boolean enabled;
     private LocalDate birthdayDate;
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.PERSIST})

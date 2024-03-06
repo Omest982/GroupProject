@@ -1,5 +1,3 @@
 mutation user_register($request: RegisterRequest!){
-    registerUser(request: $request){
-        jwtToken
-    }
+    registerUser(request: $request)
 }

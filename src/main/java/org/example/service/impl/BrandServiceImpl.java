@@ -37,13 +37,13 @@ public class BrandServiceImpl implements BrandService {
 
     @Transactional
     @Override
-    public String deleteBrandById(Long brandId) {
+    public Boolean deleteBrandById(Long brandId) {
 
         if (getBrandById(brandId) == null){
             throw new EntityNotFoundException("brand with id " + brandId + " doesn't exist!");
         }
 
         brandRepository.deleteById(brandId);
-        return "Successfully deleted brand!";
+        return true;
     }
 }

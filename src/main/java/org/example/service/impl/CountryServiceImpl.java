@@ -40,8 +40,8 @@ public class CountryServiceImpl implements CountryService {
 
     @Transactional
     @Override
-    public String deleteCountry(Long countryId) {
+    public Boolean deleteCountry(Long countryId) {
         countryRepository.deleteById(countryId);
-        return "Successfully deleted country!";
+        return true;
     }
 }

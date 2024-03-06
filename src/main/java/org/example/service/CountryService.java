@@ -14,5 +14,5 @@ public interface CountryService {
 
     Country addCountry(String countryName);
 
-    String deleteCountry(Long countryId);
+    Boolean deleteCountry(Long countryId);
 }

@@ -8,5 +8,5 @@ public interface BrandService {
     List<Brand> getAllBrands();
     Brand getBrandById(Long id);
     Brand addBrand(String brandName);
-    String deleteBrandById(Long brandId);
+    Boolean deleteBrandById(Long brandId);
 }

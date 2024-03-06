@@ -65,7 +65,7 @@ public class ProductController {
 
     @MutationMapping
     @CacheEvict(value = "product", key = "#productId")
-    public String deleteProduct(@Argument Long productId){
+    public Boolean deleteProduct(@Argument Long productId){
         return productService.deleteProduct(productId);
     }
 

@@ -32,8 +32,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProductById(Long id) {
-        return productRepository.findById(id).orElse(null);
+    public Product getProductById(Long productId) {
+        return productRepository.findById(productId).orElseThrow(()
+        -> new EntityNotFoundException(String.format("Product with id %s not found!", productId)));
     }
 
     @Override
@@ -93,9 +94,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Transactional
     @Override
-    public String deleteProduct(Long productId) {
+    public Boolean deleteProduct(Long productId) {
         productRepository.deleteById(productId);
-        return "Successfully deleted product!";
+        return true;
     }
 
     @Override
@@ -134,19 +135,19 @@ public class ProductServiceImpl implements ProductService {
     private void initProductWithIds(Product product ,NewProduct newProduct){
         List<Long> categoryIdsList = getAllParentCategoryIdsByCategoryId(newProduct.getCategoryId());
         List<Category> categoryList = categoryService.getAllCategoriesByIds(categoryIdsList);
-        if (categoryList.size() == 0){
+        if (categoryList.isEmpty()){
             String msg = "Creating product with no categories!";
             throw new EntityNotFoundException(msg);
         }
 
         List<Country> countriesMadeInList = countryService.getAllCountriesByIds(newProduct.getCountriesMadeInIds());
-        if (countriesMadeInList.size() == 0){
+        if (countriesMadeInList.isEmpty()){
             String msg = "Creating product with no countries made in!";
             throw new EntityNotFoundException(msg);
         }
 
         List<Image> images = imageService.addOrGetImages(newProduct.getImageLinks());
-        if (images.size() == 0){
+        if (images.isEmpty()){
             String msg = "Creating product with no images!";
             throw new EntityNotFoundException(msg);
         }

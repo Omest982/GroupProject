@@ -1,6 +1,7 @@
 package org.example.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Getter
@@ -15,6 +16,6 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @NotNull
     private String imageLink;
 }

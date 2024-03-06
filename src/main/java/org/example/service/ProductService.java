@@ -10,7 +10,7 @@ import java.util.List;
 public interface ProductService {
     PageImpl<Product> getAllProductsPaged(PageRequestDTO pageRequestDTO);
 
-    Product getProductById(Long id);
+    Product getProductById(Long productId);
 
     Product addProduct(NewProduct product);
 
@@ -18,7 +18,7 @@ public interface ProductService {
 
     Product updateProduct(Long productId, NewProduct updatedProduct);
 
-    String deleteProduct(Long productId);
+    Boolean deleteProduct(Long productId);
 
     PageImpl<Product> searchProductsPaged(String searchString, PageRequestDTO pageRequestDTO);
 

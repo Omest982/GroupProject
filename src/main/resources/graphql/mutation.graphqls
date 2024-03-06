@@ -1,16 +1,16 @@
 type Mutation{
     #Brand
     addBrand(brandName: String!): Brand
-    deleteBrand(brandId: Long!): String
+    deleteBrand(brandId: Long!): Boolean
 
     #Category
     addCategory(categoryName: String!, parentCategoryId: Long): Category
     updateParentCategory(categoryId: Long!, parentCategoryId: Long!): Category
-    deleteCategory(categoryId: Long!): String
+    deleteCategory(categoryId: Long!): Boolean
 
     #Country
     addCountry(countryName: String!): Country
-    deleteCountry(countryId: Long!): String
+    deleteCountry(countryId: Long!): Boolean
 
     #User
     registerUser(request: RegisterRequest!): Boolean
@@ -19,20 +19,20 @@ type Mutation{
     #Product
     addProduct(product: NewProduct!): Product
     updateProduct(productId: Long!, updatedProduct: NewProduct!): Product
-    deleteProduct(productId: Long!): String
+    deleteProduct(productId: Long!): Boolean
     addImageToProduct(productId: Long!, imageLink: String!): Product
 
     #ProductVariation
     addProductVariation(productVariation: NewProductVariation!): ProductVariation
     updateProductVariation(productVariationId: Long!,
         updatedProductVariation: NewProductVariation!): ProductVariation
-    deleteProductVariation(productVariationId: Long!): String
+    deleteProductVariation(productVariationId: Long!): Boolean
 
     #VariationDetails
     addVariationDetails(variationDetails: NewVariationDetails!): VariationDetails
     updateVariationDetails(variationDetailsId: Long!,
         updatedVariationDetails: NewVariationDetails!): VariationDetails
-    deleteVariationDetails(variationDetailsId: Long!): String
+    deleteVariationDetails(variationDetailsId: Long!): Boolean
 
     #Order
     addOrder(newShippingInfo: NewShippingInfo!,

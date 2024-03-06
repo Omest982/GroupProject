@@ -13,5 +13,5 @@ public interface VariationDetailsService {
 
     VariationDetails updateVariationDetails(Long variationDetailsId, NewVariationDetails updatedVariationDetails);
 
-    String deleteVariationDetails(Long variationDetailsId);
+    Boolean deleteVariationDetails(Long variationDetailsId);
 }

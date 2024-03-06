@@ -71,8 +71,8 @@ public class VariationDetailsServiceImpl implements VariationDetailsService {
 
     @Transactional
     @Override
-    public String deleteVariationDetails(Long variationDetailsId) {
+    public Boolean deleteVariationDetails(Long variationDetailsId) {
         variationDetailsRepository.deleteById(variationDetailsId);
-        return "Successfully deleted variation details!";
+        return true;
     }
 }
