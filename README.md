@@ -7,18 +7,14 @@ Introducing my cutting-edge online store API, meticulously developed with self-s
 * 🌱 Spring Boot
 * 🌱🛢️ Spring Data JPA
 * 🌱🛡️ Spring Security
-* 🌱📫 Spring Mail
 * 🐘 PostgreSQL
 * 🛢️ Liquibase
 * 🐋 Docker
 * 🎆GraphQL
-* ☁️ AWS
+* ☁️ AWS(EC2, RDS)
 * 🧰 TestContainers
+* 💸 Stripe API
 * 🌶️ Lombok
 
 ## 🛢️ Database structure
 ![Makeup-db](https://github.com/Omest982/GroupProject/assets/93486447/3d8b292c-d7fb-41a1-9b47-5979441bf808)
-
-## 📝 API Queries
-
-## 🧬 API Mutations
