@@ -17,7 +17,7 @@ Introducing my cutting-edge online store API, meticulously developed with self-s
 * 🌶️ Lombok
 
 ## ❓ How to use
-`Before running the Booking app, ensure you have the following installed:`
+`Before running the Make-up app, ensure you have the following installed:`
 
 * ☕ Java Development Kit (JDK)
 * 🐋 Docker and Docker Compose
